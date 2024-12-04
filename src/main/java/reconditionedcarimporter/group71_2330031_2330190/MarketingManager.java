@@ -1,12 +1,12 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
-public class CarImportManager {
+public class MarketingManager {
     private String name, employeeId, department;
 
-    public CarImportManager() {
+    public MarketingManager() {
     }
 
-    public CarImportManager(String name, String employeeId, String department) {
+    public MarketingManager(String name, String employeeId, String department) {
         this.name = name;
         this.employeeId = employeeId;
         this.department = department;
@@ -38,7 +38,7 @@ public class CarImportManager {
 
     @Override
     public String toString() {
-        return "CarImportManager{" +
+        return "MarketingManager{" +
                 "name='" + name + '\'' +
                 ", employeeId='" + employeeId + '\'' +
                 ", department='" + department + '\'' +
