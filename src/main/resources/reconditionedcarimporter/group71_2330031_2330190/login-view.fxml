@@ -5,13 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.LoginViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.LoginViewController">
    <children>
-      <Label layoutX="143.0" layoutY="121.0" text="User Name" />
-      <TextField layoutX="213.0" layoutY="117.0" />
-      <Label layoutX="143.0" layoutY="161.0" text="Password" />
-      <TextField layoutX="213.0" layoutY="157.0" />
-      <Button layoutX="310.0" layoutY="229.0" mnemonicParsing="false" text="LOGIN" />
+      <Label layoutX="143.0" layoutY="121.0" text="Username:" />
+      <TextField fx:id="usernameTextField" layoutX="213.0" layoutY="117.0" />
+      <Label layoutX="143.0" layoutY="161.0" text="Password:" />
+      <TextField fx:id="passwordTextField" layoutX="213.0" layoutY="157.0" />
+      <Button layoutX="310.0" layoutY="229.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="LOGIN" />
    </children>
 </AnchorPane>
