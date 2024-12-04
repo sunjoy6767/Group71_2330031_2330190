@@ -58,7 +58,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>reconditionedcarimporter.group71_2330031_2330190/reconditionedcarimporter.group71_2330031_2330190.HelloApplication</mainClass>
+              <mainClass>reconditionedcarimporter.group71_2330031_2330190/reconditionedcarimporter.group71_2330031_2330190.MainApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

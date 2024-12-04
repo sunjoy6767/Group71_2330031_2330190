@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class SceneSwitcher {
     public static <T> T switchScene(String fxmlFileName, Event event, String stageName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFileName));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlFileName));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         stage.setScene(scene);
@@ -21,7 +21,7 @@ public class SceneSwitcher {
     }
 
     public static <T> T switchScene(String fxmlFileName, Event event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFileName));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlFileName));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         stage.setScene(scene);
@@ -31,7 +31,7 @@ public class SceneSwitcher {
     }
 
     public static void switchSceneNewStage(String fxmlFileName,String stageName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFileName));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlFileName));
         Scene scene = new Scene(fxmlLoader.load());
 
         Stage stage = new Stage();
@@ -41,7 +41,7 @@ public class SceneSwitcher {
     }
 
     public static<T> T switchSceneNewStage(String fxmlFileName) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFileName));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxmlFileName));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
         stage.setScene(scene);
