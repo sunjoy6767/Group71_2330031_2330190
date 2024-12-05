@@ -12,9 +12,11 @@ public class LoginViewController
 
     @javafx.fxml.FXML
     public void initialize() {
+
     }
 
     @javafx.fxml.FXML
     public void loginButtonOnAction(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(MarketingManagerView, )
     }
 }
