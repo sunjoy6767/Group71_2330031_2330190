@@ -23,7 +23,6 @@ public class LoginViewController
 
     @javafx.fxml.FXML
     public void loginButtonOnAction(ActionEvent actionEvent) throws IOException {
-        SceneSwitcher.switchScene("MarketingManagerView.fxml", actionEvent);
-
+        SceneSwitcher.switchScene("MarketingManager-view.fxml", actionEvent);
     }
 }

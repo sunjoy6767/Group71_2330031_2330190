@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.MarketingManagerViewController">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: yellow;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#createCampaignButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Create Campaign">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#campaignPerformanceButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Campaign Performance">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="97.0" mnemonicParsing="false" onAction="#budgetManagementButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Budget Management">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="139.0" mnemonicParsing="false" onAction="#customerDemographicsButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Customer Demographics">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="181.0" mnemonicParsing="false" onAction="#socialMediaDashboardButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Social Media Dashboard">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="223.0" mnemonicParsing="false" onAction="#salesTeamCoordinationButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Sales Team Coordination">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#competitorAnalysisButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Competitor Analysis">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="307.0" mnemonicParsing="false" onAction="#promotionalOffersButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Promotional Offers">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Log Out">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
