@@ -1,7 +1,10 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class ImportOrdersViewController
 {
@@ -21,5 +24,10 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     public void initialize() {
 
+    }
+
+    @javafx.fxml.FXML
+    public void goBackToCarImportManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("CarImportManager-view.fxml", actionEvent);
     }
 }
