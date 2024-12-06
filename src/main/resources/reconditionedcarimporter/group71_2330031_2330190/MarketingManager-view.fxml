@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.MarketingManagerViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: aqua; -fx-border-color: black;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.MarketingManagerViewController">
    <left>
-      <AnchorPane prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: yellow;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: yellow; -fx-border-color: black;" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#createCampaignButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Create Campaign">
                <font>
