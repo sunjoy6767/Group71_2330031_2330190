@@ -6,6 +6,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class ImportOrdersViewController
 {
@@ -22,15 +23,15 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     private TextField quantityTextField;
     @javafx.fxml.FXML
-    private TableColumn expectedShipmentCol;
+    private TableColumn<ImportedCar, LocalDate> expectedShipmentCol;
     @javafx.fxml.FXML
-    private TableColumn brandCol;
+    private TableColumn<ImportedCar, String> brandCol;
     @javafx.fxml.FXML
-    private TableColumn quantityCol;
+    private TableColumn<ImportedCar, Integer> quantityCol;
     @javafx.fxml.FXML
-    private TableColumn modelCol;
+    private TableColumn<ImportedCar, String> modelCol;
     @javafx.fxml.FXML
-    private TableColumn supplierIdCol;
+    private TableColumn<ImportedCar, String> supplierIdCol;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -44,5 +45,6 @@ public class ImportOrdersViewController
 
     @javafx.fxml.FXML
     public void showDetailsOfCarsImportInTheTableButtonOnAction(ActionEvent actionEvent) {
+
     }
 }
