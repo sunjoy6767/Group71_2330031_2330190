@@ -22,12 +22,13 @@ public class CarImportManagerViewController {
     }
 
     @javafx.fxml.FXML
-    public void trackShipmentButtonOnAction(ActionEvent actionEvent) {
-
+    public void trackShipmentButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("TrackShipment-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
     public void customsClearanceButtonOnAction(ActionEvent actionEvent) {
+        
     }
 
     @javafx.fxml.FXML

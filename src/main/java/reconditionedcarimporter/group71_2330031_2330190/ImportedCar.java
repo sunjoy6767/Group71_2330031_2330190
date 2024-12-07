@@ -4,18 +4,18 @@ import java.time.LocalDate;
 
 public class ImportedCar {
     private String carModel, carBrand, supplierId;
-    private int carYear;
+    private int carId;
     private int carQuantity;
     private LocalDate expectedShipmentDate;
 
     public ImportedCar() {
     }
 
-    public ImportedCar(String carModel, String carBrand, String supplierId, int carYear, int carQuantity, LocalDate expectedShipmentDate) {
+    public ImportedCar(String carModel, String carBrand, String supplierId, int carId, int carQuantity, LocalDate expectedShipmentDate) {
         this.carModel = carModel;
         this.carBrand = carBrand;
         this.supplierId = supplierId;
-        this.carYear = carYear;
+        this.carId = carId;
         this.carQuantity = carQuantity;
         this.expectedShipmentDate = expectedShipmentDate;
     }
@@ -47,12 +47,12 @@ public class ImportedCar {
         this.supplierId = supplierId;
     }
 
-    public int getCarYear() {
-        return carYear;
+    public int getCarId() {
+        return carId;
     }
 
-    public void setCarYear(int carYear) {
-        this.carYear = carYear;
+    public void setCarId(int carId) {
+        this.carId = carId;
     }
 
     public int getCarQuantity() {
@@ -73,6 +73,6 @@ public class ImportedCar {
 
     @Override
     public String toString() {
-        return STR."ImportedCar{carModel='\{carModel}', carBrand='\{carBrand}', supplierId='\{supplierId}', carYear=\{carYear}, carQuantity=\{carQuantity}, expectedShipmentDate=\{expectedShipmentDate}}";
+        return STR."ImportedCar{carModel='\{carModel}', carBrand='\{carBrand}', supplierId='\{supplierId}', carId=\{carId}, carQuantity=\{carQuantity}, expectedShipmentDate=\{expectedShipmentDate}}";
     }
 }
