@@ -7,41 +7,41 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: aqua; -fx-border-color: black;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.CarImportManagerViewController">
    <left>
-      <AnchorPane prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: yellow; -fx-border-color: black;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="398.0" prefWidth="196.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#importOrdersButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Import Orders">
+            <Button layoutY="-4.0" mnemonicParsing="false" onAction="#importOrdersButtonOnAction" prefHeight="45.0" prefWidth="197.0" text="Import Orders" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onAction="#trackShipmentButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Track Shipment">
+            <Button layoutY="41.0" mnemonicParsing="false" onAction="#trackShipmentButtonOnAction" prefHeight="45.0" prefWidth="197.0" text="Track Shipment" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="14.0" layoutY="93.0" mnemonicParsing="false" onAction="#customsClearanceButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Customs Clearance">
+            <Button layoutY="86.0" mnemonicParsing="false" onAction="#customsClearanceButtonOnAction" prefHeight="45.0" prefWidth="197.0" text="Customs Clearance" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="14.0" layoutY="136.0" mnemonicParsing="false" onAction="#generateCostReportButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Generate Cost Report">
+            <Button layoutY="131.0" mnemonicParsing="false" onAction="#generateCostReportButtonOnAction" prefHeight="45.0" prefWidth="197.0" text="Generate Cost Report" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="14.0" layoutY="180.0" mnemonicParsing="false" onAction="#storageAssignmentButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Storage Assignment">
+            <Button layoutY="176.0" mnemonicParsing="false" onAction="#storageAssignmentButtonOnAction" prefHeight="40.0" prefWidth="197.0" text="Storage Assignment" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="14.0" layoutY="221.0" mnemonicParsing="false" onAction="#shippingCostCalculationButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Shipping Cost Calculation">
+            <Button layoutY="217.0" mnemonicParsing="false" onAction="#shippingCostCalculationButtonOnAction" prefHeight="42.0" prefWidth="197.0" text="Shipping Cost Calculation" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#vehicleInspectionCoordinationButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Vehicle Inspection Coordination">
+            <Button layoutY="260.0" mnemonicParsing="false" onAction="#vehicleInspectionCoordinationButtonOnAction" prefHeight="45.0" prefWidth="197.0" text="Vehicle Inspection Coordination" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="14.0" layoutY="307.0" mnemonicParsing="false" onAction="#shipmentDelaysButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Shipment Delays">
+            <Button layoutY="306.0" mnemonicParsing="false" onAction="#shipmentDelaysButtonOnAction" prefHeight="45.0" prefWidth="197.0" text="Shipment Delays" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="14.0" layoutY="351.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="25.0" prefWidth="185.0" style="-fx-border-color: black; -fx-background-color: pink;" text="Log Out">
+            <Button layoutY="352.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="45.0" prefWidth="197.0" text="Log Out" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>

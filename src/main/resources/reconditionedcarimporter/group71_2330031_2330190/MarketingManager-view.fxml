@@ -7,49 +7,49 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: aqua; -fx-border-color: black;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.MarketingManagerViewController">
    <left>
-      <AnchorPane prefHeight="400.0" prefWidth="220.0" style="-fx-background-color: yellow; -fx-border-color: black;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="398.0" prefWidth="201.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#createCampaignButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Create Campaign">
+            <Button layoutY="1.0" mnemonicParsing="false" onAction="#createCampaignButtonOnAction" prefHeight="44.0" prefWidth="200.0" text="Create Campaign">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#campaignPerformanceButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Campaign Performance">
+            <Button layoutY="45.0" mnemonicParsing="false" onAction="#campaignPerformanceButtonOnAction" prefHeight="45.0" prefWidth="200.0" text="Campaign Performance">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="14.0" layoutY="97.0" mnemonicParsing="false" onAction="#budgetManagementButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Budget Management">
+            <Button layoutY="90.0" mnemonicParsing="false" onAction="#budgetManagementButtonOnAction" prefHeight="44.0" prefWidth="200.0" text="Budget Management">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="14.0" layoutY="139.0" mnemonicParsing="false" onAction="#customerDemographicsButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Customer Demographics">
+            <Button layoutY="134.0" mnemonicParsing="false" onAction="#customerDemographicsButtonOnAction" prefHeight="44.0" prefWidth="200.0" text="Customer Demographics">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="14.0" layoutY="181.0" mnemonicParsing="false" onAction="#socialMediaDashboardButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Social Media Dashboard">
+            <Button layoutY="178.0" mnemonicParsing="false" onAction="#socialMediaDashboardButtonOnAction" prefHeight="45.0" prefWidth="200.0" text="Social Media Dashboard">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="14.0" layoutY="223.0" mnemonicParsing="false" onAction="#salesTeamCoordinationButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Sales Team Coordination">
+            <Button layoutY="223.0" mnemonicParsing="false" onAction="#salesTeamCoordinationButtonOnAction" prefHeight="41.0" prefWidth="200.0" text="Sales Team Coordination">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#competitorAnalysisButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Competitor Analysis">
+            <Button layoutY="262.0" mnemonicParsing="false" onAction="#competitorAnalysisButtonOnAction" prefHeight="44.0" prefWidth="200.0" text="Competitor Analysis">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="14.0" layoutY="307.0" mnemonicParsing="false" onAction="#promotionalOffersButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Promotional Offers">
+            <Button layoutY="307.0" mnemonicParsing="false" onAction="#promotionalOffersButtonOnAction" prefHeight="45.0" prefWidth="200.0" text="Promotional Offers">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: pink; -fx-border-color: black;" text="Log Out">
+            <Button layoutY="353.0" mnemonicParsing="false" onAction="#logOutButtonOnAction" prefHeight="43.0" prefWidth="200.0" text="Log Out">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
