@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -21,9 +23,23 @@
       <Label layoutX="330.0" layoutY="69.0" text="Supplier Name:" />
       <TextField fx:id="supplierIDTextfield" layoutX="426.0" layoutY="21.0" />
       <TextField fx:id="supplierNameTextField" layoutX="426.0" layoutY="65.0" />
-      <Button layoutX="361.0" layoutY="109.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="69.0" prefWidth="185.0" text="Go Back to CarImportManager-view " textAlignment="CENTER" wrapText="true">
+      <Button layoutX="421.0" layoutY="108.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="61.0" prefWidth="159.0" text="Go Back to CarImportManager-view " textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView layoutX="3.0" layoutY="200.0" prefHeight="200.0" prefWidth="593.0">
+        <columns>
+          <TableColumn fx:id="brandCol" prefWidth="114.66665649414062" text="Brand" />
+          <TableColumn fx:id="modelCol" prefWidth="130.66668701171875" text="Model" />
+            <TableColumn fx:id="quantityCol" prefWidth="78.0" text="Quantity" />
+            <TableColumn fx:id="expectedShipmentCol" prefWidth="135.33331298828125" text="Shipment Date" />
+            <TableColumn fx:id="supplierIdCol" prefWidth="134.0" text="Supplier ID" />
+        </columns>
+      </TableView>
+      <Button layoutX="303.0" layoutY="110.0" mnemonicParsing="false" onAction="#showDetailsOfCarsImportInTheTableButtonOnAction" prefHeight="61.0" prefWidth="108.0" text="Show details of the cars being imported" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Button>
    </children>

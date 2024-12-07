@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: aqua;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.CreateCampaignViewController">
@@ -30,12 +29,8 @@
             <TableColumn fx:id="endingDateCol" prefWidth="137.3333740234375" text="Ending Date" />
         </columns>
       </TableView>
-      <Button layoutX="266.0" layoutY="144.0" mnemonicParsing="false" onAction="#saveCampaignButtonOnAction" text="Save Campaign" />
-      <Button layoutX="393.0" layoutY="144.0" mnemonicParsing="false" onAction="#showCampaignInTheTableButtonOnAction" text="Show Campaign in the Table">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="19.0" layoutY="145.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" text="Go Back To Marketing Manager View" />
+      <Button layoutX="271.0" layoutY="144.0" mnemonicParsing="false" onAction="#saveCampaignButtonOnAction" text="Save Campaign" />
+      <Button layoutX="54.0" layoutY="144.0" mnemonicParsing="false" onAction="#showCampaignInTheTableButtonOnAction" text="Show Campaign in the Table" />
+      <Button layoutX="417.0" layoutY="119.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" prefHeight="49.0" prefWidth="157.0" text="Go Back To Marketing Manager View" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
