@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,30 +15,14 @@ public class LoginViewController
     private TextField passwordTextField;
     @javafx.fxml.FXML
     private TextField usernameTextField;
-    @javafx.fxml.FXML
-    private ComboBox<String> loginAsComboBox;
 
     @javafx.fxml.FXML
     public void initialize() {
-        loginAsComboBox.getItems().addAll("Car Import Manager", "Marketing Manager",
-                "Sales Representative", "Inventory Manager");
 
     }
 
     @javafx.fxml.FXML
     public void loginButtonOnAction(ActionEvent actionEvent) throws IOException {
-        if (loginAsComboBox.getValue().equals("Marketing Manager")) {
-            SceneSwitcher.switchScene("MarketingManager-view.fxml", actionEvent);
-        }
-        else if (loginAsComboBox.getValue().equals("Car Import Manager")) {
-            SceneSwitcher.switchScene("CarImportManager-view.fxml", actionEvent);
-        }
-        else if (loginAsComboBox.getValue().equals("Sales Representative")) {
-            SceneSwitcher.switchScene("SalesRepresentative-view.fxml", actionEvent);
-        }
-        else if (loginAsComboBox.getValue().equals("Inventory Manager")) {
-            SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
-        }
-
+        SceneSwitcher.switchScene("MarketingManager-view.fxml", actionEvent);
     }
 }

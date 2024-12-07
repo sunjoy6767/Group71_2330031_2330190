@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="reconditionedcarimporter.group71_2330031_2330190.SalesRepresentativeViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23" fx:controller="reconditionedcarimporter.group71_2330031_2330190.SalesRepresentativeViewController">
+   <left>
+      <AnchorPane prefHeight="424.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="81.0" fitWidth="86.0" layoutX="60.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../SunjoyImage.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="11.0" layoutY="109.0" mnemonicParsing="false" onAction="#processCustomerOrdersOnActon" prefHeight="30.0" prefWidth="180.0" text="Process Customer Orders" />
+            <Button layoutX="11.0" layoutY="145.0" mnemonicParsing="false" onAction="#customerInquiriesOnActon" prefHeight="30.0" prefWidth="180.0" text="Customer Inquiries" />
+            <Button layoutX="11.0" layoutY="181.0" mnemonicParsing="false" onAction="#followUpOnSalesLeadsOnActon" prefHeight="30.0" prefWidth="180.0" text="Follow Up on Sales Leads" />
+            <Button layoutX="11.0" layoutY="217.0" mnemonicParsing="false" onAction="#closeSalesDealsOnActon" prefHeight="30.0" prefWidth="180.0" text="Close Sales Deals" />
+            <Button layoutX="10.0" layoutY="255.0" mnemonicParsing="false" onAction="#manageCustomerAccountsOnActon" prefHeight="30.0" prefWidth="180.0" text="Manage Customer Accounts" />
+            <Button layoutX="10.0" layoutY="291.0" mnemonicParsing="false" onAction="#generateSalesReportsOnAction" prefHeight="30.0" prefWidth="180.0" text="Generate Sales Reports" />
+            <Button layoutX="10.0" layoutY="327.0" mnemonicParsing="false" onAction="#provideProductInformationOnAction" prefHeight="30.0" prefWidth="180.0" text="Provide Product Information" />
+            <Button layoutX="10.0" layoutY="363.0" mnemonicParsing="false" onAction="#trackSalesPerformanceOnAction" prefHeight="30.0" prefWidth="180.0" text="Track Sales Performance" />
+            <Button layoutX="11.0" layoutY="400.0" mnemonicParsing="false" onAction="#logOutForSalesRepresentativeOnAction" prefHeight="30.0" prefWidth="180.0" text="Log Out" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
