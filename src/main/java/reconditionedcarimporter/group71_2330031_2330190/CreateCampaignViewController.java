@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -38,6 +39,11 @@ public class CreateCampaignViewController
     @javafx.fxml.FXML
     public void initialize() {
         campaignsList = new ArrayList<Campaign>();
+
+        startingDateCol.setCellValueFactory(new PropertyValueFactory<Campaign, LocalDate>("startingDate"));
+        endingDateCol.setCellValueFactory(new PropertyValueFactory<Campaign, LocalDate>("endingDate"));
+        campaignBudgetCol.setCellValueFactory(new PropertyValueFactory<Campaign, Double>("budget"));
+        campaignNameCol.setCellValueFactory(new PropertyValueFactory<Campaign, String>("name"));
     }
 
     @javafx.fxml.FXML
