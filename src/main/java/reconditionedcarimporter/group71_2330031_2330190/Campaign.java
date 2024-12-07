@@ -3,18 +3,14 @@ package reconditionedcarimporter.group71_2330031_2330190;
 import java.time.LocalDate;
 
 public class Campaign {
-    private String campaignName, campaignId, targetAudience, status;
-    private double budget;
+    private String campaignName, campaignId, targetAudience;
+    private int budget;
     private LocalDate startDate, endDate;
 
-    public Campaign() {
-    }
-
-    public Campaign(String campaignName, String campaignId, String targetAudience, String status, double budget, LocalDate startDate, LocalDate endDate) {
+    public Campaign(String campaignName, String campaignId, String targetAudience, int budget, LocalDate startDate, LocalDate endDate) {
         this.campaignName = campaignName;
         this.campaignId = campaignId;
         this.targetAudience = targetAudience;
-        this.status = status;
         this.budget = budget;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -44,19 +40,11 @@ public class Campaign {
         this.targetAudience = targetAudience;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public double getBudget() {
+    public int getBudget() {
         return budget;
     }
 
-    public void setBudget(double budget) {
+    public void setBudget(int budget) {
         this.budget = budget;
     }
 
@@ -78,14 +66,6 @@ public class Campaign {
 
     @Override
     public String toString() {
-        return "Campaign{" +
-                "campaignName='" + campaignName + '\'' +
-                ", campaignId='" + campaignId + '\'' +
-                ", targetAudience='" + targetAudience + '\'' +
-                ", status='" + status + '\'' +
-                ", budget=" + budget +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                '}';
+        return "Campaign{campaignName='%s', campaignId='%s', targetAudience='%s', budget=%d, startDate=%s, endDate=%s}".formatted(campaignName, campaignId, targetAudience, budget, startDate, endDate);
     }
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class CreateCampaignViewController
 {
@@ -25,9 +26,14 @@ public class CreateCampaignViewController
     @javafx.fxml.FXML
     private TableColumn<Campaign, LocalDate> endingDateCol;
     @javafx.fxml.FXML
-    private TextField targetAudienceTextField;
-    @javafx.fxml.FXML
     private TableColumn<Campaign, Double> campaignBudgetCol;
+
+    @javafx.fxml.FXML
+    private TextField campaignIdTextField;
+    @javafx.fxml.FXML
+    private TextField targetAudienceTextField;
+
+    private ArrayList<Campaign> campaignsList;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -35,14 +41,29 @@ public class CreateCampaignViewController
 
     @javafx.fxml.FXML
     public void showCampaignInTheTableButtonOnAction(ActionEvent actionEvent) {
+        StringBuilder c = new StringBuilder();
+        for (Campaign campaign : campaignsList) {
+            c.append("%s\n".formatted(campaign.toString()));
+        }
     }
 
     @javafx.fxml.FXML
     public void saveCampaignButtonOnAction(ActionEvent actionEvent) {
+        Campaign campaign = new Campaign(
+                campaignNameTextField.getText(),
+                campaignIdTextField.getText(),
+                targetAudienceTextField.getText(),
+                Integer.parseInt(campaignBudgetTextField.getText()),
+                startingDatePicker.getValue(),
+                endingDatePicker.getValue()
+        );
+        campaignsList.add(campaign);
     }
 
     @javafx.fxml.FXML
     public void goBackToMarketingManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
         SceneSwitcher.switchScene("MarketingManager-view.fxml", actionEvent);
     }
-}
+
+
+    }
