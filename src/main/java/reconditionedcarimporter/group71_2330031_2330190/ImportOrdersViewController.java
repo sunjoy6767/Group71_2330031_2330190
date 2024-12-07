@@ -21,8 +21,6 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     private TextField supplierIDTextfield;
     @javafx.fxml.FXML
-    private TextField quantityTextField;
-    @javafx.fxml.FXML
     private TableColumn<ImportedCar, LocalDate> expectedShipmentCol;
     @javafx.fxml.FXML
     private TableColumn<ImportedCar, String> brandCol;
@@ -32,6 +30,8 @@ public class ImportOrdersViewController
     private TableColumn<ImportedCar, String> modelCol;
     @javafx.fxml.FXML
     private TableColumn<ImportedCar, String> supplierIdCol;
+    @javafx.fxml.FXML
+    private TextField carQuantityTextField;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -47,4 +47,16 @@ public class ImportOrdersViewController
     public void showDetailsOfCarsImportInTheTableButtonOnAction(ActionEvent actionEvent) {
 
     }
+
+    @javafx.fxml.FXML
+    public void saveAllTheDetailsButtonOnAction(ActionEvent actionEvent) {
+        ImportedCar car = new ImportedCar(
+                carModelTextField.getText(),
+                carBrandTextField.getText(),
+                supplierIDTextfield.getText(),
+                carQuantityTextField.getText(),
+                expectedShipmentDatePicker.getValue()
+        );
+    }
+
 }

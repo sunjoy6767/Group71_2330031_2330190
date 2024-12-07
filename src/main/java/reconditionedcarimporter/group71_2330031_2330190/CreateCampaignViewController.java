@@ -37,13 +37,14 @@ public class CreateCampaignViewController
 
     @javafx.fxml.FXML
     public void initialize() {
+        campaignsList = new ArrayList<Campaign>();
     }
 
     @javafx.fxml.FXML
     public void showCampaignInTheTableButtonOnAction(ActionEvent actionEvent) {
-        StringBuilder c = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (Campaign campaign : campaignsList) {
-            c.append("%s\n".formatted(campaign.toString()));
+            stringBuilder.append("%s\n".formatted(campaign.toString()));
         }
     }
 
@@ -66,4 +67,4 @@ public class CreateCampaignViewController
     }
 
 
-    }
+}

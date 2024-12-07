@@ -21,8 +21,8 @@ public class LoginViewController
 
     @javafx.fxml.FXML
     public void initialize() {
-        loginAsComboBox.getItems().addAll("Client", "Showroom Mechanics", "Car Import Manager", "Marketing Manager", "Sales Representative",
-                "Inventory Manager", "Financial Manager", "Legal Compliance Manager");
+        loginAsComboBox.getItems().addAll("Car Import Manager", "Marketing Manager",
+                "Sales Representative", "Inventory Manager");
 
     }
 

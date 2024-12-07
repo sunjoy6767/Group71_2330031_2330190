@@ -20,6 +20,9 @@ public class ImportedCar {
         this.expectedShipmentDate = expectedShipmentDate;
     }
 
+    public ImportedCar(String text, String text1, String text2, String text3, LocalDate value) {
+    }
+
     public String getCarModel() {
         return carModel;
     }
@@ -70,13 +73,6 @@ public class ImportedCar {
 
     @Override
     public String toString() {
-        return "ImportedCar{" +
-                "carModel='" + carModel + '\'' +
-                ", carBrand='" + carBrand + '\'' +
-                ", supplierId='" + supplierId + '\'' +
-                ", carYear=" + carYear +
-                ", carQuantity=" + carQuantity +
-                ", expectedShipmentDate=" + expectedShipmentDate +
-                '}';
+        return STR."ImportedCar{carModel='\{carModel}', carBrand='\{carBrand}', supplierId='\{supplierId}', carYear=\{carYear}, carQuantity=\{carQuantity}, expectedShipmentDate=\{expectedShipmentDate}}";
     }
 }
