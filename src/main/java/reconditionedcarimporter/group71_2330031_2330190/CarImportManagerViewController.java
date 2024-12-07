@@ -17,7 +17,8 @@ public class CarImportManagerViewController {
     }
 
     @javafx.fxml.FXML
-    public void importOrdersButtonOnAction(ActionEvent actionEvent) {
+    public void importOrdersButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("ImportOrders-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
