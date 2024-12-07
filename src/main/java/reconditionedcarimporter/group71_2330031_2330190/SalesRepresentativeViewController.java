@@ -2,6 +2,8 @@ package reconditionedcarimporter.group71_2330031_2330190;
 
 import javafx.event.ActionEvent;
 
+import java.io.IOException;
+
 public class SalesRepresentativeViewController
 {
     @javafx.fxml.FXML
@@ -33,7 +35,8 @@ public class SalesRepresentativeViewController
     }
 
     @javafx.fxml.FXML
-    public void logOutForSalesRepresentativeOnAction(ActionEvent actionEvent) {
+    public void logOutForSalesRepresentativeOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("Login-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
