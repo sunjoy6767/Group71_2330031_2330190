@@ -1,0 +1,80 @@
+package reconditionedcarimporter.group71_2330031_2330190;
+
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class TrackShipmentViewController
+{
+    @javafx.fxml.FXML
+    private TextField destinationTextField;
+    @javafx.fxml.FXML
+    private DatePicker deliveryDatePicker;
+    @javafx.fxml.FXML
+    private TextField shipmentIdTextField;
+    @javafx.fxml.FXML
+    private TableColumn<TrackShipment, LocalDate> departureDateCol;
+    @javafx.fxml.FXML
+    private TableColumn<TrackShipment, String> shipmentIdCol;
+    @javafx.fxml.FXML
+    private TextField supplierIdTextField;
+    @javafx.fxml.FXML
+    private TableColumn<TrackShipment, String> shippingCompanyCol;
+    @javafx.fxml.FXML
+    private DatePicker departureDatePicker;
+    @javafx.fxml.FXML
+    private TableColumn<TrackShipment, String> destinationCol;
+    @javafx.fxml.FXML
+    private TextField shippingCompanyTextField;
+    @javafx.fxml.FXML
+    private TableColumn<TrackShipment, LocalDate> deliveryDateCol;
+    @javafx.fxml.FXML
+    private TableColumn<TrackShipment, String> supplierIdCol;
+
+    private ArrayList<TrackShipment> trackShipments;
+
+    @javafx.fxml.FXML
+    public void initialize() {
+        trackShipments = new ArrayList<>();
+
+        shipmentIdCol.setCellValueFactory(new PropertyValueFactory<>("shipmentId"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
+        shippingCompanyCol.setCellValueFactory(new PropertyValueFactory<>("shippingCompany"));
+        destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
+        departureDateCol.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
+        deliveryDateCol.setCellValueFactory(new PropertyValueFactory<>("deliveryDate"));
+    }
+
+    @javafx.fxml.FXML
+    public void goBackToCarImportManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("CarImportManager-view.fxml", actionEvent);
+    }
+
+    @javafx.fxml.FXML
+    public void showTheDetailsInTableButtonOnAction(ActionEvent actionEvent) {
+        String str = "";
+        for (TrackShipment trackShipment : trackShipments) {
+            str = str + trackShipment.getShipmentId() + "\n";
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void saveTheShipmentDetailsButtonOnAction(ActionEvent actionEvent) {
+        TrackShipment ts = new TrackShipment(
+                shipmentIdTextField.getText(),
+                shippingCompanyTextField.getText(),
+                destinationTextField.getText(),
+                supplierIdTextField.getText(),
+                deliveryDatePicker.getValue(),
+                departureDatePicker.getValue()
+        );
+        trackShipments.add(ts);
+    }
+}

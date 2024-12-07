@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.TrackShipmentViewController">
+   <children>
+      <Label layoutX="23.0" layoutY="21.0" text="Shipment ID:" />
+      <Label layoutX="23.0" layoutY="54.0" text="Supplier ID:" />
+      <Label layoutX="23.0" layoutY="89.0" text="Date of Departure:" />
+      <Label layoutX="324.0" layoutY="89.0" text="Date of Delivery:" />
+      <Label layoutX="324.0" layoutY="21.0" text="Shipping Company:" />
+      <TextField fx:id="shipmentIdTextField" layoutX="133.0" layoutY="17.0" />
+      <TextField fx:id="supplierIdTextField" layoutX="133.0" layoutY="50.0" />
+      <TextField fx:id="destinationTextField" layoutX="436.0" layoutY="50.0" />
+      <TextField fx:id="shippingCompanyTextField" layoutX="436.0" layoutY="17.0" />
+      <Label layoutX="324.0" layoutY="54.0" text="Destination:" />
+      <DatePicker fx:id="departureDatePicker" layoutX="133.0" layoutY="85.0" prefHeight="25.0" prefWidth="157.0" />
+      <DatePicker fx:id="deliveryDatePicker" layoutX="428.0" layoutY="85.0" prefHeight="25.0" prefWidth="157.0" />
+      <Button layoutX="20.0" layoutY="125.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="67.0" prefWidth="127.0" text="Go Back to CarImportManager View" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="195.0" layoutY="151.0" mnemonicParsing="false" onAction="#saveTheShipmentDetailsButtonOnAction" text="Save the Shipment Details" />
+      <Button layoutX="394.0" layoutY="126.0" mnemonicParsing="false" onAction="#showTheDetailsInTableButtonOnAction" prefHeight="67.0" prefWidth="169.0" text="Show the Shipment Details in the table" textAlignment="CENTER" wrapText="true" />
+      <TableView layoutX="1.0" layoutY="200.0" prefHeight="199.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="shipmentIdCol" prefWidth="75.0" text="Shipment ID" />
+          <TableColumn fx:id="supplierIdCol" prefWidth="75.0" text="Supplier ID" />
+            <TableColumn fx:id="shippingCompanyCol" prefWidth="129.3333282470703" text="Shipping Company" />
+            <TableColumn fx:id="destinationCol" prefWidth="107.33331298828125" text="Destination" />
+            <TableColumn fx:id="departureDateCol" prefWidth="99.99993896484375" text="Departure date" />
+            <TableColumn fx:id="deliveryDateCol" prefWidth="112.66665649414062" text="Delivery date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
