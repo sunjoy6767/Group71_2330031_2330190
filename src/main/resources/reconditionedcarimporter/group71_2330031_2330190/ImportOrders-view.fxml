@@ -20,9 +20,7 @@
       <TextField fx:id="carQuantityTextField" layoutX="136.0" layoutY="110.0" />
       <DatePicker fx:id="expectedShipmentDatePicker" layoutX="136.0" layoutY="153.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="330.0" layoutY="25.0" text="Supplier ID:" />
-      <Label layoutX="325.0" layoutY="56.0" text="Supplier Name:" />
       <TextField fx:id="supplierIDTextfield" layoutX="426.0" layoutY="21.0" />
-      <TextField fx:id="supplierNameTextField" layoutX="426.0" layoutY="52.0" />
       <Button layoutX="421.0" layoutY="126.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="61.0" prefWidth="159.0" text="Go Back to CarImportManager-view " textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -42,7 +40,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="304.0" layoutY="97.0" mnemonicParsing="false" onAction="#saveAllTheDetailsButtonOnAction" prefHeight="25.0" prefWidth="275.0" text="Save all the Details" textAlignment="CENTER" wrapText="true">
+      <Button layoutX="307.0" layoutY="78.0" mnemonicParsing="false" onAction="#saveAllTheDetailsButtonOnAction" prefHeight="38.0" prefWidth="275.0" text="Save all the Details" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

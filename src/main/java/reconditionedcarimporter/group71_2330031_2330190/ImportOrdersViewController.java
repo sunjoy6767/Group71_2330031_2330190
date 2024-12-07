@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ImportOrdersViewController
 {
@@ -14,8 +15,6 @@ public class ImportOrdersViewController
     private TextField carBrandTextField;
     @javafx.fxml.FXML
     private DatePicker expectedShipmentDatePicker;
-    @javafx.fxml.FXML
-    private TextField supplierNameTextField;
     @javafx.fxml.FXML
     private TextField carModelTextField;
     @javafx.fxml.FXML
@@ -33,9 +32,11 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     private TextField carQuantityTextField;
 
+    private ArrayList<ImportedCar> carsList;
+
     @javafx.fxml.FXML
     public void initialize() {
-
+        carsList = new ArrayList<ImportedCar>();
     }
 
     @javafx.fxml.FXML
@@ -45,7 +46,10 @@ public class ImportOrdersViewController
 
     @javafx.fxml.FXML
     public void showDetailsOfCarsImportInTheTableButtonOnAction(ActionEvent actionEvent) {
-
+        String str = "";
+        for (ImportedCar car : carsList) {
+            str += car.toString() + "\n";
+        }
     }
 
     @javafx.fxml.FXML
@@ -57,6 +61,7 @@ public class ImportOrdersViewController
                 carQuantityTextField.getText(),
                 expectedShipmentDatePicker.getValue()
         );
+        carsList.add(car);
     }
 
 }
