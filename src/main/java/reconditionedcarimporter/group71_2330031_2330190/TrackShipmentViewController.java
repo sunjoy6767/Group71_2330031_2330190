@@ -44,12 +44,12 @@ public class TrackShipmentViewController
     public void initialize() {
         trackShipments = new ArrayList<>();
 
-        shipmentIdCol.setCellValueFactory(new PropertyValueFactory<>("shipmentId"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
-        shippingCompanyCol.setCellValueFactory(new PropertyValueFactory<>("shippingCompany"));
-        destinationCol.setCellValueFactory(new PropertyValueFactory<>("destination"));
-        departureDateCol.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
-        deliveryDateCol.setCellValueFactory(new PropertyValueFactory<>("deliveryDate"));
+        shipmentIdCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("shipmentId"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("supplierId"));
+        shippingCompanyCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("shippingCompany"));
+        destinationCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("destination"));
+        departureDateCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, LocalDate>("departureDate"));
+        deliveryDateCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, LocalDate>("deliveryDate"));
     }
 
     @javafx.fxml.FXML
