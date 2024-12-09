@@ -2,6 +2,8 @@ package reconditionedcarimporter.group71_2330031_2330190;
 
 import javafx.event.ActionEvent;
 
+import java.io.IOException;
+
 public class InventoryManagerViewController
 {
     @javafx.fxml.FXML
@@ -41,6 +43,7 @@ public class InventoryManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void addProductToInventoryOnAction(ActionEvent actionEvent) {
+    public void addProductToInventoryOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("AddProductsToInventory.fxml", actionEvent);
     }
 }

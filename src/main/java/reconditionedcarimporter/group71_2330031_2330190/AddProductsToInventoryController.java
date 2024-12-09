@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class AddProductsToInventoryController
 {
 
@@ -39,7 +41,8 @@ public class AddProductsToInventoryController
     }
 
     @javafx.fxml.FXML
-    public void backButtonOnAction(ActionEvent actionEvent) {
+    public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
         //
     }
 
