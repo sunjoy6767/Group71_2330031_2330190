@@ -63,7 +63,7 @@ public class CustomsClearanceViewController
     public void ShowDetailsInTheTableButtonOnAction(ActionEvent actionEvent) {
         String str = "";
         for (CustomsClearance customsClearance : customsDutyList) {
-            str = str + customsClearance.getCustomsAgentName() + ", ";
+            str = str + customsClearance.toString() + ", ";
         }
     }
 

@@ -61,7 +61,7 @@ public class TrackShipmentViewController
     public void showTheDetailsInTableButtonOnAction(ActionEvent actionEvent) {
         String str = "";
         for (TrackShipment trackShipment : trackShipments) {
-            str = str + trackShipment.getShipmentId() + "\n";
+            str = str + trackShipment.toString() + "\n";
         }
     }
 
