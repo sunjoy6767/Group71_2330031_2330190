@@ -6,33 +6,34 @@ import javafx.scene.control.TextField;
 
 public class AddProductsToInventoryController
 {
+
     @javafx.fxml.FXML
-    private TextField brandNameFxid;
+    private ComboBox<String> transmissiontypeComboBoxfxid;
     @javafx.fxml.FXML
-    private ComboBox<String> transmissiontypeComboBoxFXid;
+    private TextField typeOfFuelfxid;
     @javafx.fxml.FXML
-    private TextField vinFxid;
+    private TextField vinfxid;
     @javafx.fxml.FXML
-    private TextField typeOfCarFxid;
+    private TextField brandNamefxid;
     @javafx.fxml.FXML
-    private TextField priceFxid;
+    private TextField typeOfCarfxid;
     @javafx.fxml.FXML
-    private TextField milieageFxid;
+    private TextField pricefxid;
     @javafx.fxml.FXML
-    private TextField typeOfCarFxid1;
+    private TextField milieagefxid;
     @javafx.fxml.FXML
-    private TextField engineCcFxid;
+    private ComboBox<String> steeringTypeComboBoxfxid;
     @javafx.fxml.FXML
-    private TextField quantityFxid;
+    private TextField quantityfxid;
     @javafx.fxml.FXML
-    private ComboBox<String> steeringTypeComboBoxFXid;
+    private TextField engineCcfxid;
     @javafx.fxml.FXML
-    private TextField stockNumberFxid;
+    private TextField stockNumberfxid;
 
     @javafx.fxml.FXML
     public void initialize() {
-        transmissiontypeComboBoxFXid.getItems().addAll("Manual","Automatic");
-        steeringTypeComboBoxFXid.getItems().addAll("Right Hand Drive","Left Hand Drive");
+        transmissiontypeComboBoxfxid.getItems().addAll("Manual","Automatic");
+        steeringTypeComboBoxfxid.getItems().addAll("Right Hand Drive","Left Hand Drive");
 
 
     }
