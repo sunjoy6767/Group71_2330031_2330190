@@ -27,7 +27,8 @@ public class InventoryManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void logOutForInventoryManagerOnAction(ActionEvent actionEvent) {
+    public void logOutForInventoryManagerOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("Login-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
