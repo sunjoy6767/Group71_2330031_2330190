@@ -27,8 +27,8 @@ public class CarImportManagerViewController {
     }
 
     @javafx.fxml.FXML
-    public void customsClearanceButtonOnAction(ActionEvent actionEvent) {
-        
+    public void customsClearanceButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("CustomsClearance-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
@@ -44,7 +44,8 @@ public class CarImportManagerViewController {
     }
 
     @javafx.fxml.FXML
-    public void generateCostReportButtonOnAction(ActionEvent actionEvent) {
+    public void generateCostReportButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("GenerateCostReport-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
