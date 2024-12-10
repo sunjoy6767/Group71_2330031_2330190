@@ -36,7 +36,7 @@ public class TrackShipmentViewController
     @javafx.fxml.FXML
     private TableColumn<TrackShipment, LocalDate> deliveryDateCol;
     @javafx.fxml.FXML
-    private TableColumn<TrackShipment, String> supplierIdCol;
+    private TableColumn<Supplier, String> supplierIdCol;
 
     private ArrayList<TrackShipment> trackShipments;
 
@@ -45,7 +45,7 @@ public class TrackShipmentViewController
         trackShipments = new ArrayList<>();
 
         shipmentIdCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("shipmentId"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("supplierId"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<Supplier, String>("supplierId"));
         shippingCompanyCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("shippingCompany"));
         destinationCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("destination"));
         departureDateCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, LocalDate>("departureDate"));

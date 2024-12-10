@@ -29,7 +29,7 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     private TableColumn<ImportedCar, String> modelCol;
     @javafx.fxml.FXML
-    private TableColumn<ImportedCar, String> supplierIdCol;
+    private TableColumn<Supplier, String> supplierIdCol;
     @javafx.fxml.FXML
     private TextField carQuantityTextField;
 
@@ -40,7 +40,7 @@ public class ImportOrdersViewController
         carsList = new ArrayList<ImportedCar>();
 
         modelCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("model"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("supplierID"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<Supplier, String>("supplierID"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, Integer>("quantity"));
         brandCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("brand"));
         expectedShipmentCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, LocalDate>("expectedShipmentDate"));

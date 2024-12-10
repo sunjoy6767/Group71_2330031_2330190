@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.StorageAssignmentViewController">
+   <children>
+      <Label layoutX="24.0" layoutY="14.0" text="Storage Assignment ID:" />
+      <Label layoutX="24.0" layoutY="46.0" text="Storage Location:" />
+      <Label layoutX="24.0" layoutY="79.0" text="Storage Unit Number:" />
+      <Label layoutX="323.0" layoutY="14.0" text="Assigned Date:" />
+      <Label layoutX="323.0" layoutY="46.0" text="Released Date:" />
+      <Label layoutX="324.0" layoutY="79.0" text="Car ID:" />
+      <Label layoutX="24.0" layoutY="114.0" text="Storage Cost:" />
+      <Label layoutX="324.0" layoutY="117.0" text="Over Due Charges:" />
+      <TextField fx:id="assignmentIdTextField" layoutX="151.0" layoutY="10.0" />
+      <TextField fx:id="storageLocationTextField" layoutX="151.0" layoutY="42.0" />
+      <TextField fx:id="storageUnitNumberTextField" layoutX="151.0" layoutY="75.0" />
+      <TextField fx:id="storageCostTextField" layoutX="151.0" layoutY="110.0" />
+      <TextField fx:id="carIdTextField" layoutX="430.0" layoutY="75.0" />
+      <TextField fx:id="overDueChargesTextField" layoutX="430.0" layoutY="110.0" />
+      <DatePicker fx:id="assignedDatePicker" layoutX="413.0" layoutY="10.0" />
+      <DatePicker fx:id="releaseDatePicker" layoutX="413.0" layoutY="42.0" prefHeight="25.0" prefWidth="175.0" />
+      <Button layoutX="14.0" layoutY="146.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="55.0" prefWidth="149.0" text="Go back to CarImportManager View" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="216.0" layoutY="156.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
+      <Button layoutX="360.0" layoutY="155.0" mnemonicParsing="false" onAction="#showDetailsButtonOnAction" text="Show all the details in the table" />
+      <TableView layoutX="14.0" layoutY="218.0" prefHeight="181.0" prefWidth="575.0">
+        <columns>
+          <TableColumn fx:id="assignmentIdCol" prefWidth="94.6666259765625" text="Assignment ID" />
+          <TableColumn fx:id="carIdCol" prefWidth="95.33331298828125" text="Car ID" />
+            <TableColumn fx:id="storageUnitNumberCol" prefWidth="133.3333740234375" text="Storage Unit Number" />
+            <TableColumn fx:id="assignedDateCol" prefWidth="124.66668701171875" text="Assigned Date" />
+            <TableColumn fx:id="releasedDateCol" prefWidth="127.33331298828125" text="Released Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
