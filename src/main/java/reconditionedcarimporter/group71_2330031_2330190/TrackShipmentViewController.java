@@ -1,10 +1,7 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -39,6 +36,8 @@ public class TrackShipmentViewController
     private TableColumn<Supplier, String> supplierIdCol;
 
     private ArrayList<TrackShipment> trackShipments;
+    @javafx.fxml.FXML
+    private TableView<TrackShipment> trackShipmentTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -59,9 +58,8 @@ public class TrackShipmentViewController
 
     @javafx.fxml.FXML
     public void showTheDetailsInTableButtonOnAction(ActionEvent actionEvent) {
-        String str = "";
         for (TrackShipment trackShipment : trackShipments) {
-            str = str + trackShipment.toString() + "\n";
+            trackShipmentTableView.getItems().add(trackShipment);
         }
     }
 

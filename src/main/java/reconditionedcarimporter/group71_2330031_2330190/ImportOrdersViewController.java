@@ -3,6 +3,7 @@ package reconditionedcarimporter.group71_2330031_2330190;
 import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -34,6 +35,8 @@ public class ImportOrdersViewController
     private TextField carQuantityTextField;
 
     private ArrayList<ImportedCar> carsList;
+    @javafx.fxml.FXML
+    private TableView<ImportedCar> importOrdersTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -53,9 +56,8 @@ public class ImportOrdersViewController
 
     @javafx.fxml.FXML
     public void showDetailsOfCarsImportInTheTableButtonOnAction(ActionEvent actionEvent) {
-        String str = "";
         for (ImportedCar car : carsList) {
-            str += car.toString() + "\n";
+            importOrdersTableView.getItems().add(car);
         }
     }
 

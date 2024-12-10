@@ -3,6 +3,7 @@ package reconditionedcarimporter.group71_2330031_2330190;
 import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -37,6 +38,8 @@ public class GenerateCostReportViewController
     private TableColumn<GenerateCostReport, String> reportIdCol;
 
     private ArrayList<GenerateCostReport> generateCostReports;
+    @javafx.fxml.FXML
+    private TableView<GenerateCostReport> costReportTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -54,9 +57,8 @@ public class GenerateCostReportViewController
 
     @javafx.fxml.FXML
     public void showTheDetailsInTheTableButtonOnAction(ActionEvent actionEvent) {
-        String str = "";
         for (GenerateCostReport generateCostReport : generateCostReports) {
-            str = str + generateCostReport.toString() + "\n";
+            costReportTableView.getItems().add(generateCostReport);
         }
     }
 

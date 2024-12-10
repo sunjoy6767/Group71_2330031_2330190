@@ -30,7 +30,7 @@
       <Button layoutX="14.0" layoutY="146.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="55.0" prefWidth="149.0" text="Go back to CarImportManager View" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="216.0" layoutY="156.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
       <Button layoutX="360.0" layoutY="155.0" mnemonicParsing="false" onAction="#showDetailsButtonOnAction" text="Show all the details in the table" />
-      <TableView layoutX="14.0" layoutY="218.0" prefHeight="181.0" prefWidth="575.0">
+      <TableView fx:id="storageAssignmentTableView" layoutX="14.0" layoutY="218.0" prefHeight="181.0" prefWidth="575.0">
         <columns>
           <TableColumn fx:id="assignmentIdCol" prefWidth="94.6666259765625" text="Assignment ID" />
           <TableColumn fx:id="carIdCol" prefWidth="95.33331298828125" text="Car ID" />

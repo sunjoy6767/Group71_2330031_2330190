@@ -3,6 +3,7 @@ package reconditionedcarimporter.group71_2330031_2330190;
 import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -40,6 +41,8 @@ public class StorageAssignmentViewController
     private ArrayList<StorageAssignment> storageAssignments;
     @javafx.fxml.FXML
     private TextField overDueChargesTextField;
+    @javafx.fxml.FXML
+    private TableView<StorageAssignment> storageAssignmentTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -54,9 +57,8 @@ public class StorageAssignmentViewController
 
     @javafx.fxml.FXML
     public void showDetailsButtonOnAction(ActionEvent actionEvent) {
-        String str = "";
         for (StorageAssignment s : storageAssignments) {
-            str += s.toString() + "\n";
+            storageAssignmentTableView.getItems().add(s);
         }
     }
 

@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.TrackShipmentViewController">
    <children>
       <Label layoutX="23.0" layoutY="21.0" text="Shipment ID:" />
@@ -26,7 +25,7 @@
       <Button layoutX="20.0" layoutY="125.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="67.0" prefWidth="127.0" text="Go Back to CarImportManager View" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="195.0" layoutY="151.0" mnemonicParsing="false" onAction="#saveTheShipmentDetailsButtonOnAction" text="Save the Shipment Details" />
       <Button layoutX="394.0" layoutY="126.0" mnemonicParsing="false" onAction="#showTheDetailsInTableButtonOnAction" prefHeight="67.0" prefWidth="169.0" text="Show the Shipment Details in the table" textAlignment="CENTER" wrapText="true" />
-      <TableView layoutX="1.0" layoutY="200.0" prefHeight="199.0" prefWidth="600.0">
+      <TableView fx:id="trackShipmentTableView" layoutX="1.0" layoutY="200.0" prefHeight="199.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="shipmentIdCol" prefWidth="75.0" text="Shipment ID" />
           <TableColumn fx:id="supplierIdCol" prefWidth="75.0" text="Supplier ID" />

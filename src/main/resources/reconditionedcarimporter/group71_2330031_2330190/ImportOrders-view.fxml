@@ -26,7 +26,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TableView layoutX="3.0" layoutY="200.0" prefHeight="200.0" prefWidth="593.0">
+      <TableView fx:id="importOrdersTableView" layoutX="3.0" layoutY="200.0" prefHeight="200.0" prefWidth="593.0">
         <columns>
           <TableColumn fx:id="brandCol" prefWidth="114.66665649414062" text="Brand" />
           <TableColumn fx:id="modelCol" prefWidth="130.66668701171875" text="Model" />
