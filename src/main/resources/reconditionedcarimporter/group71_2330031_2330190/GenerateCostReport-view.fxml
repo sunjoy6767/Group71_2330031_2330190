@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.GenerateCostReportViewController">
    <children>
       <Label layoutX="22.0" layoutY="21.0" text="Report ID: " />
@@ -29,7 +28,7 @@
       <TextField fx:id="totalImportCostTextField" layoutX="429.0" layoutY="87.0" />
       <DatePicker fx:id="reportDatePicker" layoutX="430.0" layoutY="121.0" prefHeight="25.0" prefWidth="161.0" />
       <Line endX="57.0" endY="-26.999984741210938" layoutX="255.0" layoutY="177.0" startX="57.0" startY="-167.7071075439453" />
-      <TableView layoutX="14.0" layoutY="219.0" prefHeight="179.0" prefWidth="578.0">
+      <TableView fx:id="costReportTableView" layoutX="14.0" layoutY="219.0" prefHeight="179.0" prefWidth="578.0">
         <columns>
           <TableColumn fx:id="reportIdCol" prefWidth="177.99996948242188" text="Report ID" />
           <TableColumn fx:id="totalCostCol" prefWidth="222.00006103515625" text="Total Cost" />

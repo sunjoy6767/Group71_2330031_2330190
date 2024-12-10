@@ -1,10 +1,7 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -36,16 +33,18 @@ public class TrackShipmentViewController
     @javafx.fxml.FXML
     private TableColumn<TrackShipment, LocalDate> deliveryDateCol;
     @javafx.fxml.FXML
-    private TableColumn<TrackShipment, String> supplierIdCol;
+    private TableColumn<Supplier, String> supplierIdCol;
 
     private ArrayList<TrackShipment> trackShipments;
+    @javafx.fxml.FXML
+    private TableView<TrackShipment> trackShipmentTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
         trackShipments = new ArrayList<>();
 
         shipmentIdCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("shipmentId"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("supplierId"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<Supplier, String>("supplierId"));
         shippingCompanyCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("shippingCompany"));
         destinationCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("destination"));
         departureDateCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, LocalDate>("departureDate"));
@@ -59,9 +58,8 @@ public class TrackShipmentViewController
 
     @javafx.fxml.FXML
     public void showTheDetailsInTableButtonOnAction(ActionEvent actionEvent) {
-        String str = "";
         for (TrackShipment trackShipment : trackShipments) {
-            str = str + trackShipment.toString() + "\n";
+            trackShipmentTableView.getItems().add(trackShipment);
         }
     }
 

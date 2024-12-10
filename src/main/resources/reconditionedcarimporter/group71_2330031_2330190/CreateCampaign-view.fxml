@@ -20,7 +20,7 @@
       <TextField fx:id="campaignIdTextField" layoutX="134.0" layoutY="100.0" />
       <DatePicker fx:id="startingDatePicker" layoutX="446.0" layoutY="25.0" prefHeight="25.0" prefWidth="139.0" />
       <DatePicker fx:id="endingDatePicker" layoutX="446.0" layoutY="63.0" prefHeight="25.0" prefWidth="139.0" />
-      <TableView layoutX="9.0" layoutY="187.0" prefHeight="208.0" prefWidth="585.0" style="-fx-border-color: black;">
+      <TableView fx:id="campaignTableView" layoutX="9.0" layoutY="187.0" prefHeight="208.0" prefWidth="585.0" style="-fx-border-color: black;">
         <columns>
           <TableColumn fx:id="campaignNameCol" prefWidth="148.66665649414062" text="Campaign Name" />
           <TableColumn fx:id="campaignBudgetCol" prefWidth="169.33331298828125" text="Campaign Budget" />

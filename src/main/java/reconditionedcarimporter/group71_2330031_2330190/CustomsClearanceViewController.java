@@ -46,6 +46,8 @@ public class CustomsClearanceViewController
     private RadioButton dutyStatusPaidRadioButton;
     @FXML
     private TextField customsDutyAmountTextField;
+    @FXML
+    private TableView<CustomsClearance> customsClearanceTableView;
 
     @FXML
     public void initialize() {
@@ -61,9 +63,8 @@ public class CustomsClearanceViewController
 
     @javafx.fxml.FXML
     public void ShowDetailsInTheTableButtonOnAction(ActionEvent actionEvent) {
-        String str = "";
         for (CustomsClearance customsClearance : customsDutyList) {
-            str = str + customsClearance.toString() + ", ";
+            customsClearanceTableView.getItems().add(customsClearance);
         }
     }
 

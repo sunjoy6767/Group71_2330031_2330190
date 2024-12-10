@@ -3,6 +3,7 @@ package reconditionedcarimporter.group71_2330031_2330190;
 import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -35,6 +36,8 @@ public class CreateCampaignViewController
     private TextField targetAudienceTextField;
 
     private ArrayList<Campaign> campaignsList;
+    @javafx.fxml.FXML
+    private TableView<Campaign> campaignTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -48,9 +51,8 @@ public class CreateCampaignViewController
 
     @javafx.fxml.FXML
     public void showCampaignInTheTableButtonOnAction(ActionEvent actionEvent) {
-        StringBuilder stringBuilder = new StringBuilder();
         for (Campaign campaign : campaignsList) {
-            stringBuilder.append("%s\n".formatted(campaign.toString()));
+            campaignTableView.getItems().add(campaign);
         }
     }
 

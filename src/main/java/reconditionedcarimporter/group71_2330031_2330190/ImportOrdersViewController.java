@@ -3,6 +3,7 @@ package reconditionedcarimporter.group71_2330031_2330190;
 import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -29,18 +30,20 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     private TableColumn<ImportedCar, String> modelCol;
     @javafx.fxml.FXML
-    private TableColumn<ImportedCar, String> supplierIdCol;
+    private TableColumn<Supplier, String> supplierIdCol;
     @javafx.fxml.FXML
     private TextField carQuantityTextField;
 
     private ArrayList<ImportedCar> carsList;
+    @javafx.fxml.FXML
+    private TableView<ImportedCar> importOrdersTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
         carsList = new ArrayList<ImportedCar>();
 
         modelCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("model"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("supplierID"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<Supplier, String>("supplierID"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, Integer>("quantity"));
         brandCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("brand"));
         expectedShipmentCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, LocalDate>("expectedShipmentDate"));
@@ -53,9 +56,8 @@ public class ImportOrdersViewController
 
     @javafx.fxml.FXML
     public void showDetailsOfCarsImportInTheTableButtonOnAction(ActionEvent actionEvent) {
-        String str = "";
         for (ImportedCar car : carsList) {
-            str += car.toString() + "\n";
+            importOrdersTableView.getItems().add(car);
         }
     }
 
