@@ -36,7 +36,8 @@ public class CarImportManagerViewController {
     }
 
     @javafx.fxml.FXML
-    public void storageAssignmentButtonOnAction(ActionEvent actionEvent) {
+    public void storageAssignmentButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("StorageAssignment-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
