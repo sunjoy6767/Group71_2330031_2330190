@@ -4,7 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class AddProductsToInventoryController
 {
@@ -48,6 +51,30 @@ public class AddProductsToInventoryController
 
     @javafx.fxml.FXML
     public void addProductstoInventoryOnAction(ActionEvent actionEvent) {
-        //
+        try{
+            File f = new File("AddedProductToInventory.bin");
+            FileOutputStream fos = null;
+            ObjectOutputStream oos = null;
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);;
+            }
+            else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+//            oos = new ObjectOutputStream(fos);
+
+
+            oos.writeObject(new AddProductToInventory(Integer.parseInt(stockNumberfxid.getText()),vinfxid.getText(),brandNamefxid.getText(),milieagefxid.getText(),engineCcfxid.getText(),typeOfCarfxid.getText(),typeOfFuelfxid.getText(),quantityfxid.getText(),Double.parseDouble(pricefxid.getText()),transmissiontypeComboBoxfxid.getValue(),steeringTypeComboBoxfxid.getValue()));
+
+
+
+            oos.close();
+        }
+        catch(Exception e){
+            //
+
+        }
     }
 }

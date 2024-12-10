@@ -12,7 +12,7 @@ public class AddProductToInventory implements Serializable {
     private String Type;
     private String FuelType;
     private String Quantity;
-    private int Price;
+    private double Price;
     private String Transmission;
     private String Steering;
 
@@ -20,7 +20,7 @@ public class AddProductToInventory implements Serializable {
     public AddProductToInventory() {
     }
 
-    public AddProductToInventory(int stockNumber, String vin, String brand, String milieage, String enginecc, String type, String fuelType, String quantity, int price, String transmission, String steering) {
+    public AddProductToInventory(int stockNumber, String vin, String brand, String milieage, String enginecc, String type, String fuelType, String quantity, double price, String transmission, String steering) {
         StockNumber = stockNumber;
         Vin = vin;
         Brand = brand;
@@ -98,11 +98,11 @@ public class AddProductToInventory implements Serializable {
         Quantity = quantity;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return Price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         Price = price;
     }
 
