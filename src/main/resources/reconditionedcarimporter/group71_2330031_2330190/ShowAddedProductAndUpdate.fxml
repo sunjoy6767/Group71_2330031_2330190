@@ -5,7 +5,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.ShowAddedProductAndUpdateController">
    <children>
       <TableView fx:id="showAddedProductfxid" layoutX="18.0" layoutY="138.0" prefHeight="200.0" prefWidth="825.0">
@@ -24,5 +23,6 @@
         </columns>
       </TableView>
       <Button layoutX="622.0" layoutY="60.0" mnemonicParsing="false" onAction="#showProductOnTableOnAction" text="Show Product On Table View" />
+      <Button layoutX="458.0" layoutY="60.0" mnemonicParsing="false" onAction="#goBackToCarInventoryManagerViewButtonOnAction" text="Go back" />
    </children>
 </AnchorPane>

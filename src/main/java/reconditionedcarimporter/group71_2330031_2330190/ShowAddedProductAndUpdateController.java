@@ -6,6 +6,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
 public class ShowAddedProductAndUpdateController
 {
     @javafx.fxml.FXML
@@ -41,9 +46,9 @@ public class ShowAddedProductAndUpdateController
         vinTableCol.setCellValueFactory(new PropertyValueFactory<>("Vin"));
         brandTableCol.setCellValueFactory(new PropertyValueFactory<>("Brand"));
         milieTableCol.setCellValueFactory(new PropertyValueFactory<>("Milieage"));
-        enginTableCol.setCellValueFactory(new PropertyValueFactory<>("EngineCC"));
+        enginTableCol.setCellValueFactory(new PropertyValueFactory<>("Enginecc"));
         quantityTableCol.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
-        transmiTableCol.setCellValueFactory(new PropertyValueFactory<>("TransmissionType"));
+        transmiTableCol.setCellValueFactory(new PropertyValueFactory<>("Transmission"));
         typeTableCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
         priceTableCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
         furlTableCol.setCellValueFactory(new PropertyValueFactory<>("FuelType"));
@@ -53,5 +58,39 @@ public class ShowAddedProductAndUpdateController
 
     @javafx.fxml.FXML
     public void showProductOnTableOnAction(ActionEvent actionEvent) {
+        FileInputStream fis=null;
+        ObjectInputStream ois=null;
+        try{
+            File f = new File("AddedProductToInventory.bin");
+            if(f.exists()){
+                fis = new FileInputStream(f);
+            }
+            else{
+                //Alert: file does not exist
+            }
+            if(fis != null) ois = new ObjectInputStream(fis);
+
+            while(true) {
+                showAddedProductfxid.getItems().add(
+                        (AddProductToInventory) ois.readObject()
+
+                );
+            }
+            //ois.close();
+
+        }
+        catch(Exception e){
+            try {
+                if (ois != null) ois.close();
+            }
+            catch(Exception e2){
+                //
+            }
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void goBackToCarInventoryManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
     }
 }

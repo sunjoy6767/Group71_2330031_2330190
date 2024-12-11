@@ -11,7 +11,8 @@ public class InventoryManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void updateProductInformationOnAction(ActionEvent actionEvent) {
+    public void updateProductInformationOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("ShowAddedProductAndUpdate.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
