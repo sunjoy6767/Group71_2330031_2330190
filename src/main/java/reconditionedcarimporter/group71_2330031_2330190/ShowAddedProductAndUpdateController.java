@@ -1,7 +1,9 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,9 +41,13 @@ public class ShowAddedProductAndUpdateController
     private TableColumn <AddProductToInventory,String>typeTableCol;
 
     ObservableList<AddProductToInventory> addedProduct;
+    @javafx.fxml.FXML
+    private Label showOutputLabel;
 
     @javafx.fxml.FXML
     public void initialize() {
+        addedProduct = FXCollections.observableArrayList();
+
         SNTableCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         vinTableCol.setCellValueFactory(new PropertyValueFactory<>("Vin"));
         brandTableCol.setCellValueFactory(new PropertyValueFactory<>("Brand"));
@@ -73,8 +79,9 @@ public class ShowAddedProductAndUpdateController
             while(true) {
                 showAddedProductfxid.getItems().add(
                         (AddProductToInventory) ois.readObject()
-
                 );
+                AddProductToInventory product = (AddProductToInventory) ois.readObject();
+                addedProduct.add(product);
             }
             //ois.close();
 
@@ -92,5 +99,10 @@ public class ShowAddedProductAndUpdateController
     @javafx.fxml.FXML
     public void goBackToCarInventoryManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
         SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
+    }
+
+    @javafx.fxml.FXML
+    public void showLabelButtonOnAction(ActionEvent actionEvent) {
+        showOutputLabel.setText(addedProduct.toString());
     }
 }

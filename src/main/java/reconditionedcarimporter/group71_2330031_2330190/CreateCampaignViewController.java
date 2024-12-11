@@ -104,7 +104,7 @@ public class CreateCampaignViewController
     }
 
     @javafx.fxml.FXML
-    public void goBackToMarketingManagerViewButtonOnAction(ActionEvent actionEvent) {
-
+    public void goBackToMarketingManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("MarketingManager-view.fxml", actionEvent);
     }
 }
