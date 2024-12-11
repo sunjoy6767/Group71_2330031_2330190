@@ -32,7 +32,8 @@ public class CarImportManagerViewController {
     }
 
     @javafx.fxml.FXML
-    public void shippingCostCalculationButtonOnAction(ActionEvent actionEvent) {
+    public void shippingCostCalculationButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("ShippingCostCalculation-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

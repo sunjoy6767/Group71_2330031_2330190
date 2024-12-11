@@ -1,8 +1,9 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class GenerateCostReport {
+public class GenerateCostReport implements Serializable {
     private String reportId;
     private double purchaseCost, customsDutyAmount, shippingCost,
             inspectionCost, additionalFees, totalImportCost;

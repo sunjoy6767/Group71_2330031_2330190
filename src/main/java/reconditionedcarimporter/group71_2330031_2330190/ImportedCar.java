@@ -1,8 +1,9 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class ImportedCar {
+public class ImportedCar implements Serializable {
     private String carModel, carBrand, supplierId;
     private int carId;
     private int carQuantity;

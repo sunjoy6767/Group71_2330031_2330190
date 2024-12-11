@@ -1,8 +1,9 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CustomerFeedback {
+public class CustomerFeedback implements Serializable {
     private String feedbackId, customerId, comment, responseStatus;
     private int rating;
     private LocalDate feedbackDate;
