@@ -71,8 +71,8 @@ public class ImportedCar {
         this.expectedShipmentDate = expectedShipmentDate;
     }
 
-    @Override
-    public String toString() {
-        return STR."ImportedCar{carModel='\{carModel}', carBrand='\{carBrand}', supplierId='\{supplierId}', carId=\{carId}, carQuantity=\{carQuantity}, expectedShipmentDate=\{expectedShipmentDate}}";
-    }
+//    @Override
+////    public String toString() {
+////        return STR."ImportedCar{carModel='\{carModel}', carBrand='\{carBrand}', supplierId='\{supplierId}', carId=\{carId}, carQuantity=\{carQuantity}, expectedShipmentDate=\{expectedShipmentDate}}";
+////    }
 }

@@ -63,11 +63,19 @@ public class AddProductsToInventoryController
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
-//            oos = new ObjectOutputStream(fos);
+
 
 
             oos.writeObject(new AddProductToInventory(Integer.parseInt(stockNumberfxid.getText()),vinfxid.getText(),brandNamefxid.getText(),milieagefxid.getText(),engineCcfxid.getText(),typeOfCarfxid.getText(),typeOfFuelfxid.getText(),quantityfxid.getText(),Double.parseDouble(pricefxid.getText()),transmissiontypeComboBoxfxid.getValue(),steeringTypeComboBoxfxid.getValue()));
-
+            stockNumberfxid.clear();
+            vinfxid.clear();
+            brandNamefxid.clear();
+            milieagefxid.clear();
+            engineCcfxid.clear();
+            typeOfCarfxid.clear();
+            typeOfFuelfxid.clear();
+            quantityfxid.clear();
+            pricefxid.clear();
 
 
             oos.close();
