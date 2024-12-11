@@ -1,6 +1,8 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
-public class MarketingManager {
+import java.io.Serializable;
+
+public class MarketingManager implements Serializable {
     private String name, employeeId, department;
 
     public MarketingManager() {

@@ -1,8 +1,9 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CustomsClearance {
+public class CustomsClearance implements Serializable {
     private String clearanceId, customsAgentName, clearanceStatus, customsDutyPaidStatus;
     private double customsDutyAmount;
     private LocalDate clearanceDate;
