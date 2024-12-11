@@ -138,6 +138,7 @@ public class AddProductToInventory implements Serializable {
                 ", Steering='" + Steering + '\'' +
                 '}';
     }
+
     public String toString(String str){
         return StockNumber + "," + Vin + "," +  Brand +","+ Milieage +","+ Enginecc +","+ Type +","+FuelType +","+ Quantity +","+ Price + ","+ Transmission +","+ Steering + "\n";
 

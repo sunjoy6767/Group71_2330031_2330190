@@ -1,6 +1,8 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String productId, productName, category, supplierId;
     private double price;
     private int stockQuantity;

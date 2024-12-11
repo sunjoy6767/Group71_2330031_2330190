@@ -1,8 +1,9 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class SalesOrder {
+public class SalesOrder implements Serializable {
     private String orderId, customerId, orderStatus;
     private int quantity;
     private double price;
