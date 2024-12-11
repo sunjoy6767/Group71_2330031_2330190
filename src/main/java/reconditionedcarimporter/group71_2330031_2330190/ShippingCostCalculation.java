@@ -1,6 +1,8 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
-public class ShippingCostCalculation {
+import java.io.Serializable;
+
+public class ShippingCostCalculation implements Serializable {
     private String calculationId, shipmentId, transportMode;
     private int carId;
     private double distance, insuranceCost, taxesAndDuties, handlingCharges, totalShippingCost;
