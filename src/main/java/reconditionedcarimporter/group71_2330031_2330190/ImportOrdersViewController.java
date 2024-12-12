@@ -1,13 +1,10 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -22,31 +19,31 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     private TextField supplierIDTextfield;
     @javafx.fxml.FXML
-    private TableColumn<ImportedCar, LocalDate> expectedShipmentCol;
+    private TableColumn<DummyOrders, LocalDate> expectedShipmentCol;
     @javafx.fxml.FXML
-    private TableColumn<ImportedCar, String> brandCol;
+    private TableColumn<DummyOrders, String> brandCol;
     @javafx.fxml.FXML
-    private TableColumn<ImportedCar, Integer> quantityCol;
+    private TableColumn<DummyOrders, Integer> quantityCol;
     @javafx.fxml.FXML
-    private TableColumn<ImportedCar, String> modelCol;
+    private TableColumn<DummyOrders, String> modelCol;
     @javafx.fxml.FXML
-    private TableColumn<Supplier, String> supplierIdCol;
+    private TableColumn<DummyOrders, String> supplierIdCol;
     @javafx.fxml.FXML
     private TextField carQuantityTextField;
 
-    private ArrayList<ImportedCar> carsList;
+    private ArrayList<DummyOrders> carsList;
     @javafx.fxml.FXML
-    private TableView<ImportedCar> importOrdersTableView;
+    private TableView<DummyOrders> importOrdersTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
-        carsList = new ArrayList<ImportedCar>();
+        carsList = new ArrayList<DummyOrders>();
 
-        modelCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("carModel"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<Supplier, String>("supplierId"));
-        quantityCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, Integer>("carQuantity"));
-        brandCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("carBrand"));
-        expectedShipmentCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, LocalDate>("expectedShipmentDate"));
+        modelCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, String>("carModel"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, String>("supplierId"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, Integer>("carQuantity"));
+        brandCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, String>("carBrand"));
+        expectedShipmentCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, LocalDate>("expectedShipmentDate"));
     }
 
     @javafx.fxml.FXML
@@ -56,21 +53,60 @@ public class ImportOrdersViewController
 
     @javafx.fxml.FXML
     public void showDetailsOfCarsImportInTheTableButtonOnAction(ActionEvent actionEvent) {
-        for (ImportedCar car : carsList) {
-            importOrdersTableView.getItems().add(car);
+        FileInputStream fis=null;
+        ObjectInputStream ois=null;
+
+        try{
+            File f = new File("ImportOrders.bin");
+            if(f.exists()){
+                fis = new FileInputStream(f);
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("The file 'ImportOrders.bin' does not exist.");
+                alert.showAndWait();
+                //Alert: file does not exist
+            }
+            if(fis != null) ois = new ObjectInputStream(fis);
+
+            while(true) {
+                importOrdersTableView.getItems().add(
+                        (DummyOrders) ois.readObject());
+            }
+        }
+        catch(Exception e){
+            try {
+                if (ois != null) ois.close();
+            }
+            catch(Exception e2){
+                //
+            }
         }
     }
 
     @javafx.fxml.FXML
     public void saveAllTheDetailsButtonOnAction(ActionEvent actionEvent) {
-        ImportedCar car = new ImportedCar(
-                carModelTextField.getText(),
-                carBrandTextField.getText(),
-                supplierIDTextfield.getText(),
-                carQuantityTextField.getText(),
-                expectedShipmentDatePicker.getValue()
-        );
-        carsList.add(car);
-    }
+        try{
+            File f = new File("ImportedCar.bin");
+            FileOutputStream fos = null;
+            ObjectOutputStream oos = null;
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);;
+            }
+            else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
 
+            oos.writeObject(new DummyOrders(carModelTextField.getText(), carBrandTextField.getText(),
+                    supplierIDTextfield.getText(), Integer.parseInt(carQuantityTextField.getText()),
+                    expectedShipmentDatePicker.getValue()));
+
+            oos.close();
+        }
+        catch(Exception e){
+            //
+        }
+    }
 }
