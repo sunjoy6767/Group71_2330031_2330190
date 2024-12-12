@@ -3,9 +3,7 @@ package reconditionedcarimporter.group71_2330031_2330190;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.File;
@@ -42,11 +40,32 @@ public class ShowAddedProductAndUpdateController
 
     ObservableList<AddProductToInventory> addedProduct;
     @javafx.fxml.FXML
-    private Label showOutputLabel;
+    private TextField updatedQuantity;
+    @javafx.fxml.FXML
+    private TextField updatedBrandTextField;
+    @javafx.fxml.FXML
+    private TextField updatedTypeOfCarTextField;
+    @javafx.fxml.FXML
+    private TextField updatedVinTextField;
+    @javafx.fxml.FXML
+    private ComboBox<AddProductToInventory> updatedSteeringComboBox;
+    @javafx.fxml.FXML
+    private TextField updatedMileTextField;
+    @javafx.fxml.FXML
+    private ComboBox<AddProductToInventory> updatedTransmissionComboBox;
+    @javafx.fxml.FXML
+    private TextField updatedPrice;
+    @javafx.fxml.FXML
+    private TextField updatedFuelTypeTextField;
+    @javafx.fxml.FXML
+    private TextField updatedEngineCCTextField;
+    @javafx.fxml.FXML
+    private TextField updatedSNTextField;
 
     @javafx.fxml.FXML
     public void initialize() {
         addedProduct = FXCollections.observableArrayList();
+        showAddedProductfxid.setItems(addedProduct);
 
         SNTableCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         vinTableCol.setCellValueFactory(new PropertyValueFactory<>("Vin"));
@@ -72,6 +91,9 @@ public class ShowAddedProductAndUpdateController
                 fis = new FileInputStream(f);
             }
             else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("The file 'AddedProductToInventory.bin' does not exist.");
+                alert.showAndWait();
                 //Alert: file does not exist
             }
             if(fis != null) ois = new ObjectInputStream(fis);
@@ -101,7 +123,7 @@ public class ShowAddedProductAndUpdateController
     }
 
     @javafx.fxml.FXML
-    public void showLabelButtonOnAction(ActionEvent actionEvent) {
-        showOutputLabel.setText(addedProduct.toString());
+    public void updateProductButtonOnAction(ActionEvent actionEvent) {
+        
     }
 }
