@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="reconditionedcarimporter.group71_2330031_2330190.SetInventoryThresholdsController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.SetInventoryThresholdsController">
+   <children>
+      <TextField fx:id="minimumThresholdTextField" layoutX="29.0" layoutY="14.0" promptText="Minimum Threshold" />
+      <TextField fx:id="maximumThresholdTextField" layoutX="29.0" layoutY="54.0" promptText="Maximum Threshold" />
+      <TextField layoutX="29.0" layoutY="96.0" promptText="Type of Product" />
+      <Button layoutX="29.0" layoutY="344.0" mnemonicParsing="false" onAction="#goBackToInvenoryManagerButtonOnAction" text="Go back" />
+      <TableView fx:id="tableViewThreshold" layoutX="14.0" layoutY="134.0" prefHeight="200.0" prefWidth="576.0">
+        <columns>
+          <TableColumn fx:id="minimumThresholdCol" prefWidth="173.33334350585938" text="Minimum Threshold" />
+          <TableColumn fx:id="maximumThresholdCol" minWidth="0.0" prefWidth="200.66668701171875" text="Maximum Threshold" />
+            <TableColumn fx:id="typeOfProductCol" minWidth="0.0" prefWidth="200.66668701171875" text="Type of Product" />
+        </columns>
+      </TableView>
+      <Button layoutX="163.0" layoutY="344.0" mnemonicParsing="false" onAction="#setInventoryThresholdButtonOnAction" prefHeight="25.0" prefWidth="149.0" text="Set Inventory Threshold" />
+   </children>
 </AnchorPane>
