@@ -72,6 +72,9 @@ public class CustomsClearanceViewController
                 fis = new FileInputStream(f);
             }
             else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("The file 'CustomsClearance.bin' does not exist.");
+                alert.showAndWait();
                 //Alert: file does not exist
             }
             if(fis != null) ois = new ObjectInputStream(fis);

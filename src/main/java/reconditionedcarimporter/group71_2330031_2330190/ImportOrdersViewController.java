@@ -19,31 +19,31 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     private TextField supplierIDTextfield;
     @javafx.fxml.FXML
-    private TableColumn<DummyOrders, LocalDate> expectedShipmentCol;
+    private TableColumn<DummyImportOrders, LocalDate> expectedShipmentCol;
     @javafx.fxml.FXML
-    private TableColumn<DummyOrders, String> brandCol;
+    private TableColumn<DummyImportOrders, String> brandCol;
     @javafx.fxml.FXML
-    private TableColumn<DummyOrders, Integer> quantityCol;
+    private TableColumn<DummyImportOrders, Integer> quantityCol;
     @javafx.fxml.FXML
-    private TableColumn<DummyOrders, String> modelCol;
+    private TableColumn<DummyImportOrders, String> modelCol;
     @javafx.fxml.FXML
-    private TableColumn<DummyOrders, String> supplierIdCol;
+    private TableColumn<DummyImportOrders, String> supplierIdCol;
     @javafx.fxml.FXML
     private TextField carQuantityTextField;
 
-    private ArrayList<DummyOrders> carsList;
+    private ArrayList<DummyImportOrders> carsList;
     @javafx.fxml.FXML
-    private TableView<DummyOrders> importOrdersTableView;
+    private TableView<DummyImportOrders> importOrdersTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
-        carsList = new ArrayList<DummyOrders>();
+        carsList = new ArrayList<DummyImportOrders>();
 
-        modelCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, String>("carModel"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, String>("supplierId"));
-        quantityCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, Integer>("carQuantity"));
-        brandCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, String>("carBrand"));
-        expectedShipmentCol.setCellValueFactory(new PropertyValueFactory<DummyOrders, LocalDate>("expectedShipmentDate"));
+        modelCol.setCellValueFactory(new PropertyValueFactory<DummyImportOrders, String>("carModel"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<DummyImportOrders, String>("supplierId"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<DummyImportOrders, Integer>("carQuantity"));
+        brandCol.setCellValueFactory(new PropertyValueFactory<DummyImportOrders, String>("carBrand"));
+        expectedShipmentCol.setCellValueFactory(new PropertyValueFactory<DummyImportOrders, LocalDate>("expectedShipmentDate"));
     }
 
     @javafx.fxml.FXML
@@ -65,13 +65,12 @@ public class ImportOrdersViewController
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("The file 'ImportOrders.bin' does not exist.");
                 alert.showAndWait();
-                //Alert: file does not exist
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
             while(true) {
                 importOrdersTableView.getItems().add(
-                        (DummyOrders) ois.readObject());
+                        (DummyImportOrders) ois.readObject());
             }
         }
         catch(Exception e){
@@ -99,7 +98,7 @@ public class ImportOrdersViewController
                 oos = new ObjectOutputStream(fos);
             }
 
-            oos.writeObject(new DummyOrders(carModelTextField.getText(), carBrandTextField.getText(),
+            oos.writeObject(new DummyImportOrders(carModelTextField.getText(), carBrandTextField.getText(),
                     supplierIDTextfield.getText(), Integer.parseInt(carQuantityTextField.getText()),
                     expectedShipmentDatePicker.getValue()));
 

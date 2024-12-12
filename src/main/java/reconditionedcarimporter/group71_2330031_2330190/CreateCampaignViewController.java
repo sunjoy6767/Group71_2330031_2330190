@@ -2,10 +2,7 @@ package reconditionedcarimporter.group71_2330031_2330190;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.*;
@@ -57,6 +54,9 @@ public class CreateCampaignViewController
                 fis = new FileInputStream(f);
             }
             else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("The file 'CreateCampaign.bin' does not exist.");
+                alert.showAndWait();
                 //Alert: file does not exist
             }
             if(fis != null) ois = new ObjectInputStream(fis);

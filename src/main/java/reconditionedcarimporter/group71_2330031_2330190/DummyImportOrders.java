@@ -3,15 +3,15 @@ package reconditionedcarimporter.group71_2330031_2330190;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class DummyOrders extends ImportedCar implements Serializable {
+public class DummyImportOrders extends ImportedCar implements Serializable {
     private String carModel, supplierId, carBrand;
     private int carQuantity;
     private LocalDate expectedShipmentDate;
 
-    public DummyOrders() {
+    public DummyImportOrders() {
     }
 
-    public DummyOrders(String carModel, String supplierId, String carBrand, int carQuantity, LocalDate expectedShipmentDate) {
+    public DummyImportOrders(String carModel, String supplierId, String carBrand, int carQuantity, LocalDate expectedShipmentDate) {
         this.carModel = carModel;
         this.supplierId = supplierId;
         this.carBrand = carBrand;
