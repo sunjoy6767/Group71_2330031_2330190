@@ -45,8 +45,11 @@ public class GenerateCostReportViewController
     public void initialize() {
         generateCostReports = new ArrayList<GenerateCostReport>();
 
+        GenerateCostReport generateCostReport = new GenerateCostReport();
+        double var = generateCostReport.totalAmount();
+
         reportIdCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, String>("reportId"));
-        totalCostCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("totalCost"));
+        totalCostCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("totalImportCost"));
         reportDateCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, LocalDate>("reportDate"));
     }
 

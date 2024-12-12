@@ -124,19 +124,7 @@ public class AddProductToInventory implements Serializable {
 
     @Override
     public String toString() {
-        return "AddProductToInventory{" +
-                "StockNumber=" + StockNumber +
-                ", Vin='" + Vin + '\'' +
-                ", Brand='" + Brand + '\'' +
-                ", Milieage='" + Milieage + '\'' +
-                ", Enginecc='" + Enginecc + '\'' +
-                ", Type='" + Type + '\'' +
-                ", FuelType='" + FuelType + '\'' +
-                ", Quantity='" + Quantity + '\'' +
-                ", Price=" + Price +
-                ", Transmission='" + Transmission + '\'' +
-                ", Steering='" + Steering + '\'' +
-                '}';
+        return StockNumber + "," + Vin + "," +  Brand +","+ Milieage +","+ Enginecc +","+ Type +","+FuelType +","+ Quantity +","+ Price + ","+ Transmission +","+ Steering + "\n";
     }
 
     public String toString(String str){

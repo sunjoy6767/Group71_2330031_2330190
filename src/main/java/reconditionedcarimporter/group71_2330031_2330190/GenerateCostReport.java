@@ -102,7 +102,8 @@ public class GenerateCostReport implements Serializable {
                 '}';
     }
 
-    public Double totalAmount(double totalAmount) {
+    public Double totalAmount() {
+        double totalAmount;
         return totalAmount = purchaseCost + customsDutyAmount + shippingCost + inspectionCost + additionalFees + totalImportCost;
 
     }

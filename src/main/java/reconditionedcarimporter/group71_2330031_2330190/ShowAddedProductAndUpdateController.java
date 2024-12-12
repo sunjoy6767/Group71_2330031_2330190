@@ -83,8 +83,7 @@ public class ShowAddedProductAndUpdateController
                 AddProductToInventory product = (AddProductToInventory) ois.readObject();
                 addedProduct.add(product);
             }
-            //ois.close();
-
+//         ois.close();
         }
         catch(Exception e){
             try {

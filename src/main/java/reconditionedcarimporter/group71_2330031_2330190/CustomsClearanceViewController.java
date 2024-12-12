@@ -57,7 +57,7 @@ public class CustomsClearanceViewController
         customsAgentNameCol.setCellValueFactory(new PropertyValueFactory<CustomsClearance, String>("customsAgentName"));
         customsDutyAmountCol.setCellValueFactory(new PropertyValueFactory<CustomsClearance, Double>("customsDutyAmount"));
         clearanceStatusCol.setCellValueFactory(new PropertyValueFactory<CustomsClearance, String>("clearanceStatus"));
-        dutyPaidStatusCol.setCellValueFactory(new PropertyValueFactory<CustomsClearance, String>("dutyPaidStatus"));
+        dutyPaidStatusCol.setCellValueFactory(new PropertyValueFactory<CustomsClearance, String>("customsDutyPaidStatus"));
         clearanceDateCol.setCellValueFactory(new PropertyValueFactory<CustomsClearance, LocalDate>("clearanceDate"));
     }
 

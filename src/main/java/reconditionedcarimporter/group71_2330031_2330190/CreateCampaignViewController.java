@@ -40,10 +40,10 @@ public class CreateCampaignViewController
 
     @javafx.fxml.FXML
     public void initialize() {
-        campaignNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        campaignBudgetCol.setCellValueFactory(new PropertyValueFactory<>("budget"));
-        startingDateCol.setCellValueFactory(new PropertyValueFactory<>("startingDate"));
-        endingDateCol.setCellValueFactory(new PropertyValueFactory<>("endingDate"));
+        campaignNameCol.setCellValueFactory(new PropertyValueFactory<Campaign, String>("campaignName"));
+        campaignBudgetCol.setCellValueFactory(new PropertyValueFactory<Campaign, Integer>("budget"));
+        startingDateCol.setCellValueFactory(new PropertyValueFactory<Campaign, LocalDate>("startDate"));
+        endingDateCol.setCellValueFactory(new PropertyValueFactory<Campaign, LocalDate>("endDate"));
     }
 
     @javafx.fxml.FXML

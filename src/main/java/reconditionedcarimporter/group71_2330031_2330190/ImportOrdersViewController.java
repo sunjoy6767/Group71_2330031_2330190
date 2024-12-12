@@ -42,10 +42,10 @@ public class ImportOrdersViewController
     public void initialize() {
         carsList = new ArrayList<ImportedCar>();
 
-        modelCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("model"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<Supplier, String>("supplierID"));
-        quantityCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, Integer>("quantity"));
-        brandCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("brand"));
+        modelCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("carModel"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<Supplier, String>("supplierId"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, Integer>("carQuantity"));
+        brandCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, String>("carBrand"));
         expectedShipmentCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, LocalDate>("expectedShipmentDate"));
     }
 

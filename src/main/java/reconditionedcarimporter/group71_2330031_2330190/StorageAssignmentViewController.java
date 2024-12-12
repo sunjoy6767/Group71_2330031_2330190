@@ -48,7 +48,7 @@ public class StorageAssignmentViewController
     public void initialize() {
         storageAssignments = new ArrayList<StorageAssignment>();
 
-        assignmentIdCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, String>("assignmentId"));
+        assignmentIdCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, String>("storageAssignmentId"));
         carIdCol.setCellValueFactory(new PropertyValueFactory<ImportedCar, Integer>("carId"));
         storageUnitNumberCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, String>("storageUnitNumber"));
         assignedDateCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, LocalDate>("assignedDate"));
