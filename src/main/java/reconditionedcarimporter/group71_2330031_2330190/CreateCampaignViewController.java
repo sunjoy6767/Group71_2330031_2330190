@@ -1,5 +1,6 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -33,10 +34,13 @@ public class CreateCampaignViewController
     @javafx.fxml.FXML
     private TableColumn<Campaign, Integer> campaignBudgetCol;
 
-    ObservableList<Campaign> campaignObservableList;
+    private ObservableList<Campaign> campaignObservableList;
 
     @javafx.fxml.FXML
     public void initialize() {
+        campaignObservableList = FXCollections.observableArrayList();
+        campaignTableView.setItems(campaignObservableList);
+
         campaignNameCol.setCellValueFactory(new PropertyValueFactory<Campaign, String>("campaignName"));
         campaignBudgetCol.setCellValueFactory(new PropertyValueFactory<Campaign, Integer>("budget"));
         startingDateCol.setCellValueFactory(new PropertyValueFactory<Campaign, LocalDate>("startDate"));

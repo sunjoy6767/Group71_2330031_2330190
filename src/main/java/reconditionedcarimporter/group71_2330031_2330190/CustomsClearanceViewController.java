@@ -49,6 +49,8 @@ public class CustomsClearanceViewController
     @FXML
     private TableView<CustomsClearance> customsClearanceTableView;
 
+
+
     @FXML
     public void initialize() {
        // customsDutyList = new ArrayList<CustomsClearance>();
@@ -67,7 +69,7 @@ public class CustomsClearanceViewController
         ObjectInputStream ois=null;
 
         try{
-            File f = new File("CustomsClearance.bin");
+           File f = new File("CustomsClearance.bin");
             if(f.exists()){
                 fis = new FileInputStream(f);
             }
