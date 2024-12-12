@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 
 public class ShowAddedProductAndUpdateController
 {
@@ -48,11 +45,11 @@ public class ShowAddedProductAndUpdateController
     @javafx.fxml.FXML
     private TextField updatedVinTextField;
     @javafx.fxml.FXML
-    private ComboBox<AddProductToInventory> updatedSteeringComboBox;
+    private ComboBox<String> updatedSteeringComboBox;
     @javafx.fxml.FXML
     private TextField updatedMileTextField;
     @javafx.fxml.FXML
-    private ComboBox<AddProductToInventory> updatedTransmissionComboBox;
+    private ComboBox<String> updatedTransmissionComboBox;
     @javafx.fxml.FXML
     private TextField updatedPrice;
     @javafx.fxml.FXML
@@ -64,6 +61,10 @@ public class ShowAddedProductAndUpdateController
 
     @javafx.fxml.FXML
     public void initialize() {
+        updatedTransmissionComboBox.getItems().addAll("Manual","Automatic");
+        updatedSteeringComboBox.getItems().addAll("Right Hand Drive","Left Hand Drive");
+
+
         addedProduct = FXCollections.observableArrayList();
         showAddedProductfxid.setItems(addedProduct);
 
@@ -94,7 +95,6 @@ public class ShowAddedProductAndUpdateController
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("The file 'AddedProductToInventory.bin' does not exist.");
                 alert.showAndWait();
-                //Alert: file does not exist
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
@@ -124,6 +124,72 @@ public class ShowAddedProductAndUpdateController
 
     @javafx.fxml.FXML
     public void updateProductButtonOnAction(ActionEvent actionEvent) {
-        
+        try {
+            int stockNumberToUpdate = Integer.parseInt(updatedSNTextField.getText());
+
+            boolean productUpdated = false;
+
+            for (AddProductToInventory product : addedProduct) {
+                if (product.getStockNumber() == stockNumberToUpdate) {
+                    product.setVin(updatedVinTextField.getText());
+                    product.setBrand(updatedBrandTextField.getText());
+                    product.setMilieage(updatedMileTextField.getText());
+                    product.setEnginecc(updatedEngineCCTextField.getText());
+                    product.setQuantity(updatedQuantity.getText());
+                    product.setTransmission(updatedTransmissionComboBox.getValue());
+                    product.setType(updatedTypeOfCarTextField.getText());
+                    product.setPrice(Double.parseDouble(updatedPrice.getText()));
+                    product.setFuelType(updatedFuelTypeTextField.getText());
+                    product.setSteering(updatedSteeringComboBox.getValue());
+
+                    productUpdated = true;
+                    break;
+                }
+            }
+
+            if (!productUpdated) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Product Not Found");
+                alert.setHeaderText(null);
+                alert.setContentText("No product with Stock Number " + stockNumberToUpdate + " was found.");
+                alert.showAndWait();
+                return;
+            }
+
+            rewriteProductFile();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Update Successful");
+            alert.setHeaderText(null);
+            alert.setContentText("The product has been updated successfully.");
+            alert.showAndWait();
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter valid numeric values for Stock Number, Quantity, and Price.");
+            alert.showAndWait();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to update the product file: " + e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    private void rewriteProductFile() throws IOException {
+        File file = new File("AddedProductToInventory.bin");
+        if (file.exists()) {
+            if (!file.delete()) {
+                throw new IOException("Failed to delete the old file.");
+            }
+        }
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            for (AddProductToInventory product : addedProduct) {
+                oos.writeObject(product);
+            }
+        }
     }
 }
