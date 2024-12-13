@@ -41,5 +41,6 @@
       <ComboBox fx:id="updatedSteeringComboBox" layoutX="125.0" layoutY="164.0" prefWidth="150.0" />
       <Label layoutX="36.0" layoutY="133.0" text="Transmission" />
       <Label layoutX="36.0" layoutY="168.0" text="Steering" />
+      <Button layoutX="457.0" layoutY="448.0" mnemonicParsing="false" onAction="#clearTableOnActionButton" text="Clear Table" />
    </children>
 </AnchorPane>

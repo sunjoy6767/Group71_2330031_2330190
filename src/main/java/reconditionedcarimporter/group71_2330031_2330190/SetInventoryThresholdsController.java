@@ -5,6 +5,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+<<<<<<< HEAD
+import java.io.IOException;
+
+=======
+>>>>>>> 3bc00b52d34941df03bc650b153d6440f4778ca1
 public class SetInventoryThresholdsController
 {
     @javafx.fxml.FXML
@@ -25,7 +30,8 @@ public class SetInventoryThresholdsController
     }
 
     @javafx.fxml.FXML
-    public void goBackToInvenoryManagerButtonOnAction(ActionEvent actionEvent) {
+    public void goBackToInvenoryManagerButtonOnAction (ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
