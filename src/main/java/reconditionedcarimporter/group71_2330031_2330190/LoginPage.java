@@ -37,20 +37,4 @@ public class LoginPage {
                 '}';
     }
 
-    private void showAlert(String title, String message, Alert.AlertType type) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
-    private void handleLogin(String username, String password) {
-        // Example login validation: hardcoded username/password
-        if (username.equals("user") && password.equals("password123")) {
-            showAlert("Login Successful", "You have successfully logged in!", Alert.AlertType.INFORMATION);
-        } else {
-            showAlert("Login Failed", "Invalid username or password.", Alert.AlertType.ERROR);
-        }
-    }
 }
