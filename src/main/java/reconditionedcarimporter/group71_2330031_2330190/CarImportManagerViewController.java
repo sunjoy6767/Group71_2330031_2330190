@@ -42,7 +42,8 @@ public class CarImportManagerViewController {
     }
 
     @javafx.fxml.FXML
-    public void shipmentDelaysButtonOnAction(ActionEvent actionEvent) {
+    public void shipmentDelaysButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("ShipmentDelays-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
@@ -52,5 +53,6 @@ public class CarImportManagerViewController {
 
     @javafx.fxml.FXML
     public void vehicleInspectionCoordinationButtonOnAction(ActionEvent actionEvent) {
+
     }
 }

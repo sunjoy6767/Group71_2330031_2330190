@@ -77,7 +77,6 @@ public class CustomsClearanceViewController
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("The file 'CustomsClearance.bin' does not exist.");
                 alert.showAndWait();
-                //Alert: file does not exist
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
@@ -91,7 +90,11 @@ public class CustomsClearanceViewController
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                //
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("File Not Found");
+                alert.setHeaderText(null);
+                alert.setContentText("The file 'ShipmentDelays.bin' does not exist.");
+                alert.showAndWait();
             }
         }
     }
@@ -132,6 +135,12 @@ public class CustomsClearanceViewController
                     paidStatus, clearanceDatePicker.getValue()));
 
             oos.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Shipment delay details saved successfully.");
+            alert.showAndWait();
         }
         catch(Exception e){
             //

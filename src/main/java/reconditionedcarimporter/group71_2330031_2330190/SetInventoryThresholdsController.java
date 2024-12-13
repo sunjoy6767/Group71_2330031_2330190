@@ -1,5 +1,10 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
 public class SetInventoryThresholdsController
 {
     @javafx.fxml.FXML
