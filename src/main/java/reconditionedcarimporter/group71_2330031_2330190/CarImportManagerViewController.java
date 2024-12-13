@@ -52,7 +52,7 @@ public class CarImportManagerViewController {
     }
 
     @javafx.fxml.FXML
-    public void vehicleInspectionCoordinationButtonOnAction(ActionEvent actionEvent) {
-
+    public void vehicleInspectionCoordinationButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("VehicleInspectionCoordination-view.fxml", actionEvent);
     }
 }

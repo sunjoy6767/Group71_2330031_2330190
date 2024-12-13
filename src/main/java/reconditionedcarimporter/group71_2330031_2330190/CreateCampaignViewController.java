@@ -75,7 +75,7 @@ public class CreateCampaignViewController
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                
+
             }
         }
     }
