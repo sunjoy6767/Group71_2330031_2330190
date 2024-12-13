@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.BrandReputationViewController">
+   <children>
+      <Label layoutX="23.0" layoutY="21.0" text="Campaign ID:" />
+      <Label layoutX="23.0" layoutY="56.0" text="Platform:" />
+      <Label layoutX="23.0" layoutY="94.0" text="Feedback Summary:" />
+      <Label layoutX="314.0" layoutY="21.0" text="Improvement Areas:" />
+      <Label layoutX="314.0" layoutY="94.0" text="Positive Mentions:" />
+      <Label layoutX="314.0" layoutY="56.0" text="Negative Mentions:" />
+      <TextField fx:id="campaignIdTextField" layoutX="137.0" layoutY="17.0" />
+      <TextField fx:id="platformTextField" layoutX="137.0" layoutY="52.0" />
+      <TextField fx:id="feedbackSummary" layoutX="137.0" layoutY="90.0" />
+      <TextField fx:id="improvementAreasTextField" layoutX="436.0" layoutY="17.0" />
+      <TextField fx:id="negativeMentionsTextField" layoutX="436.0" layoutY="52.0" />
+      <TextField fx:id="positiveMentionsTextField" layoutX="436.0" layoutY="90.0" />
+      <Button layoutX="13.0" layoutY="123.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" prefHeight="61.0" prefWidth="149.0" text="Go back to MarketingManagerView" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="313.0" layoutY="145.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
+      <Button layoutX="182.0" layoutY="145.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
+      <TableView fx:id="brandReputationTableView" layoutX="4.0" layoutY="196.0" prefHeight="200.0" prefWidth="594.0">
+        <columns>
+          <TableColumn fx:id="campaignIdCol" prefWidth="83.99996948242188" text="Campaign ID" />
+          <TableColumn fx:id="platformCol" prefWidth="85.33331298828125" text="Platform" />
+            <TableColumn fx:id="summaryCol" prefWidth="85.33331298828125" text="Summary" />
+            <TableColumn fx:id="improvementAreasCol" prefWidth="148.0" text="Improvement Areas" />
+            <TableColumn fx:id="negativeMentionsCol" prefWidth="97.33331298828125" text="Neg. Mentions" />
+            <TableColumn fx:id="positiveMentionsCol" prefWidth="94.00006103515625" text="Pos. Mentions" />
+        </columns>
+      </TableView>
+      <Button layoutX="436.0" layoutY="145.0" mnemonicParsing="false" onAction="#showTotalMentionsButtonOnAction" text="Show Total Mentions" />
+   </children>
+</AnchorPane>

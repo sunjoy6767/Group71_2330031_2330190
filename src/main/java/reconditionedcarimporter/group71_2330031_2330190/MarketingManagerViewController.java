@@ -14,9 +14,6 @@ public class MarketingManagerViewController
     public void promotionalOffersButtonOnAction(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
-    public void customerDemographicsButtonOnAction(ActionEvent actionEvent) {
-    }
 
     @javafx.fxml.FXML
     public void createCampaignButtonOnAction(ActionEvent actionEvent) throws IOException {
@@ -27,9 +24,6 @@ public class MarketingManagerViewController
     public void socialMediaDashboardButtonOnAction(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
-    public void salesTeamCoordinationButtonOnAction(ActionEvent actionEvent) {
-    }
 
     @javafx.fxml.FXML
     public void logOutButtonOnAction(ActionEvent actionEvent) throws IOException {
@@ -48,5 +42,15 @@ public class MarketingManagerViewController
 
     @javafx.fxml.FXML
     public void budgetManagementButtonOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void brandReputationButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("BrandReputation-view.fxml", actionEvent);
+    }
+
+    @javafx.fxml.FXML
+    public void seasonalCampaignButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("BrandReputation-view.fxml", actionEvent);
     }
 }

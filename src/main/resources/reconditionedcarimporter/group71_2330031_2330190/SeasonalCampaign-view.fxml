@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.SeasonalCampaignViewController">
+   <children>
+      <Label layoutX="22.0" layoutY="20.0" text="Campaign ID:" />
+      <Label layoutX="22.0" layoutY="55.0" text="Campaign Theme:" />
+      <Label layoutX="22.0" layoutY="90.0" text="Target Audience:" />
+      <Label layoutX="22.0" layoutY="123.0" text="Historical Data Summary:" />
+      <Label layoutX="300.0" layoutY="20.0" text="Start Date:" />
+      <Label layoutX="300.0" layoutY="55.0" text="End Date:" />
+      <Label layoutX="300.0" layoutY="90.0" text="Forecasted Revenue:" />
+      <TextField fx:id="campaignIdTextField" layoutX="134.0" layoutY="16.0" />
+      <TextField fx:id="campaignThemeTextField" layoutX="134.0" layoutY="51.0" />
+      <TextField fx:id="targetAudienceTextField" layoutX="134.0" layoutY="86.0" />
+      <TextField fx:id="dataSummaryTextField" layoutX="168.0" layoutY="119.0" />
+      <TextField fx:id="forecastedRevenueTextField" layoutX="428.0" layoutY="86.0" />
+      <DatePicker fx:id="startDatePicker" layoutX="403.0" layoutY="16.0" />
+      <DatePicker fx:id="endDatePicker" layoutX="403.0" layoutY="51.0" />
+      <TableView fx:id="seasonalCampaignTableView" layoutX="6.0" layoutY="199.0" prefHeight="200.0" prefWidth="649.0">
+        <columns>
+          <TableColumn fx:id="campaignIdCol" prefWidth="85.33331298828125" text="Campaign ID" />
+          <TableColumn fx:id="campaignThemeCol" prefWidth="109.33334350585938" text="Campaign Theme" />
+            <TableColumn fx:id="audienceCol" prefWidth="84.00001525878906" text="Audience" />
+            <TableColumn fx:id="dataSummaryCol" prefWidth="124.66668701171875" text="Data Summary" />
+            <TableColumn fx:id="startDateCol" text="Start Date" />
+            <TableColumn fx:id="endDateCol" prefWidth="78.00003051757812" text="End Date" />
+            <TableColumn fx:id="revenueCol" prefWidth="85.33331298828125" text="Revenue" />
+        </columns>
+      </TableView>
+      <Button layoutX="16.0" layoutY="156.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" text="Go back to MarketingManagerView" />
+      <Button layoutX="243.0" layoutY="156.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
+      <Button layoutX="372.0" layoutY="156.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
+   </children>
+</AnchorPane>
