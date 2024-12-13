@@ -145,7 +145,11 @@ public class CustomsClearanceViewController
             alert.showAndWait();
         }
         catch(Exception e){
-            //
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save the CustomsClearance.bin file.");
+            alert.showAndWait();
         }
     }
 

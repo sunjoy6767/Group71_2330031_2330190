@@ -88,7 +88,11 @@ public class CompetitorAnalysisViewController
 
         }
         catch (Exception e) {
-            //
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save the Competitor Analysis");
+            alert.showAndWait();
         }
     }
 

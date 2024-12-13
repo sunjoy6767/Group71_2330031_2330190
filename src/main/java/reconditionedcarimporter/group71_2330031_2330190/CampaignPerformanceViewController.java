@@ -102,7 +102,7 @@ public class CampaignPerformanceViewController
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("File Error");
             alert.setHeaderText(null);
-            alert.setContentText("Failed to save the campaign performance: ");
+            alert.setContentText("Failed to save the campaign performance");
             alert.showAndWait();
         }
     }

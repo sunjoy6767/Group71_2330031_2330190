@@ -83,7 +83,11 @@ public class GenerateCostReportViewController
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                //
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("File Not Found");
+                alert.setHeaderText(null);
+                alert.setContentText("The file 'GenerateCostReport.bin' does not exist.");
+                alert.showAndWait();
             }
         }
     }
@@ -124,9 +128,11 @@ public class GenerateCostReportViewController
             alert.showAndWait();
         }
         catch(Exception e){
-            //
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save the GenerateCostReport.bin file.");
+            alert.showAndWait();
         }
-
-
     }
 }

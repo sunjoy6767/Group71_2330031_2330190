@@ -94,7 +94,11 @@ public class PromotionalOfferViewController
             alert.showAndWait();
         }
         catch(Exception e){
-            //
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save the PromotionalOffer.bin file.");
+            alert.showAndWait();
         }
     }
 
@@ -131,7 +135,11 @@ public class PromotionalOfferViewController
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                //
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("File Not Found");
+                alert.setHeaderText(null);
+                alert.setContentText("The file 'PromotionalOffer.bin' does not exist.");
+                alert.showAndWait();
             }
         }
     }
