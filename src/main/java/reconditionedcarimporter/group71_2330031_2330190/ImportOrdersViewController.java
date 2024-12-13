@@ -1,5 +1,7 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,13 +33,14 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     private TextField carQuantityTextField;
 
-    private ArrayList<DummyImportOrders> carsList;
+    private ObservableList<DummyImportOrders> carsList;
     @javafx.fxml.FXML
     private TableView<DummyImportOrders> importOrdersTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
-        carsList = new ArrayList<DummyImportOrders>();
+        carsList = FXCollections.observableArrayList();
+        importOrdersTableView.setItems(carsList);
 
         modelCol.setCellValueFactory(new PropertyValueFactory<DummyImportOrders, String>("carModel"));
         supplierIdCol.setCellValueFactory(new PropertyValueFactory<DummyImportOrders, String>("supplierId"));
@@ -81,7 +84,7 @@ public class ImportOrdersViewController
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("File Not Found");
                 alert.setHeaderText(null);
-                alert.setContentText("The file 'ShipmentDelays.bin' does not exist.");
+                alert.setContentText("The file 'ImportOrders.bin' does not exist.");
                 alert.showAndWait();
             }
         }
@@ -90,7 +93,7 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     public void saveAllTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
-            File f = new File("ImportedCar.bin");
+            File f = new File("ImportOrders.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
             if(f.exists()){
@@ -111,11 +114,15 @@ public class ImportOrdersViewController
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText(null);
-            alert.setContentText("Shipment delay details saved successfully.");
+            alert.setContentText("Import Orders details saved successfully.");
             alert.showAndWait();
         }
         catch(Exception e){
-            //
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save the ImportOrders.bin file.");
+            alert.showAndWait();
         }
     }
 }

@@ -76,7 +76,11 @@ public class ShipmentDelaysViewController
             alert.showAndWait();
         }
         catch(Exception e){
-            //
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save the ShipmentDelays.bin file.");
+            alert.showAndWait();
         }
     }
 

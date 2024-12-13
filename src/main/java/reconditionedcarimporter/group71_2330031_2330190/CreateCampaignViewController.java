@@ -75,7 +75,11 @@ public class CreateCampaignViewController
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("File Not Found");
+                alert.setHeaderText(null);
+                alert.setContentText("The file 'CreateCampaign.bin' does not exist.");
+                alert.showAndWait();
             }
         }
     }
@@ -104,11 +108,15 @@ public class CreateCampaignViewController
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText(null);
-            alert.setContentText("Shipment delay details saved successfully.");
+            alert.setContentText("Create Campaign details saved successfully.");
             alert.showAndWait();
         }
         catch(Exception e){
-            //
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save the CreateCampaign.bin file.");
+            alert.showAndWait();
         }
 
     }

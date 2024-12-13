@@ -42,7 +42,8 @@ public class MarketingManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void competitorAnalysisButtonOnAction(ActionEvent actionEvent) {
+    public void competitorAnalysisButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("CompetitorAnalysis-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

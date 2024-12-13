@@ -87,7 +87,11 @@ public class StorageAssignmentViewController
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                //
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("File Not Found");
+                alert.setHeaderText(null);
+                alert.setContentText("The file 'StorageAssignment.bin' does not exist.");
+                alert.showAndWait();
             }
         }
     }
@@ -122,7 +126,11 @@ public class StorageAssignmentViewController
             alert.showAndWait();
         }
         catch(Exception e){
-            //
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("File Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save the StorageAssignment.bin file.");
+            alert.showAndWait();
         }
     }
 
