@@ -106,7 +106,7 @@ public class VehicleInspectionCoordinationViewController
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText(null);
-            alert.setContentText("Shipment delay details saved successfully.");
+            alert.setContentText("Vehicle Inspection details saved successfully.");
             alert.showAndWait();
         }
         catch(Exception e){

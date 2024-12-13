@@ -118,7 +118,7 @@ public class StorageAssignmentViewController
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText(null);
-            alert.setContentText("Shipment delay details saved successfully.");
+            alert.setContentText("Storage Assignment details saved successfully.");
             alert.showAndWait();
         }
         catch(Exception e){
