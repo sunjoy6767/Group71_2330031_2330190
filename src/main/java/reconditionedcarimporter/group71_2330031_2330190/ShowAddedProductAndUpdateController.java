@@ -192,4 +192,18 @@ public class ShowAddedProductAndUpdateController
             }
         }
     }
+
+    @javafx.fxml.FXML
+    public void clearTableOnActionButton(ActionEvent actionEvent) {
+
+        addedProduct.clear();
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All products have been cleared from the table.");
+        alert.showAndWait();
+
+    }
 }

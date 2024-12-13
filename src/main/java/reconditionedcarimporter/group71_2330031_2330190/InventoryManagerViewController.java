@@ -16,11 +16,12 @@ public class InventoryManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void generateInventoryReportsOnAction(ActionEvent actionEvent) {
+    public void generateInventoryReportsOnAction(ActionEvent actionEvent)  {
     }
 
     @javafx.fxml.FXML
-    public void setInventoryThresholdsOnAction(ActionEvent actionEvent) {
+    public void setInventoryThresholdsOnAction(ActionEvent actionEvent) throws IOException{
+        SceneSwitcher.switchScene("SetInventoryThresholds.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

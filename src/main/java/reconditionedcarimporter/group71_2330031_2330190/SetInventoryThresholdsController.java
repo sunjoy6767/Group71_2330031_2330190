@@ -1,5 +1,12 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
+import java.io.IOException;
+
 public class SetInventoryThresholdsController
 {
     @javafx.fxml.FXML
@@ -20,7 +27,8 @@ public class SetInventoryThresholdsController
     }
 
     @javafx.fxml.FXML
-    public void goBackToInvenoryManagerButtonOnAction(ActionEvent actionEvent) {
+    public void goBackToInvenoryManagerButtonOnAction (ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
