@@ -7,10 +7,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="509.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.ShowAddedProductAndUpdateController">
+<AnchorPane prefHeight="584.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.ShowAddedProductAndUpdateController">
    <children>
-      <TableView fx:id="showAddedProductfxid" layoutX="14.0" layoutY="224.0" prefHeight="200.0" prefWidth="825.0">
+      <TableView fx:id="showAddedProductfxid" layoutX="22.0" layoutY="303.0" prefHeight="200.0" prefWidth="825.0">
         <columns>
           <TableColumn fx:id="SNTableCol" prefWidth="75.0" text="SN" />
           <TableColumn fx:id="vinTableCol" prefWidth="75.0" text="Vin" />
@@ -25,22 +26,27 @@
             <TableColumn fx:id="stringTableCol" prefWidth="75.0" text="Steering" />
         </columns>
       </TableView>
-      <Button layoutX="115.0" layoutY="448.0" mnemonicParsing="false" onAction="#showProductOnTableOnAction" text="Show Product On Table View" />
-      <Button layoutX="20.0" layoutY="448.0" mnemonicParsing="false" onAction="#goBackToCarInventoryManagerViewButtonOnAction" text="Go back" />
-      <TextField fx:id="updatedSNTextField" layoutX="20.0" layoutY="14.0" prefHeight="25.0" prefWidth="161.0" promptText="Enter SN to update product" />
-      <Button layoutX="318.0" layoutY="448.0" mnemonicParsing="false" onAction="#updateProductButtonOnAction" text="Update Product" />
-      <TextField fx:id="updatedVinTextField" layoutX="20.0" layoutY="50.0" promptText="Enter Vin" />
-      <TextField fx:id="updatedBrandTextField" layoutX="20.0" layoutY="87.0" promptText="Enter Brand" />
-      <TextField fx:id="updatedEngineCCTextField" layoutX="234.0" layoutY="14.0" promptText="Enter EnginceCC" />
-      <TextField fx:id="updatedTypeOfCarTextField" layoutX="234.0" layoutY="50.0" promptText="Type of car" />
-      <TextField fx:id="updatedFuelTypeTextField" layoutX="234.0" layoutY="87.0" promptText="Fuel Type" />
-      <TextField fx:id="updatedPrice" layoutX="434.0" layoutY="14.0" promptText="Price" />
-      <TextField fx:id="updatedMileTextField" layoutX="434.0" layoutY="87.0" promptText="Enter Mile" />
-      <TextField fx:id="updatedQuantity" layoutX="434.0" layoutY="50.0" promptText="Quantity" />
-      <ComboBox fx:id="updatedTransmissionComboBox" layoutX="125.0" layoutY="129.0" prefWidth="150.0" />
-      <ComboBox fx:id="updatedSteeringComboBox" layoutX="125.0" layoutY="164.0" prefWidth="150.0" />
-      <Label layoutX="36.0" layoutY="133.0" text="Transmission" />
-      <Label layoutX="36.0" layoutY="168.0" text="Steering" />
-      <Button layoutX="457.0" layoutY="448.0" mnemonicParsing="false" onAction="#clearTableOnActionButton" text="Clear Table" />
+      <Button layoutX="123.0" layoutY="527.0" mnemonicParsing="false" onAction="#showProductOnTableOnAction" text="Show Product On Table View" />
+      <Button layoutX="28.0" layoutY="527.0" mnemonicParsing="false" onAction="#goBackToCarInventoryManagerViewButtonOnAction" text="Go back" />
+      <TextField fx:id="updatedSNTextField" layoutX="28.0" layoutY="106.0" prefHeight="25.0" prefWidth="161.0" promptText="Enter SN to update product" />
+      <Button layoutX="326.0" layoutY="527.0" mnemonicParsing="false" onAction="#updateProductButtonOnAction" text="Update Product" />
+      <TextField fx:id="updatedVinTextField" layoutX="28.0" layoutY="142.0" promptText="Enter Vin" />
+      <TextField fx:id="updatedBrandTextField" layoutX="28.0" layoutY="179.0" promptText="Enter Brand" />
+      <TextField fx:id="updatedEngineCCTextField" layoutX="242.0" layoutY="106.0" promptText="Enter EnginceCC" />
+      <TextField fx:id="updatedTypeOfCarTextField" layoutX="242.0" layoutY="142.0" promptText="Type of car" />
+      <TextField fx:id="updatedFuelTypeTextField" layoutX="242.0" layoutY="179.0" promptText="Fuel Type" />
+      <TextField fx:id="updatedPrice" layoutX="442.0" layoutY="106.0" promptText="Price" />
+      <TextField fx:id="updatedMileTextField" layoutX="442.0" layoutY="179.0" promptText="Enter Mile" />
+      <TextField fx:id="updatedQuantity" layoutX="442.0" layoutY="142.0" promptText="Quantity" />
+      <ComboBox fx:id="updatedTransmissionComboBox" layoutX="133.0" layoutY="221.0" prefWidth="150.0" />
+      <ComboBox fx:id="updatedSteeringComboBox" layoutX="133.0" layoutY="256.0" prefWidth="150.0" />
+      <Label layoutX="44.0" layoutY="225.0" text="Transmission" />
+      <Label layoutX="44.0" layoutY="260.0" text="Steering" />
+      <Button layoutX="465.0" layoutY="527.0" mnemonicParsing="false" onAction="#clearTableOnActionButton" text="Clear Table" />
+      <Label layoutX="28.0" layoutY="46.0" text="Show Added Product And Update Them">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

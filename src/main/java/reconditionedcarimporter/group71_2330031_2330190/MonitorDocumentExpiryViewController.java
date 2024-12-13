@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.io.IOException;
+
 public class MonitorDocumentExpiryViewController
 {
     @javafx.fxml.FXML
@@ -24,7 +26,8 @@ public class MonitorDocumentExpiryViewController
     }
 
     @javafx.fxml.FXML
-    public void goBackToInventoryManagerButtonOnAction(ActionEvent actionEvent) {
+    public void goBackToInventoryManagerButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

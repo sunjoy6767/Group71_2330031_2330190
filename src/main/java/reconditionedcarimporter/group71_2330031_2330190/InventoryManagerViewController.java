@@ -16,7 +16,8 @@ public class InventoryManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void generateInventoryReportsOnAction(ActionEvent actionEvent)  {
+    public void generateInventoryReportsOnAction(ActionEvent actionEvent)  throws IOException {
+        SceneSwitcher.switchScene("GenerateInventoryReports-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
@@ -25,7 +26,8 @@ public class InventoryManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void trackInventoryLevelsOnAction(ActionEvent actionEvent) {
+    public void trackInventoryLevelsOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("TrackInventoryLevels-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
@@ -34,15 +36,18 @@ public class InventoryManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void removeProductsfromInventoryOnAction(ActionEvent actionEvent) {
+    public void removeProductsfromInventoryOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("RemoveProductsfromInventory-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
-    public void transferStockBetweenWarehousesOnAction(ActionEvent actionEvent) {
+    public void transferStockBetweenWarehousesOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("TransferStockBetweenWarehouses-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
-    public void monitorDocumentExpiryOnAction(ActionEvent actionEvent) {
+    public void monitorDocumentExpiryOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("MonitorDocumentExpiry-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

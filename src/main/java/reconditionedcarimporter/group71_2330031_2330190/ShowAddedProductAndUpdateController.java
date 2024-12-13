@@ -65,6 +65,7 @@ public class ShowAddedProductAndUpdateController
         updatedSteeringComboBox.getItems().addAll("Right Hand Drive","Left Hand Drive");
 
 
+
         addedProduct = FXCollections.observableArrayList();
         showAddedProductfxid.setItems(addedProduct);
 

@@ -15,12 +15,12 @@ public class AddProductToInventory implements Serializable {
     private double Price;
     private String Transmission;
     private String Steering;
-
+    private String Warehouse;
 
     public AddProductToInventory() {
     }
 
-    public AddProductToInventory(int stockNumber, String vin, String brand, String milieage, String enginecc, String type, String fuelType, String quantity, double price, String transmission, String steering) {
+    public AddProductToInventory(int stockNumber, String vin, String brand, String milieage, String enginecc, String type, String fuelType, String quantity, double price, String transmission, String steering, String warehouse) {
         StockNumber = stockNumber;
         Vin = vin;
         Brand = brand;
@@ -32,6 +32,7 @@ public class AddProductToInventory implements Serializable {
         Price = price;
         Transmission = transmission;
         Steering = steering;
+        Warehouse = warehouse;
     }
 
     public int getStockNumber() {
@@ -50,20 +51,20 @@ public class AddProductToInventory implements Serializable {
         Vin = vin;
     }
 
-    public String getMilieage() {
-        return Milieage;
-    }
-
-    public void setMilieage(String milieage) {
-        Milieage = milieage;
-    }
-
     public String getBrand() {
         return Brand;
     }
 
     public void setBrand(String brand) {
         Brand = brand;
+    }
+
+    public String getMilieage() {
+        return Milieage;
+    }
+
+    public void setMilieage(String milieage) {
+        Milieage = milieage;
     }
 
     public String getEnginecc() {
@@ -122,13 +123,38 @@ public class AddProductToInventory implements Serializable {
         Steering = steering;
     }
 
+    public String getWarehouse() {
+        return Warehouse;
+    }
+
+    public void setWarehouse(String warehouse) {
+        Warehouse = warehouse;
+    }
+
     @Override
     public String toString() {
-        return StockNumber + "," + Vin + "," +  Brand +","+ Milieage +","+ Enginecc +","+ Type +","+FuelType +","+ Quantity +","+ Price + ","+ Transmission +","+ Steering + "\n";
+        return "AddProductToInventory{" +
+                "StockNumber=" + StockNumber +
+                ", Vin='" + Vin + '\'' +
+                ", Brand='" + Brand + '\'' +
+                ", Milieage='" + Milieage + '\'' +
+                ", Enginecc='" + Enginecc + '\'' +
+                ", Type='" + Type + '\'' +
+                ", FuelType='" + FuelType + '\'' +
+                ", Quantity='" + Quantity + '\'' +
+                ", Price=" + Price +
+                ", Transmission='" + Transmission + '\'' +
+                ", Steering='" + Steering + '\'' +
+                ", Warehouse='" + Warehouse + '\'' +
+                '}';
     }
-
-    public String toString(String str){
-        return StockNumber + "," + Vin + "," +  Brand +","+ Milieage +","+ Enginecc +","+ Type +","+FuelType +","+ Quantity +","+ Price + ","+ Transmission +","+ Steering + "\n";
-
-    }
+    //    @Override
+//    public String toString() {
+//        return StockNumber + "," + Vin + "," +  Brand +","+ Milieage +","+ Enginecc +","+ Type +","+FuelType +","+ Quantity +","+ Price + ","+ Transmission +","+ Steering +","+ Warehouse + "\n";
+//    }
+//
+//    public String toString(String str){
+//        return StockNumber + "," + Vin + "," +  Brand +","+ Milieage +","+ Enginecc +","+ Type +","+FuelType +","+ Quantity +","+ Price + ","+ Transmission +","+ Steering +","+ Warehouse + "\n";
+//
+//    }
 }

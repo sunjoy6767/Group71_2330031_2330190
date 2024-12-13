@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="501.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.TransferStockBetweenWarehousesViewController">
+   <children>
+      <Label layoutX="47.0" layoutY="32.0" text="Transfer Stock Between Warehouses">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="128.0" text="Ttansfer To Warehouse">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="transferToWarehousefxid" layoutX="234.0" layoutY="125.0" prefWidth="150.0" />
+      <TableView fx:id="showAddedProductfxid" layoutX="47.0" layoutY="189.0" prefHeight="201.0" prefWidth="902.0">
+         <columns>
+            <TableColumn fx:id="SNTableCol" prefWidth="75.0" text="SN" />
+            <TableColumn fx:id="vinTableCol" prefWidth="75.0" text="Vin" />
+            <TableColumn fx:id="brandTableCol" prefWidth="75.0" text="Brand" />
+            <TableColumn fx:id="milieTableCol" prefWidth="75.0" text="Mile" />
+            <TableColumn fx:id="enginTableCol" prefWidth="75.0" text="EngineCC" />
+            <TableColumn fx:id="typeTableCol" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="furlTableCol" prefWidth="75.0" text="Fuel Type" />
+            <TableColumn fx:id="quantityTableCol" prefWidth="75.0" text="Quantity" />
+            <TableColumn fx:id="priceTableCol" prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="transmiTableCol" prefWidth="75.0" text="Transmission" />
+            <TableColumn fx:id="stringTableCol" prefWidth="75.0" text="Steering" />
+            <TableColumn fx:id="warehouseTableCol" prefWidth="75.0" text="Warehouse" />
+         </columns>
+      </TableView>
+      <Label layoutX="47.0" layoutY="75.0" text="Enter SN To Transfer Stock">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="enterSnToTransferStockfxid" layoutX="234.0" layoutY="72.0" />
+      <Button layoutX="190.0" layoutY="422.0" mnemonicParsing="false" onAction="#showProductOnTableOnAction" text="Show Product On Table View" />
+      <Button layoutX="48.0" layoutY="422.0" mnemonicParsing="false" onAction="#goBackToCarInventoryManagerViewButtonOnAction" text="Go back" />
+      <Button layoutX="398.0" layoutY="422.0" mnemonicParsing="false" onAction="#transferStockButtonOnAction" text="Transfer Stock" />
+      <Button layoutX="537.0" layoutY="422.0" mnemonicParsing="false" onAction="#clearTableOnActionButton" text="Clear Table" />
+   </children>
+</AnchorPane>

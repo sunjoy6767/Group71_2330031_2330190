@@ -34,11 +34,14 @@ public class AddProductsToInventoryController
     private TextField engineCcfxid;
     @javafx.fxml.FXML
     private TextField stockNumberfxid;
+    @javafx.fxml.FXML
+    private ComboBox<String> warehouseInfoComboBox;
 
     @javafx.fxml.FXML
     public void initialize() {
         transmissiontypeComboBoxfxid.getItems().addAll("Manual","Automatic");
         steeringTypeComboBoxfxid.getItems().addAll("Right Hand Drive","Left Hand Drive");
+        warehouseInfoComboBox.getItems().addAll("Dhaka Central Auto Hub", "Chittagong Vehicle Storage Facility", "Khulna Auto Logistics Center", "Rajshahi Motor Warehouse", "Sylhet Import Car Depot", "Gazipur Automobile Stockyard", "Narayanganj Auto Distribution Center", "Barisal Vehicle Holding Facility", "Cumilla Transport Hub", "Bogura Car Storage Depot");
 
 
     }
@@ -66,7 +69,7 @@ public class AddProductsToInventoryController
 
 
 
-            oos.writeObject(new AddProductToInventory(Integer.parseInt(stockNumberfxid.getText()),vinfxid.getText(),brandNamefxid.getText(),milieagefxid.getText(),engineCcfxid.getText(),typeOfCarfxid.getText(),typeOfFuelfxid.getText(),quantityfxid.getText(),Double.parseDouble(pricefxid.getText()),transmissiontypeComboBoxfxid.getValue(),steeringTypeComboBoxfxid.getValue()));
+            oos.writeObject(new AddProductToInventory(Integer.parseInt(stockNumberfxid.getText()),vinfxid.getText(),brandNamefxid.getText(),milieagefxid.getText(),engineCcfxid.getText(),typeOfCarfxid.getText(),typeOfFuelfxid.getText(),quantityfxid.getText(),Double.parseDouble(pricefxid.getText()),transmissiontypeComboBoxfxid.getValue(),steeringTypeComboBoxfxid.getValue(),warehouseInfoComboBox.getValue()));
             stockNumberfxid.clear();
             vinfxid.clear();
             brandNamefxid.clear();
@@ -76,6 +79,9 @@ public class AddProductsToInventoryController
             typeOfFuelfxid.clear();
             quantityfxid.clear();
             pricefxid.clear();
+            transmissiontypeComboBoxfxid.setValue(null);
+            steeringTypeComboBoxfxid.setValue(null);
+            warehouseInfoComboBox.setValue(null);
 
 
             oos.close();

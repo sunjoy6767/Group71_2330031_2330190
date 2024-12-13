@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.io.IOException;
+
 public class TrackInventoryLevelsViewController
 {
     @javafx.fxml.FXML
@@ -22,7 +24,8 @@ public class TrackInventoryLevelsViewController
     }
 
     @javafx.fxml.FXML
-    public void goBackButtonOnAction(ActionEvent actionEvent) {
+    public void goBackButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

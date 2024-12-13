@@ -90,5 +90,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <ComboBox fx:id="warehouseInfoComboBox" layoutX="413.0" layoutY="68.0" prefWidth="150.0" />
+      <Label layoutX="322.0" layoutY="72.0" text="Warhouse Info" />
    </children>
 </AnchorPane>
