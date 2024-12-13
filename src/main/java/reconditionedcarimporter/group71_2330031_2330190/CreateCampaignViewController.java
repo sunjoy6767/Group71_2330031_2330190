@@ -61,7 +61,7 @@ public class CreateCampaignViewController
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("The file 'CreateCampaign.bin' does not exist.");
                 alert.showAndWait();
-                //Alert: file does not exist
+
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
@@ -75,7 +75,7 @@ public class CreateCampaignViewController
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                //
+
             }
         }
     }
@@ -100,6 +100,12 @@ public class CreateCampaignViewController
                     startingDatePicker.getValue(), endingDatePicker.getValue()));
 
             oos.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Shipment delay details saved successfully.");
+            alert.showAndWait();
         }
         catch(Exception e){
             //

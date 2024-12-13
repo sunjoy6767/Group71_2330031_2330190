@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.PromotionalOfferViewController">
+   <children>
+      <Label layoutX="25.0" layoutY="19.0" text="Offer ID:" />
+      <Label layoutX="25.0" layoutY="52.0" text="Offer Name:" />
+      <Label layoutX="25.0" layoutY="88.0" text="Conditions:" />
+      <Label layoutX="25.0" layoutY="125.0" prefHeight="17.0" prefWidth="45.0" text="Status:" />
+      <Label layoutX="311.0" layoutY="19.0" prefHeight="17.0" prefWidth="119.0" text="Discount Percentage:" />
+      <Label layoutX="311.0" layoutY="52.0" prefHeight="17.0" prefWidth="60.0" text="Start Date:" />
+      <Label layoutX="311.0" layoutY="88.0" prefHeight="17.0" prefWidth="52.0" text="End Date:" />
+      <TextField fx:id="offerIdTextField" layoutX="107.0" layoutY="15.0" />
+      <TextField fx:id="offerNameTextField" layoutX="107.0" layoutY="48.0" />
+      <TextField fx:id="conditionsTextField" layoutX="107.0" layoutY="84.0" />
+      <TextField fx:id="statusTextField" layoutX="107.0" layoutY="121.0" />
+      <TextField fx:id="discountTextField" layoutX="435.0" layoutY="15.0" />
+      <DatePicker fx:id="startDatePicker" layoutX="409.0" layoutY="48.0" />
+      <DatePicker fx:id="endDatePicker" layoutX="409.0" layoutY="84.0" />
+      <Button layoutX="12.0" layoutY="160.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" prefHeight="57.0" prefWidth="149.0" text="Go Back to MarketingManagerView" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="211.0" layoutY="175.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
+      <Button layoutX="337.0" layoutY="176.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
+      <TableView fx:id="promotionalOfferTableView" layoutX="4.0" layoutY="222.0" prefHeight="178.0" prefWidth="591.0">
+        <columns>
+          <TableColumn fx:id="offerIdCol" prefWidth="75.0" text="Offer ID" />
+            <TableColumn fx:id="offerNameCol" prefWidth="75.0" text="Offer Name" />
+          <TableColumn fx:id="offerConditionsCol" prefWidth="102.66668701171875" text="Conditions" />
+            <TableColumn fx:id="statusCol" prefWidth="90.6666259765625" text="Status" />
+            <TableColumn fx:id="discountCol" prefWidth="74.6666259765625" text="Discount " />
+            <TableColumn fx:id="startDateCol" prefWidth="83.33331298828125" text="Start Date" />
+            <TableColumn fx:id="endDateCol" prefWidth="90.6666259765625" text="End Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

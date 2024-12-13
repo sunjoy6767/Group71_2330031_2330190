@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.ShipmentDelaysViewController">
+   <children>
+      <Label layoutX="24.0" layoutY="22.0" text="Shipment ID:" />
+      <Label layoutX="24.0" layoutY="59.0" text="Current Status:" />
+      <Label layoutX="295.0" layoutY="22.0" text="Estimated Delay Duration:" />
+      <Label layoutX="296.0" layoutY="59.0" text="Updated Delivery Date:" />
+      <Label layoutX="24.0" layoutY="95.0" text="Delay Cause:" />
+      <TextField fx:id="shipmentIdTextField" layoutX="118.0" layoutY="18.0" />
+      <TextField fx:id="currentStatusTextField" layoutX="118.0" layoutY="55.0" />
+      <TextField fx:id="delayCauseTextField" layoutX="118.0" layoutY="91.0" />
+      <TextField fx:id="estimatedDelayDurationTextField" layoutX="437.0" layoutY="18.0" />
+      <DatePicker fx:id="updatedDeliveryDatePicker" layoutX="437.0" layoutY="55.0" prefHeight="25.0" prefWidth="149.0" />
+      <Button layoutX="14.0" layoutY="130.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="53.0" prefWidth="149.0" text="Go Back to CarImportManagerView" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="193.0" layoutY="144.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" prefHeight="25.0" prefWidth="106.0" text="Save the details" />
+      <Button layoutX="340.0" layoutY="144.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" prefHeight="25.0" prefWidth="106.0" text="Show the details" />
+      <TableView fx:id="shipmentDelaysTableView" layoutX="3.0" layoutY="193.0" prefHeight="200.0" prefWidth="592.0">
+        <columns>
+          <TableColumn fx:id="shipmentIdCol" prefWidth="84.6666259765625" text="Shipment ID" />
+          <TableColumn fx:id="currentStatusCol" prefWidth="100.00003051757812" text="Current Status" />
+            <TableColumn fx:id="delayCauseCol" prefWidth="163.3333740234375" text="Delay Cause" />
+            <TableColumn fx:id="estimatedDelayCol" prefWidth="104.6666259765625" text="Estimated Delay" />
+            <TableColumn fx:id="updatedDeliveryCol" prefWidth="138.66668701171875" text="Updated delivery" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

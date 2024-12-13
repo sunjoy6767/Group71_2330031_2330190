@@ -1,5 +1,7 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -35,7 +37,6 @@ public class CustomsClearanceViewController
     @javafx.fxml.FXML
     private ToggleGroup dutyPaidStatusRadioButton;
 
-    //private ArrayList<CustomsClearance> customsDutyList;
     @FXML
     private RadioButton dutyStatusUnpaidRadioButton;
     @FXML
@@ -49,11 +50,12 @@ public class CustomsClearanceViewController
     @FXML
     private TableView<CustomsClearance> customsClearanceTableView;
 
-
+    private ObservableList<CustomsClearance> customsClearanceObservableList;
 
     @FXML
     public void initialize() {
-       // customsDutyList = new ArrayList<CustomsClearance>();
+        customsClearanceObservableList = FXCollections.observableArrayList();
+        customsClearanceTableView.setItems(customsClearanceObservableList);
 
         clearanceIdCol.setCellValueFactory(new PropertyValueFactory<CustomsClearance, String>("clearanceId"));
         customsAgentNameCol.setCellValueFactory(new PropertyValueFactory<CustomsClearance, String>("customsAgentName"));
@@ -77,7 +79,6 @@ public class CustomsClearanceViewController
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("The file 'CustomsClearance.bin' does not exist.");
                 alert.showAndWait();
-                //Alert: file does not exist
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
@@ -91,7 +92,11 @@ public class CustomsClearanceViewController
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                //
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("File Not Found");
+                alert.setHeaderText(null);
+                alert.setContentText("The file 'CustomsClearance.bin' does not exist.");
+                alert.showAndWait();
             }
         }
     }
@@ -132,6 +137,12 @@ public class CustomsClearanceViewController
                     paidStatus, clearanceDatePicker.getValue()));
 
             oos.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Customs Clearance details saved successfully.");
+            alert.showAndWait();
         }
         catch(Exception e){
             //
