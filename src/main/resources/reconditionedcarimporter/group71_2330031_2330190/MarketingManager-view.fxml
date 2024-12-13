@@ -24,7 +24,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutY="134.0" mnemonicParsing="false" onAction="#customerDemographicsButtonOnAction" prefHeight="44.0" prefWidth="200.0" text="Customer Demographics">
+            <Button layoutY="134.0" mnemonicParsing="false" onAction="#seasonalCampaignButtonOnAction" prefHeight="44.0" prefWidth="200.0" text="Seasonal Campaign">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -34,7 +34,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutY="223.0" mnemonicParsing="false" onAction="#salesTeamCoordinationButtonOnAction" prefHeight="41.0" prefWidth="200.0" text="Sales Team Coordination">
+            <Button layoutY="223.0" mnemonicParsing="false" onAction="#brandReputationButtonOnAction" prefHeight="41.0" prefWidth="200.0" text="Brand Reputation" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
