@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="409.0" prefWidth="1063.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.GenerateInventoryReportsViewController">
    <children>
       <Label layoutX="31.0" layoutY="39.0" text="Generate Inventory Reports">
@@ -27,9 +26,8 @@
             <TableColumn fx:id="quantityTableCol" prefWidth="95.0" text="Quantity" />
             <TableColumn fx:id="priceTableCol" prefWidth="75.0" text="Price" />
             <TableColumn fx:id="transmiTableCol" prefWidth="79.0" text="Transmission" />
-            <TableColumn fx:id="steeringTableCol" prefWidth="81.0" text="Steering" />
-            <TableColumn fx:id="minimumThresholdCol" prefWidth="59.0" text="Minimum Threshold" />
-            <TableColumn fx:id="maximumThresholdCol" prefWidth="85.0" text="Maximum Threshold" />
+            <TableColumn fx:id="steeringTableCol" prefWidth="106.0" text="Steering" />
+            <TableColumn fx:id="warehouseCol" prefWidth="121.0" text="Warehouse" />
         </columns>
       </TableView>
       <Button layoutX="31.0" layoutY="357.0" mnemonicParsing="false" onAction="#goBackToInventoryManagerButtonOnAction" text="Go back" />

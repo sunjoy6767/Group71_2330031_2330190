@@ -6,11 +6,28 @@ public class DummySetInventoryThresholds implements Serializable {
     private String Type;
     private int minimumThreshold;
     private int maximumThreshold;
+    private String Quantity;
 
     public DummySetInventoryThresholds(String type, int minimumThreshold, int maximumThreshold) {
         this.Type = type;
         this.minimumThreshold = minimumThreshold;
         this.maximumThreshold = maximumThreshold;
+    }
+
+
+    public DummySetInventoryThresholds(String type, int minimumThreshold, int maximumThreshold, String quantity) {
+        Type = type;
+        this.minimumThreshold = minimumThreshold;
+        this.maximumThreshold = maximumThreshold;
+        Quantity = quantity;
+    }
+
+    public String getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        Quantity = quantity;
     }
 
     public String getType() {

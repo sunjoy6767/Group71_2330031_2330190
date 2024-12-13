@@ -17,18 +17,18 @@ public class SetInventoryThresholdsController
     @javafx.fxml.FXML
     private TableColumn <DummySetInventoryThresholds,String>minimumThresholdCol;
     @javafx.fxml.FXML
-    private TableColumn <DummySetInventoryThresholds,String>typeOfProductCol;
-    @javafx.fxml.FXML
     private TextField minimumThresholdTextField;
     @javafx.fxml.FXML
     private TableView <DummySetInventoryThresholds>tableViewThreshold;
     @javafx.fxml.FXML
     private TextField maximumThresholdTextField;
     @javafx.fxml.FXML
-    private TableColumn maximumThresholdCol;
+    private TableColumn<DummySetInventoryThresholds,String> maximumThresholdCol;
 
     private ObservableList<DummySetInventoryThresholds> thresholdsList;
-    private ObservableList<AddProductToInventory> addedProducts;
+
+    @javafx.fxml.FXML
+    private TableColumn <DummySetInventoryThresholds,String> typeOfCarCol;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -36,7 +36,7 @@ public class SetInventoryThresholdsController
         tableViewThreshold.setItems(thresholdsList);
 
         // Bind table columns to the DummySetInventoryThresholds fields
-        typeOfProductCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
+        typeOfCarCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
         minimumThresholdCol.setCellValueFactory(new PropertyValueFactory<>("minimumThreshold"));
         maximumThresholdCol.setCellValueFactory(new PropertyValueFactory<>("maximumThreshold"));
     }
@@ -63,19 +63,20 @@ public class SetInventoryThresholdsController
             fis = new FileInputStream(file);
             ois = new ObjectInputStream(fis);
 
-            // Populate thresholds based on product type
+
             while (true) {
                 AddProductToInventory product = (AddProductToInventory) ois.readObject();
 
-                // Read minimum and maximum thresholds from text fields
+
                 int minThreshold = Integer.parseInt(minimumThresholdTextField.getText());
                 int maxThreshold = Integer.parseInt(maximumThresholdTextField.getText());
 
-                // Add to thresholdsList
+
                 DummySetInventoryThresholds threshold = new DummySetInventoryThresholds(
-                        product.getType(), minThreshold, maxThreshold
+                        product.getType(), minThreshold, maxThreshold, product.getQuantity()
                 );
                 thresholdsList.add(threshold);
+
             }
 
         } catch (EOFException e) {
@@ -92,6 +93,33 @@ public class SetInventoryThresholdsController
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+
+    @javafx.fxml.FXML
+    public void saveButtonOnAction(ActionEvent actionEvent) {
+        File file = new File("DummyInventory.bin");
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            // Write each DummySetInventoryThresholds object to the file
+            for (DummySetInventoryThresholds threshold : thresholdsList) {
+                oos.writeObject(threshold);
+            }
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Thresholds saved successfully to 'DummyInventory.bin'.");
+            alert.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to save thresholds: " + e.getMessage());
+            alert.showAndWait();
         }
     }
 }

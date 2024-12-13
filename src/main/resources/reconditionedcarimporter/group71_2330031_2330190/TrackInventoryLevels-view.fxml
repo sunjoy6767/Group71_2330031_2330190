@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.TrackInventoryLevelsViewController">
    <children>
       <Label layoutX="48.0" layoutY="36.0" text="Track Inventory Levels">
@@ -16,12 +15,11 @@
          </font>
       </Label>
       <Button layoutX="48.0" layoutY="334.0" mnemonicParsing="false" onAction="#goBackButtonOnAction" text="Go Back" />
-      <TableView fx:id="tableViewTrackInventoryLevel" layoutX="48.0" layoutY="100.0" prefHeight="195.0" prefWidth="494.0">
+      <TableView fx:id="tableViewTrackInventoryLevel" layoutX="48.0" layoutY="100.0" prefHeight="195.0" prefWidth="491.0">
         <columns>
-          <TableColumn fx:id="typeOCarCol" prefWidth="96.0" text="Type of Car" />
-          <TableColumn fx:id="minimumThresholdCol" prefWidth="138.0" text="Minimum Threshold" />
-            <TableColumn fx:id="maximumThresholdCol" prefWidth="137.0" text="Maximum Threshold" />
-            <TableColumn fx:id="quantityCol" prefWidth="122.0" text="Quantity" />
+          <TableColumn fx:id="typeOfCarCol" prefWidth="153.0" text="Type of Car" />
+          <TableColumn fx:id="minimumThresholdCol" prefWidth="168.0" text="Minimum Threshold" />
+            <TableColumn fx:id="maximumThresholdCol" minWidth="0.0" prefWidth="169.0" text="Maximum Threshold" />
         </columns>
       </TableView>
       <Button layoutX="408.0" layoutY="334.0" mnemonicParsing="false" onAction="#showInventoryLevelsButtonOnAction" text="Show Inventory Levels" />
