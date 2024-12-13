@@ -1,13 +1,12 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -37,16 +36,14 @@ public class GenerateCostReportViewController
     @javafx.fxml.FXML
     private TableColumn<GenerateCostReport, String> reportIdCol;
 
-    private ArrayList<GenerateCostReport> generateCostReports;
+    private ObservableList<GenerateCostReport> generateCostReports;
     @javafx.fxml.FXML
     private TableView<GenerateCostReport> costReportTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
-        generateCostReports = new ArrayList<GenerateCostReport>();
-
-        GenerateCostReport generateCostReport = new GenerateCostReport();
-        double var = generateCostReport.totalAmount();
+        generateCostReports = FXCollections.observableArrayList();
+        costReportTableView.setItems(generateCostReports);
 
         reportIdCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, String>("reportId"));
         totalCostCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("totalImportCost"));
@@ -60,8 +57,34 @@ public class GenerateCostReportViewController
 
     @javafx.fxml.FXML
     public void showTheDetailsInTheTableButtonOnAction(ActionEvent actionEvent) {
-        for (GenerateCostReport generateCostReport : generateCostReports) {
-            costReportTableView.getItems().add(generateCostReport);
+        FileInputStream fis=null;
+        ObjectInputStream ois=null;
+
+        try{
+            File f = new File("GenerateCostReport.bin");
+            if(f.exists()){
+                fis = new FileInputStream(f);
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("The file 'GenerateCostReport.bin' does not exist.");
+                alert.showAndWait();
+
+            }
+            if(fis != null) ois = new ObjectInputStream(fis);
+
+            while(true) {
+                costReportTableView.getItems().add(
+                        (GenerateCostReport) ois.readObject());
+            }
+        }
+        catch(Exception e){
+            try {
+                if (ois != null) ois.close();
+            }
+            catch(Exception e2){
+                //
+            }
         }
     }
 
@@ -77,7 +100,33 @@ public class GenerateCostReportViewController
             Double.parseDouble(totalImportCostTextField.getText()),
             reportDatePicker.getValue()
         );
-        generateCostReports.add(generateCostReport);
+        try{
+            File f = new File("GenerateCostReport.bin");
+            FileOutputStream fos = null;
+            ObjectOutputStream oos = null;
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);;
+            }
+            else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(generateCostReport);
+
+            oos.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Generate Cost Report details saved successfully.");
+            alert.showAndWait();
+        }
+        catch(Exception e){
+            //
+        }
+
 
     }
 }

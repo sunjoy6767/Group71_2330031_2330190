@@ -104,7 +104,7 @@ public class CreateCampaignViewController
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText(null);
-            alert.setContentText("Shipment delay details saved successfully.");
+            alert.setContentText("Create Campaign details saved successfully.");
             alert.showAndWait();
         }
         catch(Exception e){
