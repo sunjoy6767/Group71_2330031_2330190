@@ -1,7 +1,9 @@
 package reconditionedcarimporter.group71_2330031_2330190;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.io.File;
@@ -36,6 +38,8 @@ public class AddProductsToInventoryController
     private TextField stockNumberfxid;
     @javafx.fxml.FXML
     private ComboBox<String> warehouseInfoComboBox;
+    @javafx.fxml.FXML
+    private DatePicker manufacuredDatePicker;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -55,6 +59,30 @@ public class AddProductsToInventoryController
     @javafx.fxml.FXML
     public void addProductstoInventoryOnAction(ActionEvent actionEvent) {
         try{
+            if (stockNumberfxid.getText().isEmpty() || vinfxid.getText().isEmpty() ||
+                    brandNamefxid.getText().isEmpty() || milieagefxid.getText().isEmpty() ||
+                    engineCcfxid.getText().isEmpty() || typeOfCarfxid.getText().isEmpty() ||
+                    typeOfFuelfxid.getText().isEmpty() || quantityfxid.getText().isEmpty() ||
+                    pricefxid.getText().isEmpty())
+            {
+                showAlert("Validation Error", "All fields must be filled in.");
+                return;
+            }
+
+            try {
+                Integer.parseInt(stockNumberfxid.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Validation Error", "Stock Number must be a valid number.");
+                return;
+            }
+
+            try {
+                Double.parseDouble(pricefxid.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Validation Error", "Price must be a valid number.");
+                return;
+            }
+
             File f = new File("AddedProductToInventory.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -69,7 +97,7 @@ public class AddProductsToInventoryController
 
 
 
-            oos.writeObject(new AddProductToInventory(Integer.parseInt(stockNumberfxid.getText()),vinfxid.getText(),brandNamefxid.getText(),milieagefxid.getText(),engineCcfxid.getText(),typeOfCarfxid.getText(),typeOfFuelfxid.getText(),quantityfxid.getText(),Double.parseDouble(pricefxid.getText()),transmissiontypeComboBoxfxid.getValue(),steeringTypeComboBoxfxid.getValue(),warehouseInfoComboBox.getValue()));
+            oos.writeObject(new AddProductToInventory(Integer.parseInt(stockNumberfxid.getText()),vinfxid.getText(),brandNamefxid.getText(),milieagefxid.getText(),engineCcfxid.getText(),typeOfCarfxid.getText(),typeOfFuelfxid.getText(),quantityfxid.getText(),Double.parseDouble(pricefxid.getText()),transmissiontypeComboBoxfxid.getValue(),steeringTypeComboBoxfxid.getValue(),warehouseInfoComboBox.getValue(), manufacuredDatePicker.getValue()));
             stockNumberfxid.clear();
             vinfxid.clear();
             brandNamefxid.clear();
@@ -82,6 +110,7 @@ public class AddProductsToInventoryController
             transmissiontypeComboBoxfxid.setValue(null);
             steeringTypeComboBoxfxid.setValue(null);
             warehouseInfoComboBox.setValue(null);
+            manufacuredDatePicker.setValue(null);
 
 
             oos.close();
@@ -90,5 +119,13 @@ public class AddProductsToInventoryController
             //
 
         }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

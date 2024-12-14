@@ -17,10 +17,12 @@ public class SalesRepresentativeViewController
 
     @javafx.fxml.FXML
     public void followUpOnSalesLeadsOnActon(ActionEvent actionEvent) {
+
     }
 
     @javafx.fxml.FXML
-    public void generateSalesReportsOnAction(ActionEvent actionEvent) {
+    public void generateSalesReportsOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("GenerateSalesReport-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

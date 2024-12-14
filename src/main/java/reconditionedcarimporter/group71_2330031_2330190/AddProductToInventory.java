@@ -2,6 +2,7 @@ package reconditionedcarimporter.group71_2330031_2330190;
 
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class AddProductToInventory implements Serializable {
     private int StockNumber;
@@ -16,11 +17,14 @@ public class AddProductToInventory implements Serializable {
     private String Transmission;
     private String Steering;
     private String Warehouse;
+    private LocalDate manufactured;
 
     public AddProductToInventory() {
     }
 
-    public AddProductToInventory(int stockNumber, String vin, String brand, String milieage, String enginecc, String type, String fuelType, String quantity, double price, String transmission, String steering, String warehouse) {
+
+
+    public AddProductToInventory(int stockNumber, String vin, String brand, String milieage, String enginecc, String type, String fuelType, String quantity, double price, String transmission, String steering, String warehouse, LocalDate manufactured) {
         StockNumber = stockNumber;
         Vin = vin;
         Brand = brand;
@@ -33,6 +37,7 @@ public class AddProductToInventory implements Serializable {
         Transmission = transmission;
         Steering = steering;
         Warehouse = warehouse;
+        this.manufactured = manufactured;
     }
 
     public int getStockNumber() {
@@ -131,6 +136,14 @@ public class AddProductToInventory implements Serializable {
         Warehouse = warehouse;
     }
 
+    public LocalDate getManufactured() {
+        return manufactured;
+    }
+
+    public void setManufactured(LocalDate manufactured) {
+        this.manufactured = manufactured;
+    }
+
     @Override
     public String toString() {
         return "AddProductToInventory{" +
@@ -146,15 +159,7 @@ public class AddProductToInventory implements Serializable {
                 ", Transmission='" + Transmission + '\'' +
                 ", Steering='" + Steering + '\'' +
                 ", Warehouse='" + Warehouse + '\'' +
+                ", manufactured=" + manufactured +
                 '}';
     }
-    //    @Override
-//    public String toString() {
-//        return StockNumber + "," + Vin + "," +  Brand +","+ Milieage +","+ Enginecc +","+ Type +","+FuelType +","+ Quantity +","+ Price + ","+ Transmission +","+ Steering +","+ Warehouse + "\n";
-//    }
-//
-//    public String toString(String str){
-//        return StockNumber + "," + Vin + "," +  Brand +","+ Milieage +","+ Enginecc +","+ Type +","+FuelType +","+ Quantity +","+ Price + ","+ Transmission +","+ Steering +","+ Warehouse + "\n";
-//
-//    }
 }

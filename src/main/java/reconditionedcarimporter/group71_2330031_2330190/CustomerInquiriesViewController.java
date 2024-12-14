@@ -65,6 +65,11 @@ public class CustomerInquiriesViewController
     @javafx.fxml.FXML
     public void updateTheStatusButtonOnAction(ActionEvent actionEvent) {
         try {
+            if (orderNumberTextField.getText().isEmpty()){
+                showAlert("Validation Error", "Order Number must be filled in.");
+                return;
+            }
+
             String orderNumber = orderNumberTextField.getText();
 
             boolean productUpdated = false;
@@ -170,5 +175,13 @@ public class CustomerInquiriesViewController
                 //
             }
         }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
