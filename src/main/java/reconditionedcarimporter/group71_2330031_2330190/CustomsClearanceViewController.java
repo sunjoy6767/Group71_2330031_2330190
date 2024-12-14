@@ -133,6 +133,37 @@ public class CustomsClearanceViewController
                 oos = new ObjectOutputStream(fos);
             }
 
+            String clearanceId = clearanceIdTextField.getText();
+            if (clearanceId.isEmpty()) {
+                showErrorAlert("Clearance ID cannot be empty.");
+            }
+            String customsAgentName = customsAgentNameTextField.getText();
+            if (customsAgentName.isEmpty()) {
+                showErrorAlert("Customs agent name cannot be empty.");
+            }
+            String customsDutyAmountStr = customsDutyAmountTextField.getText();
+            if (customsDutyAmountStr.isEmpty()) {
+                showErrorAlert("Customs duty amount cannot be empty.");
+            }
+            try {
+                Double customsDutyAmount = Double.parseDouble(customsDutyAmountStr);
+                if (customsDutyAmount <= 0) {
+                    showErrorAlert("Customs duty amount must be greater than zero.");
+                }
+            } catch (NumberFormatException e) {
+                showErrorAlert("Invalid value for customs duty amount.");
+            }
+            LocalDate clearanceDate = clearanceDatePicker.getValue();
+            if (clearanceDate == null) {
+                showErrorAlert("Please select a valid clearance date.");
+            }
+            if (clearanceStatus.isEmpty()) {
+                showErrorAlert("Please select a clearance status.");
+            }
+            if (paidStatus.isEmpty()) {
+                showErrorAlert("Please select a duty paid status.");
+            }
+
             oos.writeObject(new CustomsClearance(clearanceIdTextField.getText(),
                     customsAgentNameTextField.getText(),
                     clearanceStatus,
@@ -171,6 +202,14 @@ public class CustomsClearanceViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

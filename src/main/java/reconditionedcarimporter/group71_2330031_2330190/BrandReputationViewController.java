@@ -57,7 +57,29 @@ public class BrandReputationViewController
 
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
-        try{
+            try{
+                if (campaignIdTextField.getText().isEmpty() || platformTextField.getText().isEmpty() ||
+                        feedbackSummary.getText().isEmpty() || improvementAreasTextField.getText().isEmpty() ||
+                        positiveMentionsTextField.getText().isEmpty() || negativeMentionsTextField.getText().isEmpty())
+                        {
+                    showAlert("All fields must be filled in.");
+                    return;
+                }
+
+                try {
+                    Integer.parseInt(negativeMentionsTextField.getText());
+                } catch (NumberFormatException e) {
+                    showAlert("Negative Mentions ID must be a valid number.");
+                    return;
+                }
+
+                try {
+                    Integer.parseInt(positiveMentionsTextField.getText());
+                } catch (NumberFormatException e) {
+                    showAlert("Positive Mentions must be a valid number.");
+                    return;
+                }
+
             File f = new File("BrandReputation.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -162,6 +184,14 @@ public class BrandReputationViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

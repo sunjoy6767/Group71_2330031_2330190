@@ -22,11 +22,6 @@ public class MarketingManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void socialMediaDashboardButtonOnAction(ActionEvent actionEvent) {
-    }
-
-
-    @javafx.fxml.FXML
     public void logOutButtonOnAction(ActionEvent actionEvent) throws IOException {
         SceneSwitcher.switchScene("Login-view.fxml", actionEvent);
     }
@@ -53,5 +48,10 @@ public class MarketingManagerViewController
     @javafx.fxml.FXML
     public void seasonalCampaignButtonOnAction(ActionEvent actionEvent) throws IOException {
         SceneSwitcher.switchScene("SeasonalCampaign-view.fxml", actionEvent);
+    }
+
+    @javafx.fxml.FXML
+    public void loyaltyProgramButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("LoyaltyProgram-view.fxml", actionEvent);
     }
 }

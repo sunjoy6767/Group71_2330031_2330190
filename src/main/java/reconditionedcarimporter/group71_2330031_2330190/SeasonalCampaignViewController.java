@@ -61,6 +61,43 @@ public class SeasonalCampaignViewController
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            if (campaignIdTextField.getText().isEmpty() || campaignThemeTextField.getText().isEmpty() ||
+                    targetAudienceTextField.getText().isEmpty() || dataSummaryTextField.getText().isEmpty() ||
+                    forecastedRevenueTextField.getText().isEmpty() || startDatePicker.getValue() == null ||
+                    endDatePicker.getValue() == null)
+            {
+                showAlert("All fields must be filled in.");
+                return;
+            }
+
+            try {
+                Double.parseDouble(forecastedRevenueTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Forecasted Revenue must be a valid number.");
+                return;
+            }
+
+            LocalDate date0 = startDatePicker.getValue();
+            if (date0 == null) {
+                showAlert("Please select a valid campaign date.");
+                return;
+            }
+            if (date0.isBefore(LocalDate.now())) {
+                showAlert("campaign date cannot be in the past.");
+                return;
+            }
+
+
+            LocalDate date1 = endDatePicker.getValue();
+            if (date1 == null) {
+                showAlert("Please select a valid campaign date.");
+                return;
+            }
+            if (date1.isBefore(LocalDate.now())) {
+                showAlert("Campaign date cannot be in the past.");
+                return;
+            }
+
             File f = new File("SeasonalCampaign.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -119,7 +156,6 @@ public class SeasonalCampaignViewController
                 SeasonalCampaign sc = (SeasonalCampaign) ois.readObject();
                 seasonalCampaignObservableList.add(sc);
             }
-//         ois.close();
         }
         catch(Exception e){
             try {
@@ -129,5 +165,13 @@ public class SeasonalCampaignViewController
                 //
             }
         }
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

@@ -56,6 +56,32 @@ public class CompetitorAnalysisViewController
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            if (competitorNameTextField.getText().isEmpty() || campaignNameTextField.getText().isEmpty() ||
+                    advertisingChannelTextField.getText().isEmpty() || keyInsightsTextField.getText().isEmpty() ||
+                    startDatePicker.getValue() == null || endDatePicker.getValue() == null)
+            {
+                showAlert("All fields must be filled in.");
+                return;
+            }
+            LocalDate date0 = startDatePicker.getValue();
+            if (date0 == null) {
+                showAlert("Please select a valid campaign date.");
+                return;
+            }
+            if (date0.isBefore(LocalDate.now())) {
+                showAlert("Campaign date cannot be in the past.");
+                return;
+            }
+            LocalDate date1 = endDatePicker.getValue();
+            if (date1 == null) {
+                showAlert("Please select a valid campaign date.");
+                return;
+            }
+            if (date1.isBefore(LocalDate.now())) {
+                showAlert("Campaign date cannot be in the past.");
+                return;
+            }
+
             File f = new File("CompetitorAnalysis.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -67,8 +93,6 @@ public class CompetitorAnalysisViewController
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
-
-
 
             oos.writeObject(new CompetitorAnalysis(
                     competitorNameTextField.getText(),
@@ -118,7 +142,6 @@ public class CompetitorAnalysisViewController
                 CompetitorAnalysis ca = (CompetitorAnalysis) ois.readObject();
                 competitorAnalysisList.add(ca);
             }
-//         ois.close();
         }
         catch(Exception e){
             try {
@@ -139,6 +162,14 @@ public class CompetitorAnalysisViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

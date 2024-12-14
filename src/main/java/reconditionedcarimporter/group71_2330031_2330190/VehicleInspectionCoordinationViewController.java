@@ -78,6 +78,21 @@ public class VehicleInspectionCoordinationViewController {
         }
 
         try {
+            if (carIdTextField.getText().isEmpty() || repairsDetailsTextField.getText().isEmpty() ||
+                    passedInspectionStatus.isEmpty() || requiresRepairsStatus.isEmpty() ||
+                    inspectionDatePicker.getValue() == null || statusTextField.getText() == null)
+            {
+                showAlert("All fields must be filled in.");
+                return;
+            }
+
+            try {
+                Integer.parseInt(carIdTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Car ID must be a valid number.");
+                return;
+            }
+
             File f = new File("VehicleInspection.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -132,7 +147,7 @@ public class VehicleInspectionCoordinationViewController {
                 VehicleInspection vi = (VehicleInspection) ois.readObject();
                 vehicleInspections.add(vi);
             }
-//         ois.close();
+
         } catch (Exception e) {
             try {
                 if (ois != null) ois.close();
@@ -150,6 +165,14 @@ public class VehicleInspectionCoordinationViewController {
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

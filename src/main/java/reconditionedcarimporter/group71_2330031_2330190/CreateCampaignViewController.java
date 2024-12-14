@@ -87,6 +87,43 @@ public class CreateCampaignViewController
     @javafx.fxml.FXML
     public void saveCampaignButtonOnAction(ActionEvent actionEvent) {
         try{
+            if (campaignIdTextField.getText().isEmpty() || campaignNameTextField.getText().isEmpty() ||
+                    targetAudienceTextField.getText().isEmpty() || campaignBudgetTextField.getText().isEmpty() ||
+                    startingDatePicker.getValue() == null || endingDatePicker.getValue() == null)
+            {
+                showAlert("All fields must be filled in.");
+                return;
+            }
+
+            try {
+                Integer.parseInt(campaignBudgetTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Clicks must be a valid number.");
+                return;
+            }
+
+                LocalDate date0 = startingDatePicker.getValue();
+                if (date0 == null) {
+                    showAlert("Please select a valid campaign date.");
+                    return;
+                }
+                if (date0.isBefore(LocalDate.now())) {
+                    showAlert("Campaign date cannot be in the past.");
+                    return;
+                }
+
+
+                LocalDate date1 = endingDatePicker.getValue();
+                if (date1 == null) {
+                    showAlert("Please select a valid campaign date.");
+                    return;
+                }
+                if (date1.isBefore(LocalDate.now())) {
+                    showAlert("Campaign date cannot be in the past.");
+                    return;
+                }
+
+
             File f = new File("CreateCampaign.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -135,6 +172,14 @@ public class CreateCampaignViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

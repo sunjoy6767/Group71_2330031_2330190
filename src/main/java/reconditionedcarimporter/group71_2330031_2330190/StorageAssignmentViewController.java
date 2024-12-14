@@ -8,7 +8,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class StorageAssignmentViewController
 {
@@ -94,6 +93,36 @@ public class StorageAssignmentViewController
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            if (assignmentIdTextField.getText().isEmpty() || storageLocationTextField.getText().isEmpty() ||
+                    storageUnitNumberTextField.getText().isEmpty() || assignedDatePicker.getValue() == null ||
+                    releaseDatePicker.getValue() == null || storageCostTextField.getText().isEmpty() ||
+                    overDueChargesTextField.getText().isEmpty() || carIdTextField.getText() == null) {
+
+                showAlert("All fields must be filled in.");
+                return;
+
+            }
+
+            try {
+                Integer.parseInt(carIdTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Car ID must be a valid number.");
+                return;
+            }
+
+            try {
+                Double.parseDouble(storageCostTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Storage Cost must be a valid number.");
+                return;
+            }
+            try {
+                Double.parseDouble(overDueChargesTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Over Due Charges must be a valid number.");
+                return;
+            }
+
             File f = new File("StorageAssignment.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -148,6 +177,14 @@ public class StorageAssignmentViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

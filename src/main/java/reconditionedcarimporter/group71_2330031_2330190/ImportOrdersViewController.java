@@ -93,6 +93,43 @@ public class ImportOrdersViewController
     @javafx.fxml.FXML
     public void saveAllTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            String carModel = carModelTextField.getText();
+            String carBrand = carBrandTextField.getText();
+            String supplierId = supplierIDTextfield.getText();
+            Integer carQuantity = null;
+
+            if (carModel.isEmpty()) {
+                showErrorAlert("Car Model must be non-empty.");
+                return;
+            }
+
+            if (supplierId.isEmpty()) {
+                showErrorAlert("Supplier ID must be non-empty.");
+                return;
+            }
+
+            LocalDate expectedShipmentDate = expectedShipmentDatePicker.getValue();
+            if (expectedShipmentDate == null) {
+                showErrorAlert("Please select a valid shipment date.");
+                return;
+            }
+            if (expectedShipmentDate.isBefore(LocalDate.now())) {
+                showErrorAlert("Shipment date cannot be in the past.");
+                return;
+            }
+
+            try {
+                carQuantity = Integer.parseInt(carQuantityTextField.getText());
+                if (carQuantity <= 0) {
+                    showErrorAlert("Car Quantity must be a positive integer.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                showErrorAlert("Car Quantity must be a valid integer.");
+                return;
+            }
+
+
             File f = new File("ImportOrders.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -135,6 +172,14 @@ public class ImportOrdersViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Input Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

@@ -51,6 +51,31 @@ public class ShipmentDelaysViewController
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            if (shipmentIdTextField.getText().isEmpty() || currentStatusTextField.getText().isEmpty() ||
+                    delayCauseTextField.getText().isEmpty() || estimatedDelayDurationTextField.getText().isEmpty() ||
+                    updatedDeliveryDatePicker.getValue() == null)
+            {
+                showAlert("All fields must be filled in.");
+                return;
+            }
+
+            try {
+                Integer.parseInt(estimatedDelayDurationTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Delay Duration must be a valid number.");
+                return;
+            }
+
+            LocalDate date0 = updatedDeliveryDatePicker.getValue();
+            if (date0 == null) {
+                showAlert("Please select a valid Delivery date.");
+                return;
+            }
+            if (date0.isBefore(LocalDate.now())) {
+                showAlert("Delivery date cannot be in the past.");
+                return;
+            }
+
             File f = new File("ShipmentDelays.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -134,6 +159,14 @@ public class ShipmentDelaysViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Input Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

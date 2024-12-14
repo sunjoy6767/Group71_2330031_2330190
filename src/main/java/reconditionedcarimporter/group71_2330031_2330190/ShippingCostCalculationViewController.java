@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.*;
+import java.time.LocalDate;
 
 public class ShippingCostCalculationViewController
 {
@@ -59,6 +60,47 @@ public class ShippingCostCalculationViewController
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            if (shipmentIdTextField.getText().isEmpty() || shipmentIdTextField.getText().isEmpty() ||
+                    transportModeComboBox.getValue().isEmpty() || insuranceCostTextField.getText().isEmpty() ||
+                    taxesAndDutiesTextField.getText().isEmpty() || handleChargesTextField.getText().isEmpty() ||
+                    distanceTextField.getText().isEmpty() || carIdTextField.getText().isEmpty())
+            {
+                showAlert("All fields must be filled in.");
+                return;
+            }
+
+            try {
+                Integer.parseInt(distanceTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Distance must be a valid number.");
+                return;
+            }
+            try {
+                Integer.parseInt(carIdTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Car ID must be a valid number.");
+                return;
+            }
+            try {
+                Double.parseDouble(insuranceCostTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Insurance Cost must be a valid number.");
+                return;
+            }
+            try {
+                Double.parseDouble(handleChargesTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Handling Charges must be a valid number.");
+                return;
+            }
+            try {
+                Double.parseDouble(taxesAndDutiesTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Taxes and Duties must be a valid number.");
+                return;
+            }
+
+
             File f = new File("ShippingCostCalculation.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -155,5 +197,13 @@ public class ShippingCostCalculationViewController
                 //
             }
         }
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Input Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

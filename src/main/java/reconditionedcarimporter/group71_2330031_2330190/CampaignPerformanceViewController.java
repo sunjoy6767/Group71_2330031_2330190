@@ -60,6 +60,35 @@ public class CampaignPerformanceViewController
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            if (campaignIdTextField.getText().isEmpty() || campaignNameTextField.getText().isEmpty() ||
+                    statusTextField.getText().isEmpty() || summaryTextField.getText().isEmpty() ||
+                    clicksTextField.getText().isEmpty() || conversionsTextField.getText().isEmpty() ||
+                    roiTextField.getText().isEmpty())
+            {
+                showAlert("All fields must be filled in.");
+                return;
+            }
+
+            try {
+                Integer.parseInt(clicksTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Clicks must be a valid number.");
+                return;
+            }
+
+            try {
+                Integer.parseInt(conversionsTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Conversions must be a valid number.");
+                return;
+            }
+            try {
+                Double.parseDouble(roiTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Return on Investment must be a valid number.");
+                return;
+            }
+
             File f = new File("CampaignPerformance.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -140,7 +169,6 @@ public class CampaignPerformanceViewController
                 CampaignPerformance cp = (CampaignPerformance) ois.readObject();
                 campaignPerformanceList.add(cp);
             }
-//         ois.close();
         }
         catch(Exception e){
             try {
@@ -150,5 +178,13 @@ public class CampaignPerformanceViewController
                 //
             }
         }
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

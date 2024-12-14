@@ -108,6 +108,59 @@ public class GenerateCostReportViewController
     @javafx.fxml.FXML
     public void saveDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            String reportId = reportIdTextField.getText();
+            if (reportId.isEmpty()) {
+                showErrorAlert("Report ID cannot be empty.");
+            }
+
+            String purchaseCostStr = purchaseCostTextField.getText();
+            if (purchaseCostStr.isEmpty()) {
+                showErrorAlert("Purchase cost cannot be empty.");
+            }
+
+            try {
+                Double purchaseCost = Double.parseDouble(purchaseCostStr);
+                if (purchaseCost <= 0) {
+                    showErrorAlert("Purchase cost must be greater than zero.");
+
+                }
+            } catch (NumberFormatException e) {
+                showErrorAlert("Invalid value for purchase cost.");
+            }
+
+            String customsDutyStr = customsDutyAmountTextField.getText();
+            if (customsDutyStr.isEmpty()) {
+                showErrorAlert("Customs duty amount cannot be empty.");
+            }
+
+            try {
+                Double customsDutyAmount = Double.parseDouble(customsDutyStr);
+                if (customsDutyAmount <= 0) {
+                    showErrorAlert("Customs duty amount must be greater than zero.");
+                }
+            } catch (NumberFormatException e) {
+                showErrorAlert("Invalid value for customs duty amount.");
+            }
+
+            String shippingCostStr = shippingCostTextField.getText();
+            if (shippingCostStr.isEmpty()) {
+                showErrorAlert("Shipping cost cannot be empty.");
+            }
+
+            try {
+                Double shippingCost = Double.parseDouble(shippingCostStr);
+                if (shippingCost <= 0) {
+                    showErrorAlert("Shipping cost must be greater than zero.");
+                }
+            } catch (NumberFormatException e) {
+                showErrorAlert("Invalid value for shipping cost.");
+            }
+
+            String inspectionCostStr = inspectionCostTextField.getText();
+            if (inspectionCostStr.isEmpty()) {
+                showErrorAlert("Inspection cost cannot be empty.");
+            }
+
             File f = new File("GenerateCostReport.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -134,7 +187,6 @@ public class GenerateCostReportViewController
         }
         catch(Exception e){
             //
-
         }
     }
 
@@ -148,6 +200,14 @@ public class GenerateCostReportViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

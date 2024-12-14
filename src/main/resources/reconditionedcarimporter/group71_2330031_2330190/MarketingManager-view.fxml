@@ -29,7 +29,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutY="178.0" mnemonicParsing="false" onAction="#socialMediaDashboardButtonOnAction" prefHeight="45.0" prefWidth="200.0" text="Social Media Dashboard">
+            <Button layoutY="178.0" mnemonicParsing="false" onAction="#loyaltyProgramButtonOnAction" prefHeight="45.0" prefWidth="200.0" text="Loyalty Program">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

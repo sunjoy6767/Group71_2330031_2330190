@@ -66,6 +66,43 @@ public class LoyaltyProgramViewController
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
         try{
+            if (programNameTextField.getText().isEmpty() || programIdTextField.getText().isEmpty() ||
+                    rewardsTextField.getText().isEmpty() || eligibilotyCriteriaTextField.getText().isEmpty() ||
+                    statusTextField.getText().isEmpty() || startDatePicker.getValue() == null ||
+                    endDatePicker.getValue() == null || minimumSpendTextField.getText().isEmpty())
+            {
+                showAlert("All fields must be filled in.");
+                return;
+            }
+
+            try {
+                Double.parseDouble(minimumSpendTextField.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Minimum Spend must be a valid number.");
+                return;
+            }
+
+            LocalDate date0 = startDatePicker.getValue();
+            if (date0 == null) {
+                showAlert("Please select a valid program date.");
+                return;
+            }
+            if (date0.isBefore(LocalDate.now())) {
+                showAlert("Program date cannot be in the past.");
+                return;
+            }
+
+
+            LocalDate date1 = endDatePicker.getValue();
+            if (date1 == null) {
+                showAlert("Please select a valid program date.");
+                return;
+            }
+            if (date1.isBefore(LocalDate.now())) {
+                showAlert("Program date cannot be in the past.");
+                return;
+            }
+
             File f = new File("LoyaltyProgram.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
@@ -79,7 +116,7 @@ public class LoyaltyProgramViewController
             }
 
             oos.writeObject(new LoyaltyProgram(programNameTextField.getText(), programIdTextField.getText(),
-                    rewardsTextField.getText(), rewardsTextField.getText(),
+                    rewardsTextField.getText(), eligibilotyCriteriaTextField.getText(),
                     statusTextField.getText(), startDatePicker.getValue(),
                     endDatePicker.getValue(), Double.parseDouble(minimumSpendTextField.getText())));
 
@@ -151,6 +188,14 @@ public class LoyaltyProgramViewController
         alert.setTitle("Table Cleared");
         alert.setHeaderText(null);
         alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Validation Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }
