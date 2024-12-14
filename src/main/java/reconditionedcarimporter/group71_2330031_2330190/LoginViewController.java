@@ -51,7 +51,7 @@ public class LoginViewController {
             } else if (loginAsComboBox.getValue().equals("InventoryManager")) {
                 SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
             }
-            
+
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Failed");
