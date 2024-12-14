@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.CustomerInquiriesViewController">
+   <children>
+      <TableView fx:id="customerInquiryTableView" layoutX="10.0" layoutY="99.0" prefHeight="287.0" prefWidth="729.0">
+        <columns>
+          <TableColumn fx:id="customerNameCol" maxWidth="970.0" minWidth="30.0" prefWidth="97.0" text="Customer Name" />
+          <TableColumn fx:id="orderNumberCol" maxWidth="920.0" minWidth="30.0" prefWidth="92.0" text="Order Number" />
+            <TableColumn fx:id="inquiryTypeCol" maxWidth="870.0" minWidth="30.0" prefWidth="87.0" text="Inquiry Type" />
+            <TableColumn fx:id="inquiryDetailsCol" maxWidth="1750.0" minWidth="30.0" prefWidth="175.0" text="Inquiry Details" />
+            <TableColumn fx:id="responseCol" maxWidth="850.0" minWidth="30.0" prefWidth="85.0" text="Response" />
+            <TableColumn fx:id="statusCol" text="Status" />
+            <TableColumn fx:id="inquiryDateCol" prefWidth="111.0" text="Inquiry Date" />
+        </columns>
+      </TableView>
+      <Button layoutX="150.0" layoutY="64.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show The Details" />
+      <Button layoutX="303.0" layoutY="64.0" mnemonicParsing="false" onAction="#clearTheTableButtonOnAction" text="Clear The Table" />
+      <Button layoutX="27.0" layoutY="64.0" mnemonicParsing="false" onAction="#goBackToSalesRepresentativeViewButtonOnAction" text="Go Back" />
+      <TextField fx:id="orderNumberTextField" layoutX="27.0" layoutY="20.0" promptText="Order Number" />
+      <Button layoutX="445.0" layoutY="64.0" mnemonicParsing="false" onAction="#updateTheStatusButtonOnAction" text="Update the Status" />
+   </children>
+</AnchorPane>

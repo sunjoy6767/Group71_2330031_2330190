@@ -24,7 +24,8 @@ public class SalesRepresentativeViewController
     }
 
     @javafx.fxml.FXML
-    public void customerInquiriesOnActon(ActionEvent actionEvent) {
+    public void customerInquiriesOnActon(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("CustomerInquiries-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

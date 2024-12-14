@@ -89,7 +89,7 @@ public class VehicleInspectionCoordinationViewController {
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
-            
+
             oos.writeObject(new VehicleInspection(
                     Integer.parseInt(carIdTextField.getText()),
                     inspectionDatePicker.getValue(),
