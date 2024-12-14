@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="425.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.LoyaltyProgramViewController">
+   <children>
+      <Label layoutX="16.0" layoutY="10.0" text="Program Name:" />
+      <Label layoutX="16.0" layoutY="42.0" text="Program ID:" />
+      <Label layoutX="16.0" layoutY="77.0" text="Rewards:" />
+      <Label layoutX="16.0" layoutY="112.0" text="Eligibility Criteria:" />
+      <Label layoutX="294.0" layoutY="10.0" text="Program Status:" />
+      <Label layoutX="294.0" layoutY="42.0" text="Start Date:" />
+      <Label layoutX="294.0" layoutY="77.0" text="End Date:" />
+      <Label layoutX="294.0" layoutY="112.0" text="Minimum Spend:" />
+      <TextField fx:id="programNameTextField" layoutX="117.0" layoutY="6.0" />
+      <TextField fx:id="programIdTextField" layoutX="117.0" layoutY="38.0" />
+      <TextField fx:id="rewardsTextField" layoutX="117.0" layoutY="73.0" />
+      <TextField fx:id="eligibilotyCriteriaTextField" layoutX="117.0" layoutY="108.0" />
+      <TextField fx:id="statusTextField" layoutX="402.0" layoutY="6.0" />
+      <TextField fx:id="minimumSpendTextField" layoutX="402.0" layoutY="108.0" />
+      <DatePicker fx:id="startDatePicker" layoutX="402.0" layoutY="38.0" />
+      <DatePicker fx:id="endDatePicker" layoutX="402.0" layoutY="73.0" />
+      <Button layoutX="12.0" layoutY="142.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" prefHeight="64.0" prefWidth="123.0" text="Go back to MarketingManagerView" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="284.0" layoutY="162.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
+      <Button layoutX="167.0" layoutY="162.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
+      <TableView fx:id="loyaltyProgramTableView" layoutX="3.0" layoutY="213.0" prefHeight="209.0" prefWidth="609.0">
+        <columns>
+          <TableColumn fx:id="programNameCol" prefWidth="90.66665410995483" text="Program Name" />
+          <TableColumn fx:id="programIdCol" prefWidth="80.66666412353516" text="Program ID" />
+            <TableColumn fx:id="rewardsCol" prefWidth="71.33331298828125" text="Rewards" />
+            <TableColumn fx:id="criteriaCol" prefWidth="75.9999771118164" text="Criteria" />
+            <TableColumn fx:id="statusCol" prefWidth="68.66668701171875" text="Status" />
+            <TableColumn fx:id="startDateCol" prefWidth="76.66668701171875" text="Start Date" />
+            <TableColumn fx:id="endDateCol" prefWidth="72.66671752929688" text="End Date" />
+            <TableColumn fx:id="spendCol" prefWidth="72.66671752929688" text="Spend" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

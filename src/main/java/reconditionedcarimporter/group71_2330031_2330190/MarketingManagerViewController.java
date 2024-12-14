@@ -11,7 +11,8 @@ public class MarketingManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void promotionalOffersButtonOnAction(ActionEvent actionEvent) {
+    public void promotionalOffersButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("PromotionalOffer-view.fxml", actionEvent);
     }
 
 
