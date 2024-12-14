@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.SeasonalCampaignViewController">
    <children>
       <Label layoutX="22.0" layoutY="20.0" text="Campaign ID:" />
@@ -21,7 +20,7 @@
       <TextField fx:id="campaignIdTextField" layoutX="134.0" layoutY="16.0" />
       <TextField fx:id="campaignThemeTextField" layoutX="134.0" layoutY="51.0" />
       <TextField fx:id="targetAudienceTextField" layoutX="134.0" layoutY="86.0" />
-      <TextField fx:id="dataSummaryTextField" layoutX="168.0" layoutY="119.0" />
+      <TextField fx:id="dataSummaryTextField" layoutX="168.0" layoutY="119.0" prefHeight="25.0" prefWidth="412.0" />
       <TextField fx:id="forecastedRevenueTextField" layoutX="428.0" layoutY="86.0" />
       <DatePicker fx:id="startDatePicker" layoutX="403.0" layoutY="16.0" />
       <DatePicker fx:id="endDatePicker" layoutX="403.0" layoutY="51.0" />
@@ -37,7 +36,7 @@
         </columns>
       </TableView>
       <Button layoutX="16.0" layoutY="156.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" text="Go back to MarketingManagerView" />
-      <Button layoutX="243.0" layoutY="156.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
-      <Button layoutX="372.0" layoutY="156.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
+      <Button layoutX="269.0" layoutY="156.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" prefHeight="25.0" prefWidth="162.0" text="Save and the details" />
+      <Button layoutX="457.0" layoutY="156.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" prefHeight="25.0" prefWidth="162.0" text="Show the details" />
    </children>
 </AnchorPane>

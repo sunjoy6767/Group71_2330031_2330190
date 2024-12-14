@@ -70,7 +70,7 @@ public class BrandReputationViewController
                 oos = new ObjectOutputStream(fos);
             }
 
-            BrandReputation br = new BrandReputation(
+            oos.writeObject(new BrandReputation(
                     campaignIdTextField.getText(),
                     platformTextField.getText(),
                     feedbackSummary.getText(),
@@ -79,18 +79,9 @@ public class BrandReputationViewController
                             Integer.parseInt(negativeMentionsTextField.getText())),
                     Integer.parseInt(negativeMentionsTextField.getText()),
                     Integer.parseInt(positiveMentionsTextField.getText())
-                    );
-
-            brandReputationObservableList.add(br);
-            oos.writeObject(br);
+            ));
 
             oos.close();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Brand Reputation details saved successfully.");
-            alert.showAndWait();
         }
         catch(Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -160,5 +151,17 @@ public class BrandReputationViewController
 
     private int totalMentions(int positiveMentions, int negativeMentions) {
         return positiveMentions + negativeMentions;
+    }
+
+    @javafx.fxml.FXML
+    public void clearTableButtonOnAction(ActionEvent actionEvent) {
+        brandReputationObservableList.clear();
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
     }
 }

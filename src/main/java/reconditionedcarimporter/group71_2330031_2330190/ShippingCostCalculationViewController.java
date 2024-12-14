@@ -58,7 +58,19 @@ public class ShippingCostCalculationViewController
 
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
-        try {
+        try{
+            File f = new File("ShippingCostCalculation.bin");
+            FileOutputStream fos = null;
+            ObjectOutputStream oos = null;
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);;
+            }
+            else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
             String calculationId = calculationIdTextField.getText();
             String shipmentId = shipmentIdTextField.getText();
             String transportMode = transportModeComboBox.getValue();
@@ -69,26 +81,13 @@ public class ShippingCostCalculationViewController
             double totalShippingCost = calculateTotalCost((int) distance, insuranceCost, taxesAndDuties, handleCharges);
             int carId = Integer.parseInt(carIdTextField.getText());
 
-            ShippingCalculationDummy newCalculation = new ShippingCalculationDummy(
-                    calculationId, shipmentId, transportMode,insuranceCost,taxesAndDuties,handleCharges, totalShippingCost, carId, distance
-            );
-            shippingCalculationDummyList.add(newCalculation);
 
-            try (FileOutputStream fos = new FileOutputStream("ShippingCostCalculation.bin", true);
-                 ObjectOutputStream oos = new AppendableObjectOutputStream(fos)) {
-                oos.writeObject(newCalculation);
-            } catch (IOException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("File Error");
-                alert.setHeaderText(null);
-                alert.setContentText("Failed to save the ShippingCostCalculation.bin file.");
-                alert.showAndWait();
-            }
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Shipping calculation details saved successfully.");
-            alert.showAndWait();
+            oos.writeObject(new ShippingCalculationDummy(
+                    calculationId, shipmentId, transportMode,insuranceCost,taxesAndDuties,handleCharges, totalShippingCost, carId, distance
+            ));
+
+
+            oos.close();
         }
         catch (NumberFormatException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -96,8 +95,10 @@ public class ShippingCostCalculationViewController
                 alert.setHeaderText(null);
                 alert.setContentText("Please enter valid numeric values.");
                 alert.showAndWait();
-            }
+            } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
 
     @javafx.fxml.FXML
     public void goBackToCarImportManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
@@ -107,5 +108,52 @@ public class ShippingCostCalculationViewController
     private double calculateTotalCost(int distance, double insuranceCost, double taxesAndDuties, double handleCharges) {
         double totalShippingCost = distance * 0.01 + insuranceCost + taxesAndDuties + handleCharges;
         return totalShippingCost;
+    }
+
+    @javafx.fxml.FXML
+    public void clearTableButtonOnAction(ActionEvent actionEvent) {
+        shippingCalculationDummyList.clear();
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    @javafx.fxml.FXML
+    public void showTheDetailsButtonOnAction(ActionEvent actionEvent) {
+        FileInputStream fis=null;
+        ObjectInputStream ois=null;
+        try{
+            File f = new File("ShippingCostCalculation.bin");
+            if(f.exists()){
+                fis = new FileInputStream(f);
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("The file 'ShippingCostCalculation.bin' does not exist.");
+                alert.showAndWait();
+            }
+            if(fis != null) ois = new ObjectInputStream(fis);
+
+            while(true) {
+                shippingCostTableView.getItems().add(
+                        (ShippingCalculationDummy) ois.readObject()
+                );
+                ShippingCalculationDummy scd = (ShippingCalculationDummy) ois.readObject();
+                shippingCalculationDummyList.add(scd);
+            }
+//         ois.close();
+        }
+        catch(Exception e){
+            try {
+                if (ois != null) ois.close();
+            }
+            catch(Exception e2){
+                //
+            }
+        }
     }
 }

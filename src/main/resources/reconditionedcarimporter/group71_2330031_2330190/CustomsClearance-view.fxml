@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.CustomsClearanceViewController">
+<AnchorPane prefHeight="400.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.CustomsClearanceViewController">
    <children>
       <Label layoutX="14.0" layoutY="24.0" text="Clearance ID:" />
       <Label layoutX="14.0" layoutY="61.0" text="Customs Agent Name:" />
@@ -36,18 +36,19 @@
       </RadioButton>
       <RadioButton fx:id="dutyStatusUnpaidRadioButton" layoutX="525.0" layoutY="61.0" mnemonicParsing="false" text="Unpaid" toggleGroup="$dutyPaidStatusRadioButton" />
       <DatePicker fx:id="clearanceDatePicker" layoutX="406.0" layoutY="100.0" />
-      <TableView fx:id="customsClearanceTableView" layoutX="3.0" layoutY="192.0" prefHeight="207.0" prefWidth="593.0">
+      <TableView fx:id="customsClearanceTableView" layoutX="3.0" layoutY="192.0" prefHeight="207.0" prefWidth="681.0">
         <columns>
           <TableColumn fx:id="clearanceIdCol" prefWidth="75.0" text="Clearance ID" />
-          <TableColumn fx:id="customsAgentNameCol" prefWidth="101.33334350585938" text="Agent Name" />
-            <TableColumn fx:id="customsDutyAmountCol" prefWidth="106.6666259765625" text="Duty Amount" />
-            <TableColumn fx:id="clearanceStatusCol" prefWidth="106.66668701171875" text="Clearance Status" />
-            <TableColumn fx:id="dutyPaidStatusCol" prefWidth="88.66668701171875" text="Paid Status" />
-            <TableColumn fx:id="clearanceDateCol" prefWidth="110.6666259765625" text="Clearance Date" />
+          <TableColumn fx:id="customsAgentNameCol" prefWidth="127.0" text="Agent Name" />
+            <TableColumn fx:id="customsDutyAmountCol" prefWidth="120.0" text="Duty Amount" />
+            <TableColumn fx:id="clearanceStatusCol" prefWidth="128.0" text="Clearance Status" />
+            <TableColumn fx:id="dutyPaidStatusCol" prefWidth="123.0" text="Paid Status" />
+            <TableColumn fx:id="clearanceDateCol" prefWidth="107.0" text="Clearance Date" />
         </columns>
       </TableView>
       <Button layoutX="14.0" layoutY="145.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="42.0" prefWidth="161.0" text="Go Back to CarImportManagerView" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="210.0" layoutY="154.0" mnemonicParsing="false" onAction="#saveDetailsButtonOnAction" text="Save all the details" />
-      <Button layoutX="365.0" layoutY="154.0" mnemonicParsing="false" onAction="#ShowDetailsInTheTableButtonOnAction" text="Show all the details in the table" />
+      <Button layoutX="194.0" layoutY="154.0" mnemonicParsing="false" onAction="#saveDetailsButtonOnAction" text="Save all the details" />
+      <Button layoutX="330.0" layoutY="155.0" mnemonicParsing="false" onAction="#ShowDetailsInTheTableButtonOnAction" text="Show all the details in the table" />
+      <Button layoutX="532.0" layoutY="155.0" mnemonicParsing="false" onAction="#clearTableButtonOnAction" prefHeight="25.0" prefWidth="128.0" text="Clear Table" />
    </children>
 </AnchorPane>

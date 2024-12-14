@@ -89,8 +89,7 @@ public class VehicleInspectionCoordinationViewController {
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
-
-
+            
             oos.writeObject(new VehicleInspection(
                     Integer.parseInt(carIdTextField.getText()),
                     inspectionDatePicker.getValue(),
@@ -100,14 +99,11 @@ public class VehicleInspectionCoordinationViewController {
                     statusTextField.getText())
             );
 
-
             oos.close();
         } catch (Exception e) {
             //
-
         }
     }
-
 
     @javafx.fxml.FXML
     public void goBackToCarImportManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
@@ -144,5 +140,16 @@ public class VehicleInspectionCoordinationViewController {
                 //
             }
         }
+    }
+
+    @javafx.fxml.FXML
+    public void clearTableButtonOnAction(ActionEvent actionEvent) {
+        vehicleInspections.clear();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
     }
 }

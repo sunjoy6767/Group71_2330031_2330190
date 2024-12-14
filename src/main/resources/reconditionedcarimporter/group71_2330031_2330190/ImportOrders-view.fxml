@@ -40,10 +40,11 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="307.0" layoutY="78.0" mnemonicParsing="false" onAction="#saveAllTheDetailsButtonOnAction" prefHeight="38.0" prefWidth="275.0" text="Save all the Details" textAlignment="CENTER" wrapText="true">
+      <Button layoutX="447.0" layoutY="78.0" mnemonicParsing="false" onAction="#saveAllTheDetailsButtonOnAction" prefHeight="38.0" prefWidth="135.0" text="Save all the Details" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Button layoutX="307.0" layoutY="85.0" mnemonicParsing="false" onAction="#clearTableButtonOnAction" prefHeight="25.0" prefWidth="128.0" text="Clear Table" />
    </children>
 </AnchorPane>

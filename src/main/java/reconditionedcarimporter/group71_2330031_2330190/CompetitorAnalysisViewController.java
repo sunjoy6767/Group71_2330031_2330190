@@ -55,8 +55,8 @@ public class CompetitorAnalysisViewController
 
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
-        try {
-            File f = new File("ComputerAnalysis.bin");
+        try{
+            File f = new File("CompetitorAnalysis.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
             if(f.exists()){
@@ -67,25 +67,19 @@ public class CompetitorAnalysisViewController
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
-            CompetitorAnalysis competitorAnalysis = new CompetitorAnalysis(
+
+
+
+            oos.writeObject(new CompetitorAnalysis(
                     competitorNameTextField.getText(),
                     campaignNameTextField.getText(),
                     advertisingChannelTextField.getText(),
                     keyInsightsTextField.getText(),
                     startDatePicker.getValue(),
-                    endDatePicker.getValue()
-                );
-            competitorAnalysisList.add(competitorAnalysis);
+                    endDatePicker.getValue())
+            );
 
-            oos.writeObject(competitorAnalysis);
             oos.close();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Competitor Analysis details saved successfully.");
-            alert.showAndWait();
-
         }
         catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -105,7 +99,6 @@ public class CompetitorAnalysisViewController
     public void showTheDetailsButtonOnAction(ActionEvent actionEvent) {
         FileInputStream fis=null;
         ObjectInputStream ois=null;
-
         try{
             File f = new File("CompetitorAnalysis.bin");
             if(f.exists()){
@@ -115,14 +108,17 @@ public class CompetitorAnalysisViewController
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("The file 'CompetitorAnalysis.bin' does not exist.");
                 alert.showAndWait();
-
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
             while(true) {
                 competitorAnalysisTableView.getItems().add(
-                        (CompetitorAnalysis) ois.readObject());
+                        (CompetitorAnalysis) ois.readObject()
+                );
+                CompetitorAnalysis ca = (CompetitorAnalysis) ois.readObject();
+                competitorAnalysisList.add(ca);
             }
+//         ois.close();
         }
         catch(Exception e){
             try {
@@ -132,5 +128,17 @@ public class CompetitorAnalysisViewController
                 //
             }
         }
+    }
+
+    @javafx.fxml.FXML
+    public void clearTableButtonOnAction(ActionEvent actionEvent) {
+        competitorAnalysisList.clear();
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
     }
 }

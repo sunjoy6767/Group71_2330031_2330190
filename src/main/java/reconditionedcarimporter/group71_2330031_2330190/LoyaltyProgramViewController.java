@@ -141,4 +141,16 @@ public class LoyaltyProgramViewController
             }
         }
     }
+
+    @javafx.fxml.FXML
+    public void clearTableButtonOnAction(ActionEvent actionEvent) {
+        loyaltyProgramsList.clear();
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
 }

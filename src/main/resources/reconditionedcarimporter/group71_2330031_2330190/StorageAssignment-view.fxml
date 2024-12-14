@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.StorageAssignmentViewController">
    <children>
       <Label layoutX="24.0" layoutY="14.0" text="Storage Assignment ID:" />
@@ -28,8 +27,8 @@
       <DatePicker fx:id="assignedDatePicker" layoutX="413.0" layoutY="10.0" />
       <DatePicker fx:id="releaseDatePicker" layoutX="413.0" layoutY="42.0" prefHeight="25.0" prefWidth="175.0" />
       <Button layoutX="14.0" layoutY="146.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="55.0" prefWidth="149.0" text="Go back to CarImportManager View" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="216.0" layoutY="156.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
-      <Button layoutX="360.0" layoutY="155.0" mnemonicParsing="false" onAction="#showDetailsButtonOnAction" text="Show all the details in the table" />
+      <Button layoutX="234.0" layoutY="146.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
+      <Button layoutX="192.0" layoutY="182.0" mnemonicParsing="false" onAction="#showDetailsButtonOnAction" text="Show all the details in the table" />
       <TableView fx:id="storageAssignmentTableView" layoutX="14.0" layoutY="218.0" prefHeight="181.0" prefWidth="575.0">
         <columns>
           <TableColumn fx:id="assignmentIdCol" prefWidth="94.6666259765625" text="Assignment ID" />
@@ -39,5 +38,6 @@
             <TableColumn fx:id="releasedDateCol" prefWidth="127.33331298828125" text="Released Date" />
         </columns>
       </TableView>
+      <Button layoutX="402.0" layoutY="161.0" mnemonicParsing="false" onAction="#clearTableButtonOnAction" prefHeight="25.0" prefWidth="128.0" text="Clear Table" />
    </children>
 </AnchorPane>

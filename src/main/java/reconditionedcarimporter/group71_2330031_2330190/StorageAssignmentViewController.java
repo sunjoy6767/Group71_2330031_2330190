@@ -138,4 +138,16 @@ public class StorageAssignmentViewController
     public void goBackToCarImportManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
         SceneSwitcher.switchScene("CarImportManager-view.fxml", actionEvent);
     }
+
+    @javafx.fxml.FXML
+    public void clearTableButtonOnAction(ActionEvent actionEvent) {
+        StorageAssignmentObservableList.clear();
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
 }

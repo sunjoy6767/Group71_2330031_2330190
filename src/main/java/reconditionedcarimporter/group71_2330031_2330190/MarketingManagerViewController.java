@@ -52,6 +52,6 @@ public class MarketingManagerViewController
 
     @javafx.fxml.FXML
     public void seasonalCampaignButtonOnAction(ActionEvent actionEvent) throws IOException {
-        SceneSwitcher.switchScene("BrandReputation-view.fxml", actionEvent);
+        SceneSwitcher.switchScene("SeasonalCampaign-view.fxml", actionEvent);
     }
 }

@@ -59,38 +59,30 @@ public class CampaignPerformanceViewController
 
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
-        try {
+        try{
             File f = new File("CampaignPerformance.bin");
-            FileOutputStream fos;
-            ObjectOutputStream oos;
-
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-            } else {
+            FileOutputStream fos = null;
+            ObjectOutputStream oos = null;
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);;
+            }
+            else {
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
 
-            CampaignPerformance campaignPerformance = new CampaignPerformance(
+            oos.writeObject(new CampaignPerformance(
                     campaignNameTextField.getText(),
                     campaignIdTextField.getText(),
                     statusTextField.getText(),
                     summaryTextField.getText(),
                     Integer.parseInt(clicksTextField.getText()),
                     Integer.parseInt(conversionsTextField.getText()),
-                    Double.parseDouble(roiTextField.getText())
+                    Double.parseDouble(roiTextField.getText()))
             );
 
-            campaignPerformanceList.add(campaignPerformance);
-            oos.writeObject(campaignPerformance);
             oos.close();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Campaign performance details saved successfully.");
-            alert.showAndWait();
 
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -113,5 +105,50 @@ public class CampaignPerformanceViewController
     }
 
 
+    @javafx.fxml.FXML
+    public void clearTableButtonOnAction(ActionEvent actionEvent) {
+        campaignPerformanceList.clear();
 
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    @javafx.fxml.FXML
+    public void showTheDetailsButtonOnAction(ActionEvent actionEvent) {
+        FileInputStream fis=null;
+        ObjectInputStream ois=null;
+        try{
+            File f = new File("CampaignPerformance.bin");
+            if(f.exists()){
+                fis = new FileInputStream(f);
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("The file 'CampaignPerformance.bin' does not exist.");
+                alert.showAndWait();
+            }
+            if(fis != null) ois = new ObjectInputStream(fis);
+
+            while(true) {
+                campaignPerformanceTableView.getItems().add(
+                        (CampaignPerformance) ois.readObject()
+                );
+                CampaignPerformance cp = (CampaignPerformance) ois.readObject();
+                campaignPerformanceList.add(cp);
+            }
+//         ois.close();
+        }
+        catch(Exception e){
+            try {
+                if (ois != null) ois.close();
+            }
+            catch(Exception e2){
+                //
+            }
+        }
+    }
 }

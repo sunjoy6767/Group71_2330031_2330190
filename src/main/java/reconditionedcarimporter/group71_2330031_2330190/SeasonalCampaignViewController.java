@@ -73,34 +73,22 @@ public class SeasonalCampaignViewController
                 oos = new ObjectOutputStream(fos);
             }
 
-            SeasonalCampaign sc = new SeasonalCampaign(
-                campaignIdTextField.getText(),
-                campaignThemeTextField.getText(),
-                targetAudienceTextField.getText(),
-                dataSummaryTextField.getText(),
-                startDatePicker.getValue(),
-                endDatePicker.getValue(),
-                Double.parseDouble(forecastedRevenueTextField.getText())
-        );
-        seasonalCampaignObservableList.add(sc);
-        oos.writeObject(sc);
+            oos.writeObject(new SeasonalCampaign(
+                    campaignIdTextField.getText(),
+                    campaignThemeTextField.getText(),
+                    targetAudienceTextField.getText(),
+                    dataSummaryTextField.getText(),
+                    startDatePicker.getValue(),
+                    endDatePicker.getValue(),
+                    Double.parseDouble(forecastedRevenueTextField.getText()
+                    ))
+            );
 
-        oos.close();
-
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Seasonal Campaign details saved successfully.");
-        alert.showAndWait();
+            oos.close();
         }
         catch(Exception e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("File Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Failed to save the SeasonalCampaign.bin file.");
-            alert.showAndWait();
+            //
         }
-
     }
 
     @javafx.fxml.FXML
@@ -112,7 +100,6 @@ public class SeasonalCampaignViewController
     public void showTheDetailsButtonOnAction(ActionEvent actionEvent) {
         FileInputStream fis=null;
         ObjectInputStream ois=null;
-
         try{
             File f = new File("SeasonalCampaign.bin");
             if(f.exists()){
@@ -122,25 +109,24 @@ public class SeasonalCampaignViewController
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("The file 'SeasonalCampaign.bin' does not exist.");
                 alert.showAndWait();
-
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
             while(true) {
                 seasonalCampaignTableView.getItems().add(
-                        (SeasonalCampaign) ois.readObject());
+                        (SeasonalCampaign) ois.readObject()
+                );
+                SeasonalCampaign sc = (SeasonalCampaign) ois.readObject();
+                seasonalCampaignObservableList.add(sc);
             }
+//         ois.close();
         }
         catch(Exception e){
             try {
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("File Not Found");
-                alert.setHeaderText(null);
-                alert.setContentText("The file 'SeasonalCampaign.bin' does not exist.");
-                alert.showAndWait();
+                //
             }
         }
     }

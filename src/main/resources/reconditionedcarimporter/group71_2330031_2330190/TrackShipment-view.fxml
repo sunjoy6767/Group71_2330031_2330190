@@ -23,7 +23,7 @@
       <DatePicker fx:id="departureDatePicker" layoutX="133.0" layoutY="85.0" prefHeight="25.0" prefWidth="157.0" />
       <DatePicker fx:id="deliveryDatePicker" layoutX="428.0" layoutY="85.0" prefHeight="25.0" prefWidth="157.0" />
       <Button layoutX="20.0" layoutY="125.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="67.0" prefWidth="127.0" text="Go Back to CarImportManager View" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="195.0" layoutY="151.0" mnemonicParsing="false" onAction="#saveTheShipmentDetailsButtonOnAction" text="Save the Shipment Details" />
+      <Button layoutX="179.0" layoutY="126.0" mnemonicParsing="false" onAction="#saveTheShipmentDetailsButtonOnAction" text="Save the Shipment Details" />
       <Button layoutX="394.0" layoutY="126.0" mnemonicParsing="false" onAction="#showTheDetailsInTableButtonOnAction" prefHeight="67.0" prefWidth="169.0" text="Show the Shipment Details in the table" textAlignment="CENTER" wrapText="true" />
       <TableView fx:id="trackShipmentTableView" layoutX="1.0" layoutY="200.0" prefHeight="199.0" prefWidth="600.0">
         <columns>
@@ -35,5 +35,6 @@
             <TableColumn fx:id="deliveryDateCol" prefWidth="112.66665649414062" text="Delivery date" />
         </columns>
       </TableView>
+      <Button layoutX="185.0" layoutY="167.0" mnemonicParsing="false" onAction="#clearTableButtonOnAction" prefHeight="25.0" prefWidth="128.0" text="Clear Table" />
    </children>
 </AnchorPane>

@@ -40,5 +40,6 @@
       <Button layoutX="14.0" layoutY="151.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="55.0" prefWidth="149.0" text="Go back to CarImportManger View" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="210.0" layoutY="166.0" mnemonicParsing="false" onAction="#saveDetailsButtonOnAction" text="Save all the details" />
       <Button layoutX="376.0" layoutY="154.0" mnemonicParsing="false" onAction="#showTheDetailsInTheTableButtonOnAction" prefHeight="55.0" prefWidth="195.0" text="Show the required details in the table" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="612.0" layoutY="166.0" mnemonicParsing="false" onAction="#clearTableButtonOnAction" prefHeight="25.0" prefWidth="128.0" text="Clear Table" />
    </children>
 </AnchorPane>

@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.PromotionalOfferViewController">
    <children>
       <Label layoutX="25.0" layoutY="19.0" text="Offer ID:" />
@@ -26,8 +25,8 @@
       <DatePicker fx:id="startDatePicker" layoutX="409.0" layoutY="48.0" />
       <DatePicker fx:id="endDatePicker" layoutX="409.0" layoutY="84.0" />
       <Button layoutX="12.0" layoutY="160.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" prefHeight="57.0" prefWidth="149.0" text="Go Back to MarketingManagerView" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="211.0" layoutY="175.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
-      <Button layoutX="337.0" layoutY="176.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
+      <Button layoutX="190.0" layoutY="164.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
+      <Button layoutX="320.0" layoutY="164.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
       <TableView fx:id="promotionalOfferTableView" layoutX="4.0" layoutY="222.0" prefHeight="178.0" prefWidth="591.0">
         <columns>
           <TableColumn fx:id="offerIdCol" prefWidth="75.0" text="Offer ID" />
@@ -39,5 +38,6 @@
             <TableColumn fx:id="endDateCol" prefWidth="90.6666259765625" text="End Date" />
         </columns>
       </TableView>
+      <Button layoutX="446.0" layoutY="164.0" mnemonicParsing="false" onAction="#clearTableButtonOnAction" prefHeight="25.0" prefWidth="128.0" text="Clear Table" />
    </children>
 </AnchorPane>

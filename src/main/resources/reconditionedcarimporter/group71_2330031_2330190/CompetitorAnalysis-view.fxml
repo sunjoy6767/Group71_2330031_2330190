@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.CompetitorAnalysisViewController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Competitor Name:" />
@@ -25,8 +24,8 @@
       <DatePicker fx:id="startDatePicker" layoutX="462.0" layoutY="10.0" prefHeight="25.0" prefWidth="124.0" />
       <DatePicker fx:id="endDatePicker" layoutX="462.0" layoutY="43.0" prefHeight="25.0" prefWidth="124.0" />
       <Button layoutX="14.0" layoutY="111.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" prefHeight="63.0" prefWidth="163.0" text="Go back to MarketingManagerView" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="251.0" layoutY="130.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
-      <Button layoutX="400.0" layoutY="130.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
+      <Button layoutX="205.0" layoutY="130.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the details" />
+      <Button layoutX="326.0" layoutY="130.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the details" />
       <Line endX="6.33331298828125" endY="-12.666679382324219" layoutX="329.0" layoutY="120.0" startX="6.33331298828125" startY="-112.66666412353516" />
       <TableView fx:id="competitorAnalysisTableView" layoutX="12.0" layoutY="186.0" prefHeight="200.0" prefWidth="581.0">
         <columns>
@@ -38,5 +37,6 @@
             <TableColumn fx:id="endDateCol" prefWidth="92.0" text="End Date" />
         </columns>
       </TableView>
+      <Button layoutX="447.0" layoutY="130.0" mnemonicParsing="false" onAction="#clearTableButtonOnAction" prefHeight="25.0" prefWidth="128.0" text="Clear Table" />
    </children>
 </AnchorPane>
