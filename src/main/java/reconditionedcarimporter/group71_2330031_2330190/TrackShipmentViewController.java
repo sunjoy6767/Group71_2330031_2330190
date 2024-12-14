@@ -35,7 +35,7 @@ public class TrackShipmentViewController
     @javafx.fxml.FXML
     private TableColumn<TrackShipment, LocalDate> deliveryDateCol;
     @javafx.fxml.FXML
-    private TableColumn<Supplier, String> supplierIdCol;
+    private TableColumn<TrackShipment, String> supplierIdCol;
 
     private ObservableList<TrackShipment> trackShipments;
     @javafx.fxml.FXML
@@ -47,7 +47,7 @@ public class TrackShipmentViewController
         trackShipmentTableView.setItems(trackShipments);
 
         shipmentIdCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("shipmentId"));
-        supplierIdCol.setCellValueFactory(new PropertyValueFactory<Supplier, String>("supplierId"));
+        supplierIdCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("supplierId"));
         shippingCompanyCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("shippingCompany"));
         destinationCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, String>("destination"));
         departureDateCol.setCellValueFactory(new PropertyValueFactory<TrackShipment, LocalDate>("departureDate"));
@@ -75,8 +75,6 @@ public class TrackShipmentViewController
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
-            trackShipments.clear();
-
             while(true) {
                 trackShipmentTableView.getItems().add(
                         (TrackShipment) ois.readObject()
@@ -84,59 +82,55 @@ public class TrackShipmentViewController
                 TrackShipment ts = (TrackShipment) ois.readObject();
                 trackShipments.add(ts);
             }
+
         }
         catch(Exception e){
             try {
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("File Not Found");
-                alert.setHeaderText(null);
-                alert.setContentText("The file 'TrackShipment.bin' does not exist.");
-                alert.showAndWait();
+                //
             }
         }
     }
 
     @javafx.fxml.FXML
     public void saveTheShipmentDetailsButtonOnAction(ActionEvent actionEvent) {
-        try {
-            File f = new File("StorageAssignment.bin");
+        try{
+            File f = new File("TrackShipment.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-                ;
-            } else {
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);;
+            }
+            else {
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
-            TrackShipment ts = new TrackShipment(
+
+//            TrackShipment ts = new TrackShipment(
+//                    shipmentIdTextField.getText(),
+//                    shippingCompanyTextField.getText(),
+//                    destinationTextField.getText(),
+//                    supplierIdTextField.getText(),
+//                    deliveryDatePicker.getValue(),
+//                    departureDatePicker.getValue()
+//            );
+
+            oos.writeObject(new TrackShipment(
                     shipmentIdTextField.getText(),
                     shippingCompanyTextField.getText(),
                     destinationTextField.getText(),
                     supplierIdTextField.getText(),
-                    deliveryDatePicker.getValue(),
-                    departureDatePicker.getValue()
-            );
-            trackShipments.add(ts);
-            oos.writeObject(trackShipments);
+                    departureDatePicker.getValue(),
+                    deliveryDatePicker.getValue()
+            ));
             oos.close();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Track Shipment details saved successfully.");
-            alert.showAndWait();
         }
         catch(Exception e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("File Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Failed to save the TrackShipment.bin file.");
-            alert.showAndWait();
+            //
+
         }
     }
 }

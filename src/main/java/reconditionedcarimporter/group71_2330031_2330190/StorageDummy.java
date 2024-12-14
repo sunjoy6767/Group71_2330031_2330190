@@ -19,8 +19,6 @@ public class StorageDummy implements Serializable {
         this.releasedDate = releasedDate;
     }
 
-    public StorageDummy(String text, String text1, String text2, LocalDate value, LocalDate value1, double v, double v1, int i) {
-    }
 
     public String getStorageAssignmentId() {
         return storageAssignmentId;

@@ -6,22 +6,19 @@ import java.time.LocalDate;
 public class VehicleInspection implements Serializable {
     private int carId;
     private LocalDate inspectionDate;
-    private boolean passedInspection, requiresRepairs;
+    private String passedInspection, requiresRepairs;
     private String repairDetails, status;
 
     public VehicleInspection() {
     }
 
-    public VehicleInspection(int carId, LocalDate inspectionDate, boolean passedInspection, boolean requiresRepairs, String repairDetails, String status) {
+    public VehicleInspection(int carId, LocalDate inspectionDate, String passedInspection, String requiresRepairs, String repairDetails, String status) {
         this.carId = carId;
         this.inspectionDate = inspectionDate;
         this.passedInspection = passedInspection;
         this.requiresRepairs = requiresRepairs;
         this.repairDetails = repairDetails;
         this.status = status;
-    }
-
-    public VehicleInspection(int carId, LocalDate value, String passedInspectionStatus, String requiresRepairsStatus, String text, String text1) {
     }
 
     public int getCarId() {
@@ -40,19 +37,19 @@ public class VehicleInspection implements Serializable {
         this.inspectionDate = inspectionDate;
     }
 
-    public boolean isPassedInspection() {
+    public String getPassedInspection() {
         return passedInspection;
     }
 
-    public void setPassedInspection(boolean passedInspection) {
+    public void setPassedInspection(String passedInspection) {
         this.passedInspection = passedInspection;
     }
 
-    public boolean isRequiresRepairs() {
+    public String getRequiresRepairs() {
         return requiresRepairs;
     }
 
-    public void setRequiresRepairs(boolean requiresRepairs) {
+    public void setRequiresRepairs(String requiresRepairs) {
         this.requiresRepairs = requiresRepairs;
     }
 
@@ -77,8 +74,8 @@ public class VehicleInspection implements Serializable {
         return "VehicleInspection{" +
                 "carId=" + carId +
                 ", inspectionDate=" + inspectionDate +
-                ", passedInspection=" + passedInspection +
-                ", requiresRepairs=" + requiresRepairs +
+                ", passedInspection='" + passedInspection + '\'' +
+                ", requiresRepairs='" + requiresRepairs + '\'' +
                 ", repairDetails='" + repairDetails + '\'' +
                 ", status='" + status + '\'' +
                 '}';

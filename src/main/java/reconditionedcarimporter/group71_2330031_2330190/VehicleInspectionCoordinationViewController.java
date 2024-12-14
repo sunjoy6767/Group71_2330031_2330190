@@ -9,8 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.*;
 import java.time.LocalDate;
 
-public class VehicleInspectionCoordinationViewController
-{
+public class VehicleInspectionCoordinationViewController {
     @javafx.fxml.FXML
     private TableColumn<VehicleInspection, String> repairDetailsCol;
     @javafx.fxml.FXML
@@ -18,7 +17,7 @@ public class VehicleInspectionCoordinationViewController
     @javafx.fxml.FXML
     private ToggleGroup requiresRepairs;
     @javafx.fxml.FXML
-    private TableColumn<VehicleInspection, Boolean> passedInspectionCol;
+    private TableColumn<VehicleInspection, String> passedInspectionCol;
     @javafx.fxml.FXML
     private TableView<VehicleInspection> vehicleInspectionTableView;
     @javafx.fxml.FXML
@@ -34,7 +33,7 @@ public class VehicleInspectionCoordinationViewController
     @javafx.fxml.FXML
     private TextField carIdTextField;
     @javafx.fxml.FXML
-    private TableColumn<VehicleInspection, Boolean> requiresRepairsCol;
+    private TableColumn<VehicleInspection, String> requiresRepairsCol;
 
     private ObservableList<VehicleInspection> vehicleInspections;
     @javafx.fxml.FXML
@@ -48,6 +47,9 @@ public class VehicleInspectionCoordinationViewController
     @javafx.fxml.FXML
     private TextField statusTextField;
 
+    String requiresRepairsStatus = "";
+    String passedInspectionStatus = "";
+
     @javafx.fxml.FXML
     public void initialize() {
         vehicleInspections = FXCollections.observableArrayList();
@@ -57,40 +59,37 @@ public class VehicleInspectionCoordinationViewController
         repairDetailsCol.setCellValueFactory(new PropertyValueFactory<VehicleInspection, String>("repairDetails"));
         statusCol.setCellValueFactory(new PropertyValueFactory<VehicleInspection, String>("status"));
         inspectionDateCol.setCellValueFactory(new PropertyValueFactory<VehicleInspection, LocalDate>("inspectionDate"));
-        passedInspectionCol.setCellValueFactory(new PropertyValueFactory<VehicleInspection, Boolean>("passedInspection"));
-        requiresRepairsCol.setCellValueFactory(new PropertyValueFactory<VehicleInspection, Boolean>("requiresRepairs"));
+        passedInspectionCol.setCellValueFactory(new PropertyValueFactory<VehicleInspection, String>("passedInspection"));
+        requiresRepairsCol.setCellValueFactory(new PropertyValueFactory<VehicleInspection, String>("requiresRepairs"));
     }
 
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
-        String requiresRepairsStatus = "";
         if (yesPassedRadioButton.isSelected()) {
-            requiresRepairsStatus = "Yes";
-        }
-        else if (noPassedRadioButton.isSelected()) {
-            requiresRepairsStatus = "No";
-        }
-
-        String passedInspectionStatus = "";
-        if (yesRequiresRepairRadioButton.isSelected()) {
             passedInspectionStatus = "Yes";
-        }
-        else if (noRequiresRepairRadioButton.isSelected()) {
+        } else if (noPassedRadioButton.isSelected()) {
             passedInspectionStatus = "No";
         }
 
-        try{
+        if (yesRequiresRepairRadioButton.isSelected()) {
+            requiresRepairsStatus = "Yes";
+        } else if (noRequiresRepairRadioButton.isSelected()) {
+            requiresRepairsStatus = "No";
+        }
+
+        try {
             File f = new File("VehicleInspection.bin");
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);;
-            }
-            else {
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+                ;
+            } else {
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
+
 
             oos.writeObject(new VehicleInspection(
                     Integer.parseInt(carIdTextField.getText()),
@@ -98,25 +97,17 @@ public class VehicleInspectionCoordinationViewController
                     passedInspectionStatus,
                     requiresRepairsStatus,
                     repairsDetailsTextField.getText(),
-                    statusTextField.getText()
-            ));
+                    statusTextField.getText())
+            );
+
 
             oos.close();
+        } catch (Exception e) {
+            //
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Vehicle Inspection details saved successfully.");
-            alert.showAndWait();
-        }
-        catch(Exception e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("File Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Failed to save the VehicleInspection.bin file.");
-            alert.showAndWait();
         }
     }
+
 
     @javafx.fxml.FXML
     public void goBackToCarImportManagerViewButtonOnAction(ActionEvent actionEvent) throws IOException {
@@ -125,36 +116,32 @@ public class VehicleInspectionCoordinationViewController
 
     @javafx.fxml.FXML
     public void showTheDetailsInTheTableButtonOnAction(ActionEvent actionEvent) {
-        FileInputStream fis=null;
-        ObjectInputStream ois=null;
-
-        try{
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {
             File f = new File("VehicleInspection.bin");
-            if(f.exists()){
+            if (f.exists()) {
                 fis = new FileInputStream(f);
-            }
-            else{
+            } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setContentText("The file 'VehicleInspection.bin' does not exist.");
                 alert.showAndWait();
             }
-            if(fis != null) ois = new ObjectInputStream(fis);
+            if (fis != null) ois = new ObjectInputStream(fis);
 
-            while(true) {
+            while (true) {
                 vehicleInspectionTableView.getItems().add(
-                        (VehicleInspection) ois.readObject());
+                        (VehicleInspection) ois.readObject()
+                );
+                VehicleInspection vi = (VehicleInspection) ois.readObject();
+                vehicleInspections.add(vi);
             }
-        }
-        catch(Exception e){
+//         ois.close();
+        } catch (Exception e) {
             try {
                 if (ois != null) ois.close();
-            }
-            catch(Exception e2){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("File Not Found");
-                alert.setHeaderText(null);
-                alert.setContentText("The file 'VehicleInspection.bin' does not exist.");
-                alert.showAndWait();
+            } catch (Exception e2) {
+                //
             }
         }
     }

@@ -11,7 +11,8 @@ public class SalesRepresentativeViewController
     }
 
     @javafx.fxml.FXML
-    public void processCustomerOrdersOnActon(ActionEvent actionEvent) {
+    public void processCustomerOrdersOnActon(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("ProcessCustomerOrder-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

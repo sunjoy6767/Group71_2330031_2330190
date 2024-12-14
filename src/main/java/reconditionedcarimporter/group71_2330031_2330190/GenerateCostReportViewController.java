@@ -25,14 +25,10 @@ public class GenerateCostReportViewController
     @javafx.fxml.FXML
     private TextField additionalFeesTextField;
     @javafx.fxml.FXML
-    private TextField totalImportCostTextField;
-    @javafx.fxml.FXML
     private TextField shippingCostTextField;
 
     @javafx.fxml.FXML
     private TableColumn<GenerateCostReport, LocalDate> reportDateCol;
-    @javafx.fxml.FXML
-    private TableColumn<GenerateCostReport, Double> totalCostCol;
     @javafx.fxml.FXML
     private TableColumn<GenerateCostReport, String> reportIdCol;
 
@@ -41,12 +37,27 @@ public class GenerateCostReportViewController
     private TableView<GenerateCostReport> costReportTableView;
 
     @javafx.fxml.FXML
+    private TableColumn<GenerateCostReport, Double> shippingCostCol;
+    @javafx.fxml.FXML
+    private TableColumn<GenerateCostReport, Double> inspectionCostCol;
+    @javafx.fxml.FXML
+    private TableColumn<GenerateCostReport, Double> customsDutyCol;
+    @javafx.fxml.FXML
+    private TableColumn<GenerateCostReport, Double> additionalFeesCol;
+    @javafx.fxml.FXML
+    private TableColumn<GenerateCostReport, Double> purchaseCostCol;
+
+    @javafx.fxml.FXML
     public void initialize() {
         generateCostReports = FXCollections.observableArrayList();
         costReportTableView.setItems(generateCostReports);
 
         reportIdCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, String>("reportId"));
-        totalCostCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("totalImportCost"));
+        purchaseCostCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("purchaseCost"));
+        customsDutyCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("customsDutyAmount"));
+        shippingCostCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("shippingCost"));
+        inspectionCostCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("inspectionCost"));
+        additionalFeesCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, Double>("additionalFees"));
         reportDateCol.setCellValueFactory(new PropertyValueFactory<GenerateCostReport, LocalDate>("reportDate"));
     }
 
@@ -76,6 +87,8 @@ public class GenerateCostReportViewController
             while(true) {
                 costReportTableView.getItems().add(
                         (GenerateCostReport) ois.readObject());
+                GenerateCostReport gcr = (GenerateCostReport) ois.readObject();
+                generateCostReports.add(gcr);
             }
         }
         catch(Exception e){
@@ -94,16 +107,6 @@ public class GenerateCostReportViewController
 
     @javafx.fxml.FXML
     public void saveDetailsButtonOnAction(ActionEvent actionEvent) {
-        GenerateCostReport generateCostReport = new GenerateCostReport(
-            reportIdTextField.getText(),
-            Double.parseDouble(purchaseCostTextField.getText()),
-            Double.parseDouble(customsDutyAmountTextField.getText()),
-            Double.parseDouble(shippingCostTextField.getText()),
-            Double.parseDouble(inspectionCostTextField.getText()),
-            Double.parseDouble(additionalFeesTextField.getText()),
-            Double.parseDouble(totalImportCostTextField.getText()),
-            reportDatePicker.getValue()
-        );
         try{
             File f = new File("GenerateCostReport.bin");
             FileOutputStream fos = null;
@@ -117,22 +120,23 @@ public class GenerateCostReportViewController
                 oos = new ObjectOutputStream(fos);
             }
 
-            oos.writeObject(generateCostReport);
+            oos.writeObject(new GenerateCostReport(
+                    reportIdTextField.getText(),
+                    Double.parseDouble(purchaseCostTextField.getText()),
+                    Double.parseDouble(customsDutyAmountTextField.getText()),
+                    Double.parseDouble(shippingCostTextField.getText()),
+                    Double.parseDouble(inspectionCostTextField.getText()),
+                    Double.parseDouble(additionalFeesTextField.getText()),
+                    reportDatePicker.getValue()
+            ));
 
             oos.close();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText(null);
-            alert.setContentText("Generate Cost Report details saved successfully.");
-            alert.showAndWait();
         }
         catch(Exception e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("File Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Failed to save the GenerateCostReport.bin file.");
-            alert.showAndWait();
+            //
+
         }
     }
+
+
 }

@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.CampaignPerformanceViewController">
    <children>
       <Label layoutX="24.0" layoutY="21.0" text="Campaign ID: " />
@@ -27,8 +26,7 @@
       <TextField fx:id="roiTextField" layoutX="436.0" layoutY="85.0" />
       <Line endX="-6.33331298828125" endY="-48.66667175292969" layoutX="309.0" layoutY="200.0" startX="-6.33331298828125" startY="-190.0" />
       <Button layoutX="18.0" layoutY="159.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" prefHeight="57.0" prefWidth="149.0" text="Go back to MarketingManagerView" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="212.0" layoutY="176.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the Details" />
-      <Button layoutX="343.0" layoutY="175.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the Details" />
+      <Button layoutX="212.0" layoutY="176.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" prefHeight="25.0" prefWidth="196.0" text="Save and Show the Details" />
       <TableView fx:id="campaignPerformanceTableView" layoutX="3.0" layoutY="224.0" prefHeight="175.0" prefWidth="593.0">
         <columns>
           <TableColumn fx:id="campaignIdCol" prefWidth="88.6666259765625" text="Campaign ID" />

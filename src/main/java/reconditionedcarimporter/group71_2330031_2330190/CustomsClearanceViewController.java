@@ -50,6 +50,9 @@ public class CustomsClearanceViewController
     @FXML
     private TableView<CustomsClearance> customsClearanceTableView;
 
+    String clearanceStatus = "";
+    String paidStatus = "";
+
     private ObservableList<CustomsClearance> customsClearanceObservableList;
 
     @FXML
@@ -103,7 +106,6 @@ public class CustomsClearanceViewController
 
     @javafx.fxml.FXML
     public void saveDetailsButtonOnAction(ActionEvent actionEvent) {
-        String paidStatus = "";
         if (dutyStatusPaidRadioButton.isSelected()) {
             paidStatus = "Paid";
         }
@@ -111,7 +113,6 @@ public class CustomsClearanceViewController
             paidStatus = "Unpaid";
         }
 
-        String clearanceStatus = "";
         if (clearedStatusRadioButton.isSelected()) {
             clearanceStatus = "Clearance";
         }
@@ -132,9 +133,12 @@ public class CustomsClearanceViewController
                 oos = new ObjectOutputStream(fos);
             }
 
-            oos.writeObject(new CustomsClearance(clearanceIdTextField.getText(), customsAgentNameTextField.getText(),
-                    Double.parseDouble(customsDutyAmountTextField.getText()), clearanceStatus,
-                    paidStatus, clearanceDatePicker.getValue()));
+            oos.writeObject(new CustomsClearance(clearanceIdTextField.getText(),
+                    customsAgentNameTextField.getText(),
+                    clearanceStatus,
+                    paidStatus,
+                    Double.parseDouble(customsDutyAmountTextField.getText()),
+                    clearanceDatePicker.getValue()));
 
             oos.close();
 

@@ -55,42 +55,6 @@ public class ShippingCostCalculationViewController
         totalShippingCostCol.setCellValueFactory(new PropertyValueFactory<ShippingCalculationDummy, Double>("totalShippingCost"));
     }
 
-    @javafx.fxml.FXML
-    public void showDetailsInTableButtonOnAction(ActionEvent actionEvent) {
-        FileInputStream fis=null;
-        ObjectInputStream ois=null;
-
-        try{
-            File f = new File("ShippingCostCalculation.bin");
-            if(f.exists()){
-                fis = new FileInputStream(f);
-            }
-            else{
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setContentText("The file 'ShippingCostCalculation.bin' does not exist.");
-                alert.showAndWait();
-            }
-            if(fis != null) ois = new ObjectInputStream(fis);
-
-            while(true) {
-                shippingCostTableView.getItems().add(
-                        (ShippingCalculationDummy) ois.readObject());
-            }
-        }
-        catch(Exception e){
-            try {
-                if (ois != null) ois.close();
-            }
-            catch(Exception e2){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("File Not Found");
-                alert.setHeaderText(null);
-                alert.setContentText("The file 'ShippingCostCalculation.bin' does not exist.");
-                alert.showAndWait();
-            }
-        }
-
-    }
 
     @javafx.fxml.FXML
     public void saveTheDetailsButtonOnAction(ActionEvent actionEvent) {
@@ -101,15 +65,14 @@ public class ShippingCostCalculationViewController
             double insuranceCost = Double.parseDouble(insuranceCostTextField.getText());
             double taxesAndDuties = Double.parseDouble(taxesAndDutiesTextField.getText());
             double handleCharges = Double.parseDouble(handleChargesTextField.getText());
-            double distance = Integer.parseInt(distanceTextField.getText());
+            int distance = Integer.parseInt(distanceTextField.getText());
             double totalShippingCost = calculateTotalCost((int) distance, insuranceCost, taxesAndDuties, handleCharges);
             int carId = Integer.parseInt(carIdTextField.getText());
 
             ShippingCalculationDummy newCalculation = new ShippingCalculationDummy(
-                    shipmentId, transportMode, carId, totalShippingCost, calculationId
+                    calculationId, shipmentId, transportMode,insuranceCost,taxesAndDuties,handleCharges, totalShippingCost, carId, distance
             );
             shippingCalculationDummyList.add(newCalculation);
-            shippingCostTableView.getItems().add(newCalculation);
 
             try (FileOutputStream fos = new FileOutputStream("ShippingCostCalculation.bin", true);
                  ObjectOutputStream oos = new AppendableObjectOutputStream(fos)) {

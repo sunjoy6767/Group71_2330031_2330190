@@ -112,40 +112,6 @@ public class CampaignPerformanceViewController
         SceneSwitcher.switchScene("MarketingManager-view.fxml", actionEvent);
     }
 
-    @javafx.fxml.FXML
-    public void showTheDetailsButtonOnAction(ActionEvent actionEvent) {
-        FileInputStream fis=null;
-        ObjectInputStream ois=null;
 
-        try{
-            File f = new File("CampaignPerformance.bin");
-            if(f.exists()){
-                fis = new FileInputStream(f);
-            }
-            else{
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setContentText("The file 'CampaignPerformance.bin' does not exist.");
-                alert.showAndWait();
 
-            }
-            if(fis != null) ois = new ObjectInputStream(fis);
-
-            while(true) {
-                campaignPerformanceTableView.getItems().add(
-                        (CampaignPerformance) ois.readObject());
-            }
-        }
-        catch(Exception e){
-            try {
-                if (ois != null) ois.close();
-            }
-            catch(Exception e2){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("File Not Found");
-                alert.setHeaderText(null);
-                alert.setContentText("The file 'CampaignPerformance.bin' does not exist.");
-                alert.showAndWait();
-            }
-        }
-    }
 }

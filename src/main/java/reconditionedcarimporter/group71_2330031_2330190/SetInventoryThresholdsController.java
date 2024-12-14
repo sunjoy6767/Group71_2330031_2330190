@@ -35,7 +35,6 @@ public class SetInventoryThresholdsController
         thresholdsList = FXCollections.observableArrayList();
         tableViewThreshold.setItems(thresholdsList);
 
-        // Bind table columns to the DummySetInventoryThresholds fields
         typeOfCarCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
         minimumThresholdCol.setCellValueFactory(new PropertyValueFactory<>("minimumThreshold"));
         maximumThresholdCol.setCellValueFactory(new PropertyValueFactory<>("maximumThreshold"));
@@ -80,7 +79,7 @@ public class SetInventoryThresholdsController
             }
 
         } catch (EOFException e) {
-            // End of file reached
+           //
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please enter valid numeric values for thresholds.");
@@ -102,7 +101,6 @@ public class SetInventoryThresholdsController
         File file = new File("DummyInventory.bin");
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-            // Write each DummySetInventoryThresholds object to the file
             for (DummySetInventoryThresholds threshold : thresholdsList) {
                 oos.writeObject(threshold);
             }

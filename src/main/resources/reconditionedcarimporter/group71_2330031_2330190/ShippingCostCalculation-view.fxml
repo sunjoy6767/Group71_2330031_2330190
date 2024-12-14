@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.ShippingCostCalculationViewController">
    <children>
       <Label layoutX="21.0" layoutY="14.0" text="Calculation ID:" />
@@ -28,8 +27,7 @@
       <TextField fx:id="taxesAndDutiesTextField" layoutX="436.0" layoutY="79.0" />
       <Button layoutX="14.0" layoutY="149.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="56.0" prefWidth="149.0" text="Go back to CarImportManager View" textAlignment="CENTER" wrapText="true" />
       <Line endX="-38.66668701171875" endY="-60.99998474121094" layoutX="342.0" layoutY="207.0" startX="-38.66668701171875" startY="-199.0" />
-      <Button layoutX="203.0" layoutY="167.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the Details" />
-      <Button layoutX="360.0" layoutY="167.0" mnemonicParsing="false" onAction="#showDetailsInTableButtonOnAction" text="Show the Details in the table" />
+      <Button layoutX="203.0" layoutY="167.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" prefHeight="25.0" prefWidth="198.0" text="Save and show the Details" />
       <TableView fx:id="shippingCostTableView" layoutX="-2.0" layoutY="212.0" prefHeight="188.0" prefWidth="607.0">
         <columns>
           <TableColumn fx:id="calculationIdCol" prefWidth="96.66668438911438" text="Calculation ID" />

@@ -4,21 +4,27 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class TrackShipment implements Serializable {
-    private String shipmentId, shippingCompany, destination;
+    private String shipmentId, shippingCompany, destination, supplierId;
     private LocalDate departureDate, deliveryDate;
 
     public TrackShipment() {
     }
 
-    public TrackShipment(String shipmentId, String shippingCompany, String destination, LocalDate departureDate, LocalDate deliveryDate) {
+    public TrackShipment(String shipmentId, String shippingCompany, String destination, String supplierId, LocalDate departureDate, LocalDate deliveryDate) {
         this.shipmentId = shipmentId;
         this.shippingCompany = shippingCompany;
         this.destination = destination;
+        this.supplierId = supplierId;
         this.departureDate = departureDate;
         this.deliveryDate = deliveryDate;
     }
 
-    public TrackShipment(String text, String text1, String text2, String text3, LocalDate value, LocalDate value1) {
+    public String getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(String supplierId) {
+        this.supplierId = supplierId;
     }
 
     public String getShipmentId() {

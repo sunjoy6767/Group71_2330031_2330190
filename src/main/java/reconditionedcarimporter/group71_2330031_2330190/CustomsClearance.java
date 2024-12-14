@@ -20,12 +20,6 @@ public class CustomsClearance implements Serializable {
         this.clearanceDate = clearanceDate;
     }
 
-    public CustomsClearance(String text, String text1, String clearanceStatus, String paidStatus, String text2, LocalDate value) {
-    }
-
-    public CustomsClearance(String text, String text1, double v, String clearanceStatus, String paidStatus, LocalDate value) {
-    }
-
     public String getClearanceId() {
         return clearanceId;
     }

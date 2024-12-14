@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public class StorageAssignmentViewController
 {
     @javafx.fxml.FXML
-    private TableColumn<StorageDummy, LocalDate> assignedDateCol;
+    private TableColumn<StorageAssignment, LocalDate> assignedDateCol;
     @javafx.fxml.FXML
     private TextField storageCostTextField;
     @javafx.fxml.FXML
-    private TableColumn<StorageDummy, String> assignmentIdCol;
+    private TableColumn<StorageAssignment, String> assignmentIdCol;
     @javafx.fxml.FXML
     private TextField assignmentIdTextField;
     @javafx.fxml.FXML
@@ -27,33 +27,33 @@ public class StorageAssignmentViewController
     @javafx.fxml.FXML
     private DatePicker releaseDatePicker;
     @javafx.fxml.FXML
-    private TableColumn<StorageDummy, String> storageUnitNumberCol;
+    private TableColumn<StorageAssignment, String> storageUnitNumberCol;
     @javafx.fxml.FXML
-    private TableColumn<StorageDummy, LocalDate> releasedDateCol;
+    private TableColumn<StorageAssignment, LocalDate> releasedDateCol;
     @javafx.fxml.FXML
     private DatePicker assignedDatePicker;
     @javafx.fxml.FXML
-    private TableColumn<StorageDummy, Integer> carIdCol;
+    private TableColumn<StorageAssignment, Integer> carIdCol;
     @javafx.fxml.FXML
     private TextField carIdTextField;
 
     @javafx.fxml.FXML
     private TextField overDueChargesTextField;
     @javafx.fxml.FXML
-    private TableView<StorageDummy> storageAssignmentTableView;
+    private TableView<StorageAssignment> storageAssignmentTableView;
 
-    private ObservableList<StorageDummy> storageDummyObservableList;
+    private ObservableList<StorageAssignment> StorageAssignmentObservableList;
 
     @javafx.fxml.FXML
     public void initialize() {
-        storageDummyObservableList = FXCollections.observableArrayList();
-        storageAssignmentTableView.setItems(storageDummyObservableList);
+        StorageAssignmentObservableList = FXCollections.observableArrayList();
+        storageAssignmentTableView.setItems(StorageAssignmentObservableList);
 
-        assignmentIdCol.setCellValueFactory(new PropertyValueFactory<StorageDummy, String>("storageAssignmentId"));
-        carIdCol.setCellValueFactory(new PropertyValueFactory<StorageDummy, Integer>("carId"));
-        storageUnitNumberCol.setCellValueFactory(new PropertyValueFactory<StorageDummy, String>("storageUnitNumber"));
-        assignedDateCol.setCellValueFactory(new PropertyValueFactory<StorageDummy, LocalDate>("assignedDate"));
-        releasedDateCol.setCellValueFactory(new PropertyValueFactory<StorageDummy, LocalDate>("releasedDate"));
+        assignmentIdCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, String>("storageAssignmentId"));
+        carIdCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, Integer>("carId"));
+        storageUnitNumberCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, String>("storageUnitNumber"));
+        assignedDateCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, LocalDate>("assignedDate"));
+        releasedDateCol.setCellValueFactory(new PropertyValueFactory<StorageAssignment, LocalDate>("releaseDate"));
     }
 
     @javafx.fxml.FXML
@@ -72,26 +72,21 @@ public class StorageAssignmentViewController
             }
             if(fis != null) ois = new ObjectInputStream(fis);
 
-            storageDummyObservableList.clear();
-
             while(true) {
                 storageAssignmentTableView.getItems().add(
-                        (StorageDummy) ois.readObject()
+                        (StorageAssignment) ois.readObject()
                 );
-                StorageDummy sd = (StorageDummy) ois.readObject();
-                storageDummyObservableList.add(sd);
+                StorageAssignment sa = (StorageAssignment) ois.readObject();
+                StorageAssignmentObservableList.add(sa);
             }
+//         ois.close();
         }
         catch(Exception e){
             try {
                 if (ois != null) ois.close();
             }
             catch(Exception e2){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("File Not Found");
-                alert.setHeaderText(null);
-                alert.setContentText("The file 'StorageAssignment.bin' does not exist.");
-                alert.showAndWait();
+                //
             }
         }
     }
@@ -111,11 +106,16 @@ public class StorageAssignmentViewController
                 oos = new ObjectOutputStream(fos);
             }
 
-            oos.writeObject(new StorageDummy(assignmentIdTextField.getText(), storageLocationTextField.getText(),
-                    storageUnitNumberTextField.getText(), assignedDatePicker.getValue(),
-                    releaseDatePicker.getValue(), Double.parseDouble(storageCostTextField.getText()),
+            oos.writeObject(new StorageAssignment(assignmentIdTextField.getText(),
+                    storageLocationTextField.getText(),
+                    storageUnitNumberTextField.getText(),
+                    assignedDatePicker.getValue(),
+                    releaseDatePicker.getValue(),
+                    Double.parseDouble(storageCostTextField.getText()),
                     Double.parseDouble(overDueChargesTextField.getText()),
-                    Integer.parseInt(carIdTextField.getText())));
+                    Integer.parseInt(carIdTextField.getText())
+                    )
+            );
 
             oos.close();
 

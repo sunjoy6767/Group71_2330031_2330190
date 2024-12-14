@@ -6,22 +6,22 @@ import java.time.LocalDate;
 public class GenerateCostReport implements Serializable {
     private String reportId;
     private double purchaseCost, customsDutyAmount, shippingCost,
-            inspectionCost, additionalFees, totalImportCost;
+            inspectionCost, additionalFees;
     private LocalDate reportDate;
 
     public GenerateCostReport() {
     }
 
-    public GenerateCostReport(String reportId, double purchaseCost, double customsDutyAmount, double shippingCost, double inspectionCost, double additionalFees, double totalImportCost, LocalDate reportDate) {
+    public GenerateCostReport(String reportId, double purchaseCost, double customsDutyAmount, double shippingCost, double inspectionCost, double additionalFees, LocalDate reportDate) {
         this.reportId = reportId;
         this.purchaseCost = purchaseCost;
         this.customsDutyAmount = customsDutyAmount;
         this.shippingCost = shippingCost;
         this.inspectionCost = inspectionCost;
         this.additionalFees = additionalFees;
-        this.totalImportCost = totalImportCost;
         this.reportDate = reportDate;
     }
+
 
 
     public String getReportId() {
@@ -72,13 +72,6 @@ public class GenerateCostReport implements Serializable {
         this.additionalFees = additionalFees;
     }
 
-    public double getTotalImportCost() {
-        return totalImportCost;
-    }
-
-    public void setTotalImportCost(double totalImportCost) {
-        this.totalImportCost = totalImportCost;
-    }
 
     public LocalDate getReportDate() {
         return reportDate;
@@ -97,16 +90,7 @@ public class GenerateCostReport implements Serializable {
                 ", shippingCost=" + shippingCost +
                 ", inspectionCost=" + inspectionCost +
                 ", additionalFees=" + additionalFees +
-                ", totalImportCost=" + totalImportCost +
                 ", reportDate=" + reportDate +
                 '}';
     }
-
-    public Double totalAmount() {
-        double totalAmount;
-        return totalAmount = purchaseCost + customsDutyAmount + shippingCost + inspectionCost + additionalFees + totalImportCost;
-
-    }
-
-
 }

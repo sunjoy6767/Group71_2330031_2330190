@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.GenerateCostReportViewController">
+<AnchorPane prefHeight="400.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.GenerateCostReportViewController">
    <children>
       <Label layoutX="22.0" layoutY="21.0" text="Report ID: " />
       <Label layoutX="22.0" layoutY="54.0" text="Purchase Cost:" />
@@ -17,22 +17,24 @@
       <Label layoutX="22.0" layoutY="125.0" text="Shipping Cost:" />
       <Label layoutX="317.0" layoutY="21.0" text="Inspection Cost:" />
       <Label layoutX="317.0" layoutY="54.0" text="Additional Fees:" />
-      <Label layoutX="317.0" layoutY="91.0" text="Total Import Cost:" />
-      <Label layoutX="317.0" layoutY="125.0" text="Report Date:" />
+      <Label layoutX="317.0" layoutY="91.0" text="Report Date:" />
       <TextField fx:id="reportIdTextField" layoutX="151.0" layoutY="17.0" />
       <TextField fx:id="purchaseCostTextField" layoutX="151.0" layoutY="50.0" />
       <TextField fx:id="customsDutyAmountTextField" layoutX="151.0" layoutY="87.0" />
       <TextField fx:id="shippingCostTextField" layoutX="151.0" layoutY="121.0" />
       <TextField fx:id="inspectionCostTextField" layoutX="429.0" layoutY="17.0" />
       <TextField fx:id="additionalFeesTextField" layoutX="429.0" layoutY="50.0" />
-      <TextField fx:id="totalImportCostTextField" layoutX="429.0" layoutY="87.0" />
-      <DatePicker fx:id="reportDatePicker" layoutX="430.0" layoutY="121.0" prefHeight="25.0" prefWidth="161.0" />
+      <DatePicker fx:id="reportDatePicker" layoutX="417.0" layoutY="87.0" prefHeight="25.0" prefWidth="161.0" />
       <Line endX="57.0" endY="-26.999984741210938" layoutX="255.0" layoutY="177.0" startX="57.0" startY="-167.7071075439453" />
-      <TableView fx:id="costReportTableView" layoutX="14.0" layoutY="219.0" prefHeight="179.0" prefWidth="578.0">
+      <TableView fx:id="costReportTableView" layoutX="5.0" layoutY="227.0" prefHeight="179.0" prefWidth="844.0">
         <columns>
-          <TableColumn fx:id="reportIdCol" prefWidth="177.99996948242188" text="Report ID" />
-          <TableColumn fx:id="totalCostCol" prefWidth="222.00006103515625" text="Total Cost" />
-            <TableColumn fx:id="reportDateCol" prefWidth="179.99993896484375" text="Report Date" />
+          <TableColumn fx:id="reportIdCol" maxWidth="1779.9996948242188" minWidth="30.0" prefWidth="100.0" text="Report ID" />
+          <TableColumn fx:id="purchaseCostCol" maxWidth="2220.0006103515625" minWidth="30.0" prefWidth="107.0" text="Purchase Cost" />
+            <TableColumn fx:id="customsDutyCol" maxWidth="1799.9993896484375" minWidth="30.0" prefWidth="126.0" text="Customs Duty" />
+            <TableColumn fx:id="shippingCostCol" maxWidth="1799.9993896484375" minWidth="30.0" prefWidth="128.0" text="Shipping Cost" />
+            <TableColumn fx:id="inspectionCostCol" maxWidth="1799.9993896484375" minWidth="30.0" prefWidth="130.0" text="Inspection Cost" />
+            <TableColumn fx:id="additionalFeesCol" maxWidth="1799.9993896484375" minWidth="30.0" prefWidth="125.0" text="Additional Fees" />
+            <TableColumn fx:id="reportDateCol" maxWidth="1799.9993896484375" minWidth="30.0" prefWidth="127.0" text="Report Date" />
         </columns>
       </TableView>
       <Button layoutX="14.0" layoutY="151.0" mnemonicParsing="false" onAction="#goBackToCarImportManagerViewButtonOnAction" prefHeight="55.0" prefWidth="149.0" text="Go back to CarImportManger View" textAlignment="CENTER" wrapText="true" />
