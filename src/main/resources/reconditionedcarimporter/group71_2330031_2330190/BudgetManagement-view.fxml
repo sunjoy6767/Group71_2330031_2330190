@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="544.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.BudgetManagementViewController">
+   <children>
+      <Label layoutX="29.0" layoutY="26.0" text="Campaign ID:" />
+      <Label layoutX="29.0" layoutY="63.0" text="Social Media Budget:" />
+      <Label layoutX="29.0" layoutY="99.0" text="SEM budget:" />
+      <Label layoutX="29.0" layoutY="132.0" text="Email Marketing Budget:" />
+      <Label layoutX="355.0" layoutY="26.0" text="Total Spending:" />
+      <Label layoutX="355.0" layoutY="63.0" text="Start Date:" />
+      <Label layoutX="355.0" layoutY="99.0" text="End Date:" />
+      <TextField fx:id="campaignIDTextField" layoutX="166.0" layoutY="22.0" />
+      <TextField fx:id="socialMediaBudgetTextField" layoutX="166.0" layoutY="59.0" />
+      <TextField fx:id="semBudgetTextField" layoutX="166.0" layoutY="95.0" />
+      <TextField fx:id="emailBudgetTextField" layoutX="166.0" layoutY="128.0" />
+      <TextField fx:id="totalSpendingTextField" layoutX="452.0" layoutY="22.0" />
+      <DatePicker fx:id="startDatePicker" layoutX="431.0" layoutY="59.0" prefHeight="25.0" prefWidth="168.0" />
+      <DatePicker fx:id="endDatePicker" layoutX="431.0" layoutY="95.0" prefHeight="25.0" prefWidth="168.0" />
+      <Button layoutX="635.0" layoutY="18.0" mnemonicParsing="false" onAction="#goBackToMarketingManagerViewButtonOnAction" prefHeight="59.0" prefWidth="149.0" text="Go Back to MarketingManagerView" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="635.0" layoutY="91.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" prefHeight="33.0" prefWidth="149.0" text="Save The Details" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="635.0" layoutY="137.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" prefHeight="33.0" prefWidth="149.0" text="Show The Details" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="totalBudgetLabel" layoutX="29.0" layoutY="170.0" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #90EE90;" text="Label" />
+      <TableView fx:id="budgetManagementTableView" layoutX="6.0" layoutY="219.0" prefHeight="321.0" prefWidth="801.0">
+        <columns>
+          <TableColumn fx:id="campaignIDCol" prefWidth="112.0" text="Campaign ID" />
+          <TableColumn fx:id="totalSpendingCol" prefWidth="245.0" text="Total Spending" />
+            <TableColumn fx:id="startDateCol" prefWidth="209.0" text="Start Date" />
+            <TableColumn fx:id="endDateCol" prefWidth="234.0" text="End Date" />
+        </columns>
+      </TableView>
+      <Label fx:id="budgetStatusLabel" layoutX="185.0" layoutY="170.0" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #90EE90;" text="Label" />
+      <Button layoutX="635.0" layoutY="178.0" mnemonicParsing="false" onAction="#clearTheDetailsButtonOnAction" prefHeight="33.0" prefWidth="149.0" text="Clear The Table" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>

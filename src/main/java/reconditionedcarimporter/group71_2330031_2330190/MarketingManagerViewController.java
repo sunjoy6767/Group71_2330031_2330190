@@ -37,7 +37,8 @@ public class MarketingManagerViewController
     }
 
     @javafx.fxml.FXML
-    public void budgetManagementButtonOnAction(ActionEvent actionEvent) {
+    public void budgetManagementButtonOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("BudgetManagement-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

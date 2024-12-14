@@ -45,6 +45,7 @@ public class SalesRepresentativeViewController
 
     @javafx.fxml.FXML
     public void trackSalesPerformanceOnAction(ActionEvent actionEvent) {
+
     }
 
     @javafx.fxml.FXML
