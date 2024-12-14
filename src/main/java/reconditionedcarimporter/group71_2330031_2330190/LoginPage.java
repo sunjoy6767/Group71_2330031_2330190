@@ -2,7 +2,9 @@ package reconditionedcarimporter.group71_2330031_2330190;
 
 import javafx.scene.control.Alert;
 
-public class LoginPage {
+import java.io.Serializable;
+
+public class LoginPage implements Serializable {
     private String username, password;
 
     public LoginPage() {
