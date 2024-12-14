@@ -40,7 +40,7 @@ public class ManageCustomerAccountsViewController
         manageTableView.setItems(manageCustomerAccountsObservableList);
 
         customerIdCol.setCellValueFactory(new PropertyValueFactory<ManageCustomerAccounts, String>("customerId"));
-        usernameCol.setCellValueFactory(new PropertyValueFactory<ManageCustomerAccounts,String>("username"));
+        usernameCol.setCellValueFactory(new PropertyValueFactory<ManageCustomerAccounts,String>("userName"));
         passwordCol.setCellValueFactory(new PropertyValueFactory<ManageCustomerAccounts,String>("password"));
         phoneNumberCol.setCellValueFactory(new PropertyValueFactory<ManageCustomerAccounts, Integer>("phoneNumber"));
     }
