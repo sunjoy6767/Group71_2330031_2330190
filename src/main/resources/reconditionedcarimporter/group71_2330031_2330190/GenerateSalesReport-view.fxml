@@ -5,10 +5,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.GenerateSalesReportViewController">
    <children>
-      <TableView fx:id="salesReportTableView" layoutX="6.0" layoutY="148.0" prefHeight="249.0" prefWidth="715.0">
+      <TableView fx:id="salesReportTableView" layoutX="6.0" layoutY="151.0" prefHeight="249.0" prefWidth="715.0">
         <columns>
           <TableColumn fx:id="customerNameCol" prefWidth="109.0" text="Customer Name" />
           <TableColumn fx:id="phoneCol" prefWidth="96.0" text="Phone" />
@@ -20,8 +19,8 @@
             <TableColumn fx:id="priceCol" prefWidth="82.0" text="Price" />
         </columns>
       </TableView>
-      <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#goBackToSalesRepresentativeViewButtonOnAction" prefHeight="70.0" prefWidth="147.0" text="Go Back to SalesRepresentativeView" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="196.0" layoutY="20.0" mnemonicParsing="false" onAction="#clearTheTableButtonOnAction" prefHeight="52.0" prefWidth="109.0" text="Clear the table" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="341.0" layoutY="20.0" mnemonicParsing="false" onAction="#showDataButtonOnAction" prefHeight="52.0" prefWidth="109.0" text="Show the data in the Table" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="433.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBackToSalesRepresentativeViewButtonOnAction" prefHeight="52.0" prefWidth="147.0" text="Go Back to SalesRepresentativeView" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="592.0" layoutY="14.0" mnemonicParsing="false" onAction="#clearTheTableButtonOnAction" prefHeight="52.0" prefWidth="109.0" text="Clear the table" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="592.0" layoutY="86.0" mnemonicParsing="false" onAction="#showDataButtonOnAction" prefHeight="52.0" prefWidth="109.0" text="Show the data in the Table" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

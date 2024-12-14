@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="reconditionedcarimporter.group71_2330031_2330190.SalesPerformanceViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="595.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.SalesPerformanceViewController">
+   <children>
+      <TableView fx:id="salesReportTableView" layoutX="9.0" layoutY="159.0" prefHeight="429.0" prefWidth="980.0">
+         <columns>
+            <TableColumn fx:id="customerNameCol" prefWidth="127.0" text="Customer Name" />
+            <TableColumn fx:id="phoneCol" prefWidth="97.0" text="Phone" />
+            <TableColumn fx:id="addressCol" prefWidth="118.0" text="Address" />
+            <TableColumn fx:id="vinCol" prefWidth="79.0" text="VIN" />
+            <TableColumn fx:id="typeCol" prefWidth="154.0" text="Type" />
+            <TableColumn fx:id="paymentCol" prefWidth="169.0" text="Payment" />
+            <TableColumn fx:id="quantityCol" prefWidth="133.0" text="Quantity" />
+            <TableColumn fx:id="priceCol" prefWidth="102.0" text="Price" />
+         </columns>
+      </TableView>
+      <Button layoutX="24.0" layoutY="30.0" mnemonicParsing="false" onAction="#goBackToSalesRepresentativeViewButtonOnAction" prefHeight="70.0" prefWidth="147.0" text="Go Back to SalesRepresentativeView" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="307.0" layoutY="32.0" mnemonicParsing="false" onAction="#clearTheTableButtonOnAction" prefHeight="52.0" prefWidth="109.0" text="Clear the table" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="185.0" layoutY="32.0" mnemonicParsing="false" onAction="#showDataButtonOnAction" prefHeight="52.0" prefWidth="109.0" text="Show the data in the Table" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="totalQuantityLabel" layoutX="631.0" layoutY="32.0" prefHeight="34.0" prefWidth="199.0" style="-fx-background-color: yellow;" />
+      <Label fx:id="totalPriceLabel" layoutX="631.0" layoutY="95.0" prefHeight="34.0" prefWidth="199.0" style="-fx-background-color: aqua;" />
+      <Label layoutX="541.0" layoutY="49.0" text="Total Quantity:" />
+      <Label layoutX="551.0" layoutY="104.0" text="Total Price:" />
+   </children>
 </AnchorPane>

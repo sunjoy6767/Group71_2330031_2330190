@@ -31,11 +31,13 @@ public class SalesRepresentativeViewController
     }
 
     @javafx.fxml.FXML
-    public void manageCustomerAccountsOnActon(ActionEvent actionEvent) {
+    public void manageCustomerAccountsOnActon(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("ManageCustomerAccounts-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
-    public void provideProductInformationOnAction(ActionEvent actionEvent) {
+    public void provideProductInformationOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("ProductInformation-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
@@ -44,8 +46,8 @@ public class SalesRepresentativeViewController
     }
 
     @javafx.fxml.FXML
-    public void trackSalesPerformanceOnAction(ActionEvent actionEvent) {
-
+    public void trackSalesPerformanceOnAction(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("SalesPerformance-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML

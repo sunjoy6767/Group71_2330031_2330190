@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-public class GenerateInventoryReportsViewController
+public class ProductInformationViewController
 {
     @javafx.fxml.FXML
     private TableColumn <AddProductToInventory,String>furlTableCol;
@@ -40,15 +40,13 @@ public class GenerateInventoryReportsViewController
     @javafx.fxml.FXML
     private TableColumn <AddProductToInventory,String> warehouseCol;
     ObservableList<AddProductToInventory> addedProduct;
-
     @javafx.fxml.FXML
-    private TableView <AddProductToInventory> generateInventoryReportTableView;
+    private TableView<AddProductToInventory> productInformationTableView;
 
     @javafx.fxml.FXML
     public void initialize() {
-
         addedProduct = FXCollections.observableArrayList();
-        generateInventoryReportTableView.setItems(addedProduct);
+        productInformationTableView.setItems(addedProduct);
 
         SNTableCol.setCellValueFactory(new PropertyValueFactory<>("StockNumber"));
         vinTableCol.setCellValueFactory(new PropertyValueFactory<>("Vin"));
@@ -66,11 +64,23 @@ public class GenerateInventoryReportsViewController
 
     @javafx.fxml.FXML
     public void goBackToInventoryManagerButtonOnAction(ActionEvent actionEvent) throws IOException {
-        SceneSwitcher.switchScene("InventoryManager-view.fxml", actionEvent);
+        SceneSwitcher.switchScene("SalesRepresentative-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
-    public void generateInventoryReportsButtonOnAction(ActionEvent actionEvent) {
+    public void clearTableButtonOnAction(ActionEvent actionEvent) {
+        addedProduct.clear();
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Table Cleared");
+        alert.setHeaderText(null);
+        alert.setContentText("All Data have been cleared from the table.");
+        alert.showAndWait();
+    }
+
+    @javafx.fxml.FXML
+    public void showProductInformationButtonOnAction(ActionEvent actionEvent) {
         FileInputStream fis=null;
         ObjectInputStream ois=null;
         try{
@@ -86,13 +96,13 @@ public class GenerateInventoryReportsViewController
             if(fis != null) ois = new ObjectInputStream(fis);
 
             while(true) {
-                generateInventoryReportTableView.getItems().add(
+                productInformationTableView.getItems().add(
                         (AddProductToInventory) ois.readObject()
                 );
                 AddProductToInventory product = (AddProductToInventory) ois.readObject();
                 addedProduct.add(product);
             }
-//         ois.close();
+
         }
         catch(Exception e){
             try {
