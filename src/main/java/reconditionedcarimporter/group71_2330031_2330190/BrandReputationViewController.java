@@ -82,7 +82,7 @@ public class BrandReputationViewController
                     );
 
             brandReputationObservableList.add(br);
-            oos.writeObject(brandReputationObservableList);
+            oos.writeObject(br);
 
             oos.close();
 

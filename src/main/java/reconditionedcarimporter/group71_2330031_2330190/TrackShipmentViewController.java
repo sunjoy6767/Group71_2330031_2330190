@@ -122,7 +122,7 @@ public class TrackShipmentViewController
                     departureDatePicker.getValue()
             );
             trackShipments.add(ts);
-            oos.writeObject(trackShipments);
+            oos.writeObject(ts);
             oos.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

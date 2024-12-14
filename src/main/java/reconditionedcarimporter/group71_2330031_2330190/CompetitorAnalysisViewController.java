@@ -66,18 +66,18 @@ public class CompetitorAnalysisViewController
             else {
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
-
-                CompetitorAnalysis competitorAnalysis = new CompetitorAnalysis(
-                        competitorNameTextField.getText(),
-                        campaignNameTextField.getText(),
-                        advertisingChannelTextField.getText(),
-                        keyInsightsTextField.getText(),
-                        startDatePicker.getValue(),
-                        endDatePicker.getValue()
-                );
-                competitorAnalysisList.add(competitorAnalysis);
             }
-            oos.writeObject(competitorAnalysisList);
+            CompetitorAnalysis competitorAnalysis = new CompetitorAnalysis(
+                    competitorNameTextField.getText(),
+                    campaignNameTextField.getText(),
+                    advertisingChannelTextField.getText(),
+                    keyInsightsTextField.getText(),
+                    startDatePicker.getValue(),
+                    endDatePicker.getValue()
+                );
+            competitorAnalysisList.add(competitorAnalysis);
+
+            oos.writeObject(competitorAnalysis);
             oos.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
