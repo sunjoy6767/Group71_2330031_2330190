@@ -16,8 +16,8 @@ public class SalesRepresentativeViewController
     }
 
     @javafx.fxml.FXML
-    public void followUpOnSalesLeadsOnActon(ActionEvent actionEvent) {
-
+    public void followUpOnSalesLeadsOnActon(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("FollowUpSalesLead-view.fxml", actionEvent);
     }
 
     @javafx.fxml.FXML
@@ -48,6 +48,7 @@ public class SalesRepresentativeViewController
     }
 
     @javafx.fxml.FXML
-    public void closeSalesDealsOnActon(ActionEvent actionEvent) {
+    public void closeSalesDealsOnActon(ActionEvent actionEvent) throws IOException {
+        SceneSwitcher.switchScene("CloseSalesDeals-view.fxml", actionEvent);
     }
 }

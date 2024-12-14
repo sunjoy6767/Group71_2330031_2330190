@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="reconditionedcarimporter.group71_2330031_2330190.FollowUpSalesLeadViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reconditionedcarimporter.group71_2330031_2330190.FollowUpSalesLeadViewController">
+   <children>
+      <Label layoutX="29.0" layoutY="27.0" text="Lead ID;" />
+      <Label layoutX="29.0" layoutY="56.0" text="Lead Name:" />
+      <Label layoutX="29.0" layoutY="88.0" text="Lead Status:" />
+      <Label layoutX="29.0" layoutY="123.0" text="Contact Info:" />
+      <Label layoutX="377.0" layoutY="27.0" text="Follow up Details:" />
+      <Label layoutX="378.0" layoutY="56.0" text="Follow up Date:" />
+      <Label layoutX="377.0" layoutY="88.0" text="Follow up Outcome:" />
+      <Label layoutX="378.0" layoutY="123.0" text="Contact Info Verified:" />
+      <TextField fx:id="leadIDTextField" layoutX="105.0" layoutY="23.0" />
+      <TextField fx:id="leadNameTextField" layoutX="105.0" layoutY="52.0" />
+      <TextField fx:id="leadStatusTextField" layoutX="105.0" layoutY="84.0" />
+      <TextField fx:id="contactInfoTextField" layoutX="105.0" layoutY="119.0" />
+      <TextField fx:id="followUpDetailsTextField" layoutX="506.0" layoutY="23.0" />
+      <DatePicker fx:id="followUpDatePicker" layoutX="506.0" layoutY="54.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="followUpOutcome" layoutX="506.0" layoutY="84.0" />
+      <ComboBox fx:id="verifiedComboBox" layoutX="506.0" layoutY="119.0" prefWidth="150.0" />
+      <Button layoutX="25.0" layoutY="166.0" mnemonicParsing="false" onAction="#goBackToSalesRepresentativeButtonOnAction" text="Go back " />
+      <Button layoutX="141.0" layoutY="166.0" mnemonicParsing="false" onAction="#saveTheDetailsButtonOnAction" text="Save the Details" />
+      <Button layoutX="300.0" layoutY="166.0" mnemonicParsing="false" onAction="#showTheDetailsButtonOnAction" text="Show the Details" />
+      <Button layoutX="453.0" layoutY="166.0" mnemonicParsing="false" onAction="#clearTheTableButtonOnAction" text="Clear the Table" />
+      <TableView fx:id="salesLeadTableView" layoutX="5.0" layoutY="200.0" prefHeight="200.0" prefWidth="831.0">
+        <columns>
+          <TableColumn fx:id="leadIdCol" prefWidth="101.0" text="Lead ID" />
+          <TableColumn fx:id="leadNameCol" prefWidth="95.0" text="Lead Name" />
+            <TableColumn fx:id="leadStatusCol" prefWidth="95.0" text="Lead Status" />
+            <TableColumn fx:id="contactInfoCol" prefWidth="95.0" text="Contact Info" />
+            <TableColumn fx:id="followUpDetails" prefWidth="125.0" text="Follow up details" />
+            <TableColumn fx:id="followUpDateCol" prefWidth="114.0" text="Follow up Date" />
+            <TableColumn fx:id="outcomeCol" prefWidth="109.0" text="Outcome" />
+            <TableColumn fx:id="verifiedCol" prefWidth="96.0" text="Verified" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
